@@ -14,11 +14,21 @@ import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
 public class ReadWordsRunnable implements Runnable {
 
+	/*
+	 * creates a logger for storing events
+	 */
 	private final static Logger LOGGER =
 			Logger.getLogger(ReadWordsRunnable.class.getName());
-
+	
+	/*
+	 * the model that will be updated
+	 */
 	private final WordleModel model;
 
+	/*
+	 * constructer innitilizeds the WordleModel to be used and sets up the logger for files
+	 * @param the game model
+	 */
 	public ReadWordsRunnable(WordleModel model) {
 		LOGGER.setLevel(Level.INFO);
 
@@ -30,15 +40,27 @@ public class ReadWordsRunnable implements Runnable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		/*
+		 * innitilizes model instance
+		 */
 		this.model = model;
 	}
 
+	/*
+	 * accesses usa.txt and scans for suitable possible words
+	 * sets the possible words in model and asks model to generate the current word for the game
+	 */
 	@Override
 	public void run() {
+		/*
+		 * declares wordlist for storing possible words
+		 */
 		List<String> wordlist;
 
 		try {
+			/*
+			 * recieves words that fit the size of the game from  usa.txt and logs it
+			 */
 			wordlist = createWordList();
 			LOGGER.info("Created word list of " + wordlist.size() + " words.");
 		} catch (IOException e) {
@@ -46,12 +68,17 @@ public class ReadWordsRunnable implements Runnable {
 			e.printStackTrace();
 			wordlist = new ArrayList<>();
 		}
-
+		/*
+		 * updates the word list in model and generates the a word
+		 */
 		model.setWordList(wordlist);
 		model.generateCurrentWord();
 	}
 
-	
+	/*
+	 * creates an input stream from the usa.txt file
+	 * @return returns a stream version of usa.txt
+	 */
 	private InputStream deliverInputStream() {
 		String text = "/resources/usa.txt";
 		// Original code
@@ -73,16 +100,29 @@ public class ReadWordsRunnable implements Runnable {
 		return stream;
 	}
 	
+	/*
+	 * reads words from a file
+	 * @return returns a list of potential wordle words
+	 */
 	private List<String> createWordList() throws IOException {
+		/*
+		 * sees how long a word can be
+		 */
 		int minimum = model.getColumnCount();
-
+		/*
+		 * creates a list to return words from
+		 */
 		List<String> wordlist = new ArrayList<>();
 
-		
+		/*
+		 * gets the input and feeds it into a buffered reader
+		 */
 		InputStream stream = deliverInputStream();
-
 		BufferedReader reader = new BufferedReader(
 				new InputStreamReader(stream));
+		/*
+		 * reads through lines from the input stream and adds them to wordlist if they are the correct length
+		 */
 		String line = reader.readLine();
 		while (line != null) {
 			line = line.trim();

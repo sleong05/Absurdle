@@ -10,7 +10,9 @@ public class Wordle implements Runnable {
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Wordle());
 	}
-
+	/*
+	 * creates an instance of the GUI WordleFrame and of the model to be used
+	 */
 	@Override
 	public void run() {
 		new WordleFrame(new WordleModel());
