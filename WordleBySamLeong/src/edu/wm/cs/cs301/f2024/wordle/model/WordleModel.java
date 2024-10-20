@@ -211,13 +211,39 @@ public class WordleModel {
 			guess = new char[columnCount];
 
 			return currentRow < maximumRows;
-		} 
+		}
 		return currentRow < maximumRows;
 	}
 
 	private boolean contains(char[] currentWord, char[] guess, int column) {
+		/*
+		 * checks the instances of a char in the word
+		 */
+		int instancesOfWord = 0;
 		for (int index = 0; index < currentWord.length; index++) {
-			if (index != column && guess[column] == currentWord[index]) {
+			if (guess[index] != currentWord[index] && guess[column] == currentWord[index]) {
+				instancesOfWord += 1;
+			}
+		}
+		/*
+		 * checks the current number of highlighted instances of the char
+		 */
+		int currentInstancesOfWordHighligheted = 0;
+		for (int index1 = 0; index1 < currentWord.length; index1++) {
+			WordleResponse currentWordleResponse = wordleGrid[currentRow][index1];
+			if (currentWordleResponse instanceof WordleResponse) {
+				if (currentWordleResponse.getBackgroundColor() == AppColors.YELLOW
+						&& currentWordleResponse.getChar() == guess[column]) {
+					currentInstancesOfWordHighligheted += 1;
+				}
+			} else {
+				break;
+			}
+		}
+		System.out.println("Instances equals " + instancesOfWord + "  CurrentInstances equals " + currentInstancesOfWordHighligheted);
+		System.out.println(currentWord[0] + " " + currentWord[1] + " " + currentWord[2] + " " + currentWord[3] + " " + currentWord[4]);
+		for (int index = 0; index < currentWord.length; index++) {
+			if (index != column && guess[column] == currentWord[index] && currentInstancesOfWordHighligheted < instancesOfWord) {
 				return true;
 			}
 		}
@@ -278,6 +304,7 @@ public class WordleModel {
 	public Statistics getStatistics() {
 		return statistics;
 	}
+
 	/*
 	 * checks if the current guess is a viable 5 letter word
 	 */
@@ -286,14 +313,15 @@ public class WordleModel {
 		/*
 		 * grabs guess and makes it into a string
 		 */
-		for (char letter:this.guess) {
+		for (char letter : this.guess) {
 			currentInput += letter;
 		}
 		currentInput = currentInput.toLowerCase();
 		if (this.wordList.contains(currentInput)) {
 			return true;
 		}
-		JOptionPane.showMessageDialog(null, "The word '" + currentInput + "' is not a valid word", "Invalid Word", JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(null, "The word '" + currentInput + "' is not a valid word", "Invalid Word",
+				JOptionPane.WARNING_MESSAGE);
 		return false;
 	}
 
