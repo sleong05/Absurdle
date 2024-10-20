@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import edu.wm.cs.cs301.f2024.wordle.controller.ReadWordsRunnable;
 
 public class WordleModel {
@@ -291,6 +293,7 @@ public class WordleModel {
 		if (this.wordList.contains(currentInput)) {
 			return true;
 		}
+		JOptionPane.showMessageDialog(null, "The word '" + currentInput + "' is not a valid word", "Invalid Word", JOptionPane.WARNING_MESSAGE);
 		return false;
 	}
 
