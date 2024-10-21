@@ -3,7 +3,9 @@ package edu.wm.cs.cs301.f2024.wordle.model;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
-
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
@@ -12,14 +14,12 @@ class TestWordleModel {
 	int rowSize = 5;
 	int rowCount = 6;
 	int colCount = 5;
+	int depth = 0; //for recursive test case for threads.
 
 	private WordleModel createModel(String answer) {
-		List<String> answerList = new ArrayList();
 		// return new WordleModel();
-		answerList.add(answer);
 		WordleModel testModel = new WordleModel();
-		testModel.setWordList(answerList);
-		testModel.setCurrentWord();
+		testModel.setCurrentWordForTesting(answer);
 		return testModel;
 	}
 
@@ -33,6 +33,7 @@ class TestWordleModel {
 		WordleResponse[] wordleRow = model.getCurrentRow();
 		int[] answers = new int[rowSize];
 		int index = 0;
+		
 		for (WordleResponse response : wordleRow) {
 			if (response.getBackgroundColor() == AppColors.GREEN) {
 				answers[index] = 2;
@@ -49,7 +50,7 @@ class TestWordleModel {
 	 * inserts a word into the row and locks in the row
 	 */
 	private void insertWord(WordleModel model, String word) {
-		char[] wordArray = word.toCharArray();
+		char[] wordArray = word.toUpperCase().toCharArray();
 		for (char letter:wordArray) {
 			model.setCurrentColumn(letter);
 		}
@@ -63,7 +64,94 @@ class TestWordleModel {
 		}
 	}
 	
+	/*
+	 * simulates an enter press to get rid of the wrong word dialogue
+	 */
+	private void simulateEnterPress() {
+		Robot robot = null;
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        robot.setAutoDelay(100); // Wait 1 second before simulating the key press
+        robot.keyPress(KeyEvent.VK_ENTER);  // Simulate pressing Enter
+        robot.keyRelease(KeyEvent.VK_ENTER);  // Release Enter key
+
+        // Optionally, add a delay to ensure the test completes properly
+        robot.setAutoDelay(100);
+	}
+	/*
+	 * tests if backspace correctly returns to the first row which should be -1. (Insertion moves the col forward first, then inputs)
+	 */
+	@Test
+	void testBug4Backspace() {
+		WordleModel model = createModel("spawn");
+		model.setCurrentColumn('P'); //currentCol = 0 now
+		model.backspace(); //currentCol - 1 = -1
+		assertEquals(model.getCurrentColumn(), -1);
+	}
+	/*
+	 * checks thred synch by trying to input something quicky before the thread would have time to proccess if it wasnt synchronized. If it isn't, they should all remain there default colors
+	 * so they should all be gray even if they are right answers
+	 * First check if all gray. If any not gray there should not be a problem with the threading
+	 * Second check is they really should all be gray and if they are call the test again up to 200 times. This should guarentee a working solution due to the inpput STAIR being extremely common
+	 * for wordle to flag words in. 
+	 */
+	@Test
+	void testBug1ThreadSynchronization() {
+		WordleModel testModel = new WordleModel();
+		testModel.setCurrentColumn('S');
+		testModel.setCurrentColumn('T');
+		testModel.setCurrentColumn('A');
+		testModel.setCurrentColumn('I');
+		testModel.setCurrentColumn('R');
+		testModel.setCurrentRow();
+		/*
+		 * checks if all gray
+		 */
+		int[] response = getCharacterColorsasInts(testModel);
+		boolean allGray = true;
+		for (int answer: response) {
+			if (answer!=0) {
+				allGray = false;
+			}
+		}
+		/*
+		 * checks if should be all gray
+		 */
+		boolean shouldBeAllGray = true;
+		char [] testWord = {'S', 'T', 'A', 'I', 'R'};		
+		for (char b: testWord) {
+			if (testModel.isCharacterInCurrent(b)) {
+				shouldBeAllGray = false;
+			}
+		}
+		
+		if (!shouldBeAllGray) {
+			assertEquals(allGray, false);
+		} else {
+			depth += 1;
+			if (depth < 201) {
+				testBug1ThreadSynchronization();
+			}
+		}
+	}
+	/*
+	 * first try guess
+	 */
+	@Test
+	void testFirstTryGuess() {
+		WordleModel model = createModel("spawn");
+		insertWord(model, "spawn");
+		
+		int[] correctAnswer = {2, 2, 2, 2, 2};
+		
+		assertIntArrayEqual(model, correctAnswer);
+	}
 	
+	 
 	/*
 	 * TESTS TO SEE IF GET METHOD WORKS
 	 */
@@ -82,7 +170,7 @@ class TestWordleModel {
 	@Test
 	void testgetMaximumRows() { 
 		WordleModel model = createModel("punks");
-		assertEquals(this.rowCount, model.getColumnCount());
+		assertEquals(this.colCount, model.getColumnCount());
 	}
 	
 	/*
@@ -105,7 +193,7 @@ class TestWordleModel {
 	@Test
 	void testgetCurrentColumnFirstSpot() { 
 		WordleModel model = createModel("punks");
-		assertEquals(0, model.getCurrentColumn());
+		assertEquals(-1, model.getCurrentColumn());
 	}
 	
 	/*
@@ -116,7 +204,7 @@ class TestWordleModel {
 		WordleModel model = createModel("punks");
 		model.setCurrentColumn('p');
 		model.backspace();
-		assertEquals(0, model.getCurrentColumn());
+		assertEquals(-1, model.getCurrentColumn());
 	}
 	/*
 	 * TESTS THAT HAVE TO DO WITH ENTERED LINES OF WORDS 
@@ -150,23 +238,23 @@ class TestWordleModel {
 		/*
 		 * inserts a word and checks if the correct colors are present 2:green 1:yellow 0:grey
 		 */
-		insertWord(model, "fxxxx");
-		int[] correctAnswer = {2, 0, 0, 0, 0};
+		insertWord(model, "fable");
+		int[] correctAnswer = {2, 0, 0, 1, 0};
 		assertIntArrayEqual(model, correctAnswer);
 		
-		insertWord(model, "flxxx");
-		int[] correctAnswer2 = {2, 2, 0, 0, 0};
+		insertWord(model, "flags");
+		int[] correctAnswer2 = {2, 2, 0, 0, 2};
 		assertIntArrayEqual(model, correctAnswer2);
 		
-		insertWord(model, "floxx");
+		insertWord(model, "float");
 		int[] correctAnswer3 = {2, 2, 2, 0, 0};
 		assertIntArrayEqual(model, correctAnswer3);
 		
-		insertWord(model, "flopx");
-		int[] correctAnswer4 = {2, 2, 2, 2, 0};
+		insertWord(model, "plops");
+		int[] correctAnswer4 = {0, 2, 2, 2, 2};
 		assertIntArrayEqual(model, correctAnswer4);
 		
-		insertWord(model, "xxxxx");
+		insertWord(model, "heart");
 		int[] correctAnswer5 = {0, 0, 0, 0, 0};
 		assertIntArrayEqual(model, correctAnswer5);
 		
@@ -186,8 +274,8 @@ class TestWordleModel {
 		/*
 		 * inserts a word and checks if the correct colors are present 2:green 1:yellow 0:grey
 		 */
-		insertWord(model, "pdkma");
-		int[] correctAnswer = {2, 0, 0, 0, 1};
+		insertWord(model, "plaza");
+		int[] correctAnswer = {2, 0, 1, 0, 0};
 		assertIntArrayEqual(model, correctAnswer);
 	}
 	
@@ -203,8 +291,8 @@ class TestWordleModel {
 		/*
 		 * inserts a word and checks if the correct colors are present 2:green 1:yellow 0:grey
 		 */
-		insertWord(model, "adkmj");
-		int[] correctAnswer = {1, 0, 0, 0, 0};
+		insertWord(model, "agony");
+		int[] correctAnswer = {1, 0, 0, 2, 0};
 		assertIntArrayEqual(model, correctAnswer);
 	}
 	
@@ -216,12 +304,12 @@ class TestWordleModel {
 		/*
 		 * sets up game
 		 */
-		WordleModel model = createModel("sloop");
+		WordleModel model = createModel("slope");
 		/*
 		 * inserts a word and checks if the correct colors are present 2:green 1:yellow 0:grey
 		 */
-		insertWord(model, "oommo");
-		int[] correctAnswer = {1, 1, 0, 0, 0};
+		insertWord(model, "oozed");
+		int[] correctAnswer = {1, 0, 0, 1, 0};
 		assertIntArrayEqual(model, correctAnswer);
 	}
 	@Test
@@ -236,8 +324,8 @@ class TestWordleModel {
 		/*
 		 * inserts a word and checks if the correct colors are present 2:green 1:yellow 0:grey
 		 */
-		insertWord(model, "flyyr");
-		int[] correctAnswer = {2, 2, 2, 0, 2};
+		insertWord(model, "slyly");
+		int[] correctAnswer = {0, 2, 2, 0, 0};
 		assertIntArrayEqual(model, correctAnswer);
 	}
 	/*
@@ -248,12 +336,12 @@ class TestWordleModel {
 		/*
 		 * sets up game
 		 */
-		WordleModel model = createModel("flyer");
+		WordleModel model = createModel("adept");
 		/*
 		 * inserts a word and checks if the correct colors are present 2:green 1:yellow 0:grey
 		 */
-		insertWord(model, "fyyer");
-		int[] correctAnswer = {2, 0, 2, 2, 2};
+		insertWord(model, "teeth");
+		int[] correctAnswer = {1, 0, 2, 0, 0};
 		assertIntArrayEqual(model, correctAnswer);
 	}
 	/*
@@ -302,13 +390,13 @@ class TestWordleModel {
 		 * sets up game
 		 */
 		WordleModel model = createModel("punks");
-		model.setCurrentColumn('p');
-		model.setCurrentColumn('u');
-		model.setCurrentColumn('n');
-		model.setCurrentColumn('k');
-		model.setCurrentColumn('s');
+		model.setCurrentColumn('P');
+		model.setCurrentColumn('U');
+		model.setCurrentColumn('N');
+		model.setCurrentColumn('K');
+		model.setCurrentColumn('S');
 		model.backspace();
-		model.setCurrentColumn('s');
+		model.setCurrentColumn('S');
 		model.setCurrentRow();
 		/*
 		 * checks if the correct colors are present 2:green 1:yellow 0:grey
@@ -325,21 +413,21 @@ class TestWordleModel {
 		 * sets up game
 		 */
 		WordleModel model = createModel("punks");
-		model.setCurrentColumn('p');
-		model.setCurrentColumn('u');
-		model.setCurrentColumn('n');
-		model.setCurrentColumn('k');
-		model.setCurrentColumn('s');
+		model.setCurrentColumn('P');
+		model.setCurrentColumn('U');
+		model.setCurrentColumn('N');
+		model.setCurrentColumn('K');
+		model.setCurrentColumn('S');
 		model.backspace();
 		model.backspace();
 		model.backspace();
 		model.backspace();
 		model.backspace();
-		model.setCurrentColumn('p');
-		model.setCurrentColumn('u');
-		model.setCurrentColumn('n');
-		model.setCurrentColumn('k');
-		model.setCurrentColumn('s');
+		model.setCurrentColumn('P');
+		model.setCurrentColumn('U');
+		model.setCurrentColumn('N');
+		model.setCurrentColumn('K');
+		model.setCurrentColumn('S');
 		model.setCurrentRow();
 		/*
 		 * checks if the correct colors are present 2:green 1:yellow 0:grey
@@ -357,19 +445,19 @@ class TestWordleModel {
 		 * sets up game
 		 */
 		WordleModel model = createModel("punks");
-		model.setCurrentColumn('p');
-		model.setCurrentColumn('u');
-		model.setCurrentColumn('n');
-		model.setCurrentColumn('k');
-		model.setCurrentColumn('s');
+		model.setCurrentColumn('P');
+		model.setCurrentColumn('U');
+		model.setCurrentColumn('N');
+		model.setCurrentColumn('K');
+		model.setCurrentColumn('S');
 		model.backspace();
 		model.backspace();
 		model.backspace();
 		model.backspace();
-		model.setCurrentColumn('u');
-		model.setCurrentColumn('n');
-		model.setCurrentColumn('k');
-		model.setCurrentColumn('s');
+		model.setCurrentColumn('U');
+		model.setCurrentColumn('N');
+		model.setCurrentColumn('K');
+		model.setCurrentColumn('S');
 		model.setCurrentRow();
 		/*
 		 * checks if the correct colors are present 2:green 1:yellow 0:grey

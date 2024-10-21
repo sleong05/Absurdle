@@ -1,10 +1,13 @@
 package edu.wm.cs.cs301.f2024.wordle.model;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Random;
-
+import javax.swing.Timer;
 import javax.swing.JOptionPane;
+import javax.swing.JDialog;
 
 import edu.wm.cs.cs301.f2024.wordle.controller.ReadWordsRunnable;
 
@@ -39,8 +42,13 @@ public class WordleModel {
 	private WordleResponse[][] wordleGrid;
 
 	/*
+	 * refrence to thread to the background thread that gets the wordlist
+	 */
+	private Thread wordsThread;
+	/*
 	 * constructer that innitilizes game size values
 	 */
+
 	public WordleModel() {
 		/*
 		 * default game values
@@ -68,9 +76,26 @@ public class WordleModel {
 		this.statistics = new Statistics();
 	}
 
+	/*
+	 * creates background thread for making wordlist, stores in wordsThread
+	 */
 	private void createWordList() {
 		ReadWordsRunnable runnable = new ReadWordsRunnable(this);
-		new Thread(runnable).start();
+		wordsThread = new Thread(runnable);
+		wordsThread.start();
+	}
+
+	/*
+	 * for setting the word for testing
+	 */
+	public void setCurrentWordForTesting(String word) {
+		try {
+			wordsThread.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.currentWord = word.toUpperCase().toCharArray();
 	}
 
 	/*
@@ -193,10 +218,21 @@ public class WordleModel {
 	 * -1 is suspicious
 	 */
 	public boolean setCurrentRow() {
+		/*
+		 * waits for the ReadWordsRunnable thread to be finished by entering into a
+		 * thread that waits till wordsThread is done
+		 */
+		try {
+			this.wordsThread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		if (isWordViable()) {
 			for (int column = 0; column < guess.length; column++) {
 				Color backgroundColor = AppColors.GRAY;
 				Color foregroundColor = Color.WHITE;
+				System.out.println("GuessChar: " + guess[column] + " currentChar: " + currentWord[column]
+						+ " CurrentrWord: " + currentWord[column]);
 				if (guess[column] == currentWord[column]) {
 					backgroundColor = AppColors.GREEN;
 				} else if (contains(currentWord, guess, column)) {
@@ -219,6 +255,7 @@ public class WordleModel {
 		/*
 		 * checks the instances of a char in the word
 		 */
+
 		int instancesOfWord = 0;
 		for (int index = 0; index < currentWord.length; index++) {
 			if (guess[index] != currentWord[index] && guess[column] == currentWord[index]) {
@@ -240,10 +277,9 @@ public class WordleModel {
 				break;
 			}
 		}
-		System.out.println("Instances equals " + instancesOfWord + "  CurrentInstances equals " + currentInstancesOfWordHighligheted);
-		System.out.println(currentWord[0] + " " + currentWord[1] + " " + currentWord[2] + " " + currentWord[3] + " " + currentWord[4]);
 		for (int index = 0; index < currentWord.length; index++) {
-			if (index != column && guess[column] == currentWord[index] && currentInstancesOfWordHighligheted < instancesOfWord) {
+			if (index != column && guess[column] == currentWord[index]
+					&& currentInstancesOfWordHighligheted < instancesOfWord) {
 				return true;
 			}
 		}
@@ -320,8 +356,35 @@ public class WordleModel {
 		if (this.wordList.contains(currentInput)) {
 			return true;
 		}
-		JOptionPane.showMessageDialog(null, "The word '" + currentInput + "' is not a valid word", "Invalid Word",
+		/*
+		 * warns that it is not a valid word with a popup for 1 second
+		 */
+		JOptionPane optionPane = new JOptionPane("The word '" + currentInput + "' is not a valid word",
 				JOptionPane.WARNING_MESSAGE);
+		JDialog dialog = optionPane.createDialog("Invalid Word");
+
+		Timer timer = new Timer(1000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dialog.dispose();
+			}
+		});
+		timer.setRepeats(false);
+		timer.start();
+
+		dialog.setVisible(true);
+
+		return false;
+	}
+	/*
+	 * for testing
+	 */
+	public boolean isCharacterInCurrent(char c) {
+		for (char a:currentWord) {
+			if (a == c) {
+				return true;
+			}
+		}
 		return false;
 	}
 
