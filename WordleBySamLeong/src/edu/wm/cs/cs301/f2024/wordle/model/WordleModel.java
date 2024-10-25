@@ -375,20 +375,45 @@ public class WordleModel {
 
 		return false;
 	}
+
 	/*
 	 * for testing
 	 */
 	public boolean isCharacterInCurrent(char c) {
-		for (char a:currentWord) {
+		for (char a : currentWord) {
 			if (a == c) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
+	/*
+	 * for testing
+	 */
 	public char[] getAnswer() {
 		return currentWord;
 	}
 
+	/*
+	 * law of demeter violations in keyboardbuttonaction fix methods. All used to
+	 * adjust the stats class from within model
+	 */
+	public void incrementTotalGamesPlayed() {
+		statistics.incrementTotalGamesPlayed();
+	}
+
+	public void addWordsGuessed(int currentRowNumber) {
+		statistics.addWordsGuessed(currentRowNumber);
+	}
+
+	public void setCurrentStreak(int currentStreak) {
+		statistics.setCurrentStreak(currentStreak);
+	}
+	
+	public int getCurrentStreak() {
+		return statistics.getCurrentStreak();
+	}
+	
 }
+

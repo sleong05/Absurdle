@@ -73,19 +73,19 @@ public class KeyboardButtonAction extends AbstractAction {
 				/*
 				 * brings up the post-game stats and adjusts for the win
 				 */
-				model.getStatistics().incrementTotalGamesPlayed();
+				model.incrementTotalGamesPlayed();
 				int currentRowNumber = model.getCurrentRowNumber();
-				model.getStatistics().addWordsGuessed(currentRowNumber);
-				int currentStreak = model.getStatistics().getCurrentStreak();
-				model.getStatistics().setCurrentStreak(++currentStreak);
+				model.addWordsGuessed(currentRowNumber);
+				int currentStreak = model.getCurrentStreak();
+				model.setCurrentStreak(++currentStreak);
 				new StatisticsDialog(view, model);
 			} else if (!moreRows) {
 				/*
 				 * brings up post-game stats and adjusts for loss when there are no more rows
 				 */
 				view.repaintWordleGridPanel();
-				model.getStatistics().incrementTotalGamesPlayed();
-				model.getStatistics().setCurrentStreak(0);
+				model.incrementTotalGamesPlayed();
+				model.setCurrentStreak(0);
 				new StatisticsDialog(view, model);
 			} else {
 				view.repaintWordleGridPanel();
