@@ -64,40 +64,15 @@ class TestWordleModel {
 		}
 	}
 	
+	
 	/*
-	 * simulates an enter press to get rid of the wrong word dialogue
-	 */
-	private void simulateEnterPress() {
-		Robot robot = null;
-		try {
-			robot = new Robot();
-		} catch (AWTException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        robot.setAutoDelay(100); // Wait 1 second before simulating the key press
-        robot.keyPress(KeyEvent.VK_ENTER);  // Simulate pressing Enter
-        robot.keyRelease(KeyEvent.VK_ENTER);  // Release Enter key
-
-        // Optionally, add a delay to ensure the test completes properly
-        robot.setAutoDelay(100);
-	}
-	/*
-	 * tests if backspace correctly returns to the first row which should be -1. (Insertion moves the col forward first, then inputs)
-	 */
-	@Test
-	void testBug4Backspace() {
-		WordleModel model = createModel("spawn");
-		model.setCurrentColumn('P'); //currentCol = 0 now
-		model.backspace(); //currentCol - 1 = -1
-		assertEquals(model.getCurrentColumn(), -1);
-	}
-	/*
-	 * checks thred synch by trying to input something quicky before the thread would have time to proccess if it wasnt synchronized. If it isn't, they should all remain there default colors
+	 * checks thread synch by trying to input something quicky before the thread would have time to proccess if it wasnt synchronized. If it isn't, they should all remain there default colors
 	 * so they should all be gray even if they are right answers
 	 * First check if all gray. If any not gray there should not be a problem with the threading
-	 * Second check is they really should all be gray and if they are call the test again up to 200 times. This should guarentee a working solution due to the inpput STAIR being extremely common
+	 * Second check is they really should all be gray and if they are call the test again up to 200 times. This should guarentee a working solution due to the input STAIR being extremely common
 	 * for wordle to flag words in. 
+	 * Very difficult to test since you don't know what to expect as the word so you don't know which colors should be highlighted
+	 * If you were to add a get method for the answer it wouldn't work because the getMethod would also have to be synched as so we wouldn't be able to isolate sycnhing the enter button.
 	 */
 	@Test
 	void testBug1ThreadSynchronization() {
@@ -136,7 +111,42 @@ class TestWordleModel {
 			if (depth < 201) {
 				testBug1ThreadSynchronization();
 			}
+			else {
+				assertEquals(true, false); // max depth reached, failing test
+			}
 		}
+	}
+	/*
+	 * Tests if repeats of a correct character in the wrong place are highlighted the correct number of times
+	 */
+	@Test
+	void testBug2Coloring() {
+		WordleModel model = createModel("blurb");
+		insertWord(model, "hello");
+		
+		int[] correctAnswer = {0, 0, 1, 0, 0};
+		assertIntArrayEqual(model, correctAnswer);
+	}
+	/*
+	 * Tests if only real words are allowed by checking it the model moves current row to the second row after entering a non word
+	 */
+	@Test
+	void testBug3MustGuessRealWords() {
+		WordleModel model = createModel("blurb");
+		insertWord(model, "abcde");
+		
+		int row = model.getCurrentRowNumber(); // looks at row above where inputs are allowed to see the row just entered so should be -1 for first row
+		assertEquals(row, -1);
+	}
+	/*
+	 * tests if backspace correctly returns to the first row which should be -1. (Insertion moves the col forward first, then inputs)
+	 */
+	@Test
+	void testBug4Backspace() {
+		WordleModel model = createModel("spawn");
+		model.setCurrentColumn('P'); //currentCol = 0 now
+		model.backspace(); //currentCol - 1 = -1
+		assertEquals(model.getCurrentColumn(), -1);
 	}
 	/*
 	 * first try guess

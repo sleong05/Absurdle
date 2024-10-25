@@ -231,8 +231,7 @@ public class WordleModel {
 			for (int column = 0; column < guess.length; column++) {
 				Color backgroundColor = AppColors.GRAY;
 				Color foregroundColor = Color.WHITE;
-				System.out.println("GuessChar: " + guess[column] + " currentChar: " + currentWord[column]
-						+ " CurrentrWord: " + currentWord[column]);
+				System.out.println("GuessChar: " + guess[column] + " currentChar: " + currentWord[column]);
 				if (guess[column] == currentWord[column]) {
 					backgroundColor = AppColors.GREEN;
 				} else if (contains(currentWord, guess, column)) {
@@ -386,6 +385,10 @@ public class WordleModel {
 			}
 		}
 		return false;
+	}
+	
+	public char[] getAnswer() {
+		return currentWord;
 	}
 
 }
