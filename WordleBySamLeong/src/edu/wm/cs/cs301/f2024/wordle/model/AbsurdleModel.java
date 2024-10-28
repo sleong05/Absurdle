@@ -189,7 +189,9 @@ public class AbsurdleModel extends WordleModel {
 		
 		// once we have checked the fifth letter we check to see if the possible words are greater than the current greatest check and store it if is
 		
-		// return largest list character colors
+		// return largest list character colors and put them in the grid
+		
+		// checks if list is all green (win condition)
 	}
 
 	
@@ -297,6 +299,14 @@ public class AbsurdleModel extends WordleModel {
 		 * checks if a char is in the current input
 		 */
 		return false;
+	}
+	/*
+	 * overides the selected word list
+	 */
+	public void overideWordList(List<String> possibleWords) {
+		// wait for thread to finish
+		this.wordList = possibleWords;
+		
 	}
 	
 }
