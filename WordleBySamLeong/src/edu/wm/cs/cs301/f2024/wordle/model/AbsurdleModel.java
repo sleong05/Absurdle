@@ -11,7 +11,7 @@ import javax.swing.JDialog;
 
 import edu.wm.cs.cs301.f2024.wordle.controller.ReadWordsRunnable;
 
-public class AbsurdleModel {
+public class AbsurdleModel extends WordleModel {
 	/*
 	 * two arrays for the currentWord and the guess for comparison
 	 */
@@ -289,6 +289,14 @@ public class AbsurdleModel {
 	
 	public int getCurrentStreak() {
 		return statistics.getCurrentStreak();
+	}
+
+	public boolean isCharacterInCurrent(char b) {
+		// TODO Auto-generated method stub
+		/*
+		 * checks if a char is in the current input
+		 */
+		return false;
 	}
 	
 }
