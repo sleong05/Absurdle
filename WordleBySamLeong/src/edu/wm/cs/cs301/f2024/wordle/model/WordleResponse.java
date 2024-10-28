@@ -30,6 +30,8 @@ public class WordleResponse {
 	public char getChar() {
 		return c;
 	}
+	
+	
 	/*
 	 * get method to obtain the background color
 	 * @return returns background color

@@ -169,6 +169,7 @@ public class KeyboardPanel {
 				}
 				break;
 			}
+			button.setOpaque(true);
 		}
 	}
 
@@ -183,4 +184,7 @@ public class KeyboardPanel {
 		return panel;
 	}
 
+	public JButton[] getButtons() {
+		return this.buttons;
+	}
 }

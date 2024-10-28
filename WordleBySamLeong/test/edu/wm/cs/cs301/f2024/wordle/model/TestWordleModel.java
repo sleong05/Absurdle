@@ -3,12 +3,18 @@ package edu.wm.cs.cs301.f2024.wordle.model;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
+
+import javax.swing.JButton;
+
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
+
+import edu.wm.cs.cs301.f2024.wordle.view.KeyboardPanel;
+import edu.wm.cs.cs301.f2024.wordle.view.WordleFrame;
 
 class TestWordleModel {
 	int rowSize = 5;
@@ -148,6 +154,25 @@ class TestWordleModel {
 		model.backspace(); //currentCol - 1 = -1
 		assertEquals(model.getCurrentColumn(), -1);
 	}
+	
+	/*
+	 * tests if keyboard accuraterly represents colors. Bug only an issue on mac. For mac, the butts must have there Opaque to be set to true to show. (i dont have a mac a
+	 * but this is what google told me) (hard to test if it works) 
+	 */
+	@Test
+	void testBug5KeyboardColors() {
+		WordleModel model = createModel("spawn");
+		WordleFrame Frame = new WordleFrame(model);
+		insertWord(model, "spray");
+		
+		Frame.repaintWordleGridPanel();
+		KeyboardPanel keyboard = Frame.getKeyboardPanel();
+		JButton[] keyboardButtons = keyboard.getButtons();
+		for (JButton spot: keyboardButtons) {
+			assertEquals(spot.isOpaque(), true);
+		}
+	}
+	
 	/*
 	 * first try guess
 	 */

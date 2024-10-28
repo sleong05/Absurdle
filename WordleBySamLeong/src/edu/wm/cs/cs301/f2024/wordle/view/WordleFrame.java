@@ -130,5 +130,9 @@ public class WordleFrame {
 		}
 		
 	}
+	
+	public KeyboardPanel getKeyboardPanel() {
+		return this.keyboardPanel;
+	}
 
 }
