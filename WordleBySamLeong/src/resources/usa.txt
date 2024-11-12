@@ -7167,7 +7167,6 @@ cams
 camshaft
 camshafts
 can
-can't
 canada
 canadian
 canadians
@@ -16855,7 +16854,6 @@ domino
 dominoes
 dominus
 don
-don't
 donald
 donate
 donated
@@ -24991,7 +24989,6 @@ haziness
 hazy
 he
 he'd
-he'll
 he's
 head
 headache
@@ -29086,7 +29083,6 @@ isle
 isles
 islet
 islets
-isn't
 isobar
 isobars
 isocline
@@ -29122,7 +29118,6 @@ isthmus
 isthmuses
 it
 it'd
-it'll
 it's
 italian
 italians
@@ -47284,7 +47279,6 @@ shaw
 shawl
 shawls
 she
-she'd
 she'll
 sheaf
 sheafs
@@ -59939,9 +59933,6 @@ wayward
 wayworn
 we
 we'd
-we'll
-we're
-we've
 weak
 weaken
 weakened
@@ -60743,7 +60734,6 @@ wombats
 wombs
 women
 won
-won't
 wonder
 wondered
 wonderful
@@ -61209,7 +61199,6 @@ york
 yorkshire
 yosemite
 you
-you'd
 you'll
 you're
 you've
