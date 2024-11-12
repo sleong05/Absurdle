@@ -16,6 +16,7 @@ import javax.swing.KeyStroke;
 
 import edu.wm.cs.cs301.f2024.wordle.controller.KeyboardButtonAction;
 import edu.wm.cs.cs301.f2024.wordle.model.AppColors;
+import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
 public class KeyboardPanel {
@@ -28,15 +29,15 @@ public class KeyboardPanel {
 
 	private final KeyboardButtonAction action;
 
-	private final WordleModel model;
+	private final Model model;
 
-	public KeyboardPanel(WordleFrame view, WordleModel model) {
-		this.model = model;
+	public KeyboardPanel(WordleFrame view, Model model2) {
+		this.model = model2;
 		this.buttonIndex = 0;
 		this.buttonCount = firstRow().length + secondRow().length
 				+ thirdRow().length;
 		this.buttons = new JButton[buttonCount];
-		this.action = new KeyboardButtonAction(view, model);
+		this.action = new KeyboardButtonAction(view, model2);
 		this.panel = createMainPanel();
 	}
 

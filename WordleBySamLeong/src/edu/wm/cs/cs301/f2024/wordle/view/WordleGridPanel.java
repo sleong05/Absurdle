@@ -13,6 +13,7 @@ import java.awt.RenderingHints;
 import javax.swing.JPanel;
 
 import edu.wm.cs.cs301.f2024.wordle.model.AppColors;
+import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleResponse;
 
@@ -26,17 +27,17 @@ public class WordleGridPanel extends JPanel {
 
 	private final Rectangle[][] grid;
 
-	private final WordleModel model;
+	private final Model model;
 
-	public WordleGridPanel(WordleFrame view, WordleModel model, int width) {
-		this.model = model;
+	public WordleGridPanel(WordleFrame view, Model model2, int width) {
+		this.model = model2;
 		this.topMargin = 0;
 		this.letterWidth = 64;
 		this.insets = new Insets(0, 6, 6, 6);
 
-		int wordWidth = (letterWidth + insets.right) * model.getColumnCount();
+		int wordWidth = (letterWidth + insets.right) * model2.getColumnCount();
 		this.leftMargin = (width - wordWidth) / 2;
-		int height = (letterWidth + insets.bottom) * model.getMaximumRows()
+		int height = (letterWidth + insets.bottom) * model2.getMaximumRows()
 				+ 2 * topMargin;
 		this.setPreferredSize(new Dimension(width, height));
 

@@ -6,6 +6,7 @@ import javax.swing.AbstractAction;
 import javax.swing.JButton;
 
 import edu.wm.cs.cs301.f2024.wordle.model.AppColors;
+import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleResponse;
 import edu.wm.cs.cs301.f2024.wordle.view.StatisticsDialog;
@@ -21,16 +22,16 @@ public class KeyboardButtonAction extends AbstractAction {
 	/** 
 	 * A WordleModel object used to update the game state
 	 */
-	private final WordleModel model;
+	private final Model model;
 
 	/**
 	 * Used to update the view and model of the game
 	 * @param view. The new view of the game
 	 * @param model. The new model of the game
 	 */
-	public KeyboardButtonAction(WordleFrame view, WordleModel model) {
+	public KeyboardButtonAction(WordleFrame view, Model model2) {
 		this.view = view;
-		this.model = model;
+		this.model = model2;
 	}
 	
 	private void enterCase() {

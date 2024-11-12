@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
 public class StatisticsDialog extends JDialog {
@@ -32,12 +33,12 @@ public class StatisticsDialog extends JDialog {
 	
 	private final WordleFrame view;
 	
-	private final WordleModel model;
+	private final Model model;
 
-	public StatisticsDialog(WordleFrame view, WordleModel model) {
+	public StatisticsDialog(WordleFrame view, Model model2) {
 		super(view.getFrame(), "Statistics", true);
 		this.view = view;
-		this.model = model;
+		this.model = model2;
 		this.exitAction = new ExitAction();
 		this.nextAction = new NextAction();
 		

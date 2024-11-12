@@ -20,6 +20,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
 public class WordleFrame {
@@ -28,11 +29,11 @@ public class WordleFrame {
 	
 	private final KeyboardPanel keyboardPanel;
 	
-	private final WordleModel model;
+	private final Model model;
 	
 	private final WordleGridPanel wordleGridPanel;
 
-	public WordleFrame(WordleModel model) {
+	public WordleFrame(Model model) {
 		this.model = model;
 		this.keyboardPanel = new KeyboardPanel(this, model);
 		int width = keyboardPanel.getPanel().getPreferredSize().width;

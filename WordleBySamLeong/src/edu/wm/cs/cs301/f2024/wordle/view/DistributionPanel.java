@@ -11,6 +11,7 @@ import java.awt.RenderingHints;
 import javax.swing.JPanel;
 
 import edu.wm.cs.cs301.f2024.wordle.model.AppColors;
+import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
 public class DistributionPanel extends JPanel {
@@ -22,10 +23,10 @@ public class DistributionPanel extends JPanel {
 	private int[] counts;
 	private int lastValue;
 	
-	private final WordleModel model;
+	private final Model model;
 
-	public DistributionPanel(WordleFrame view, WordleModel model) {
-		this.model = model;
+	public DistributionPanel(WordleFrame view, Model model2) {
+		this.model = model2;
 		calculatePercentages();
 		this.setPreferredSize(new Dimension(500, 200));
 	}
