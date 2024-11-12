@@ -14,9 +14,39 @@ import javax.swing.JDialog;
 import edu.wm.cs.cs301.f2024.wordle.controller.ReadWordsRunnable;
 
 public class AbsurdleModel extends Model {
-	
+	private alphabetTree tree;
+	private Thread treeCreationThread;
+
 	public AbsurdleModel() {
 		super();
+		// creates datat structure
+
+		// waits for wordlist to eb finish
+		try {
+			this.wordsThread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		buildTree();
+
+	}
+
+	private void buildTree() {
+		// creates a thread to create the alphabetTree Datastructure and builds it
+		treeCreationThread = new Thread(() -> {
+			// Initialize alphabetTree with the word list
+			this.tree = new alphabetTree(wordList.toArray(new String[0]));
+		});
+		treeCreationThread.start();
+	}
+
+	private void rebuildTree(HashSet<String> biggestSet) {
+		// creates a thread to create the alphabetTree Datastructure and builds it
+		Thread treeCreationThread = new Thread(() -> {
+			// Initialize alphabetTree with the word list
+			this.tree = new alphabetTree(biggestSet.toArray(new String[0]));
+		});
+		treeCreationThread.start();
 	}
 
 	/*
@@ -24,11 +54,17 @@ public class AbsurdleModel extends Model {
 	 */
 	public void initialize() {
 		/*
-		 * reset current col and row and intitalize a new wordlegrid
+		 * makes empty grids and resets current position
 		 */
+		this.wordleGrid = initializeWordleGrid();
+		this.currentColumn = -1;
+		this.currentRow = 0;
+		/*
+		 * get a new word and make reset the guess char[]
+		 */
+		buildTree();
+		this.guess = new char[columnCount];
 	}
-
-	
 
 	/*
 	 * sets the background colors of a guessed word and locks in the word
@@ -37,33 +73,64 @@ public class AbsurdleModel extends Model {
 	 * -1 is suspicious
 	 */
 	public boolean setCurrentRow() {
-		return false; // happy ide statement
 		// checks if the word is a valid word against the total list of words
+		System.out.println("started setcurrentrow");
+		// ensure that the createTree thread is done
+		try {
+			this.treeCreationThread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Thread Joined");
+		if (isWordViable()) {
+			System.out.println("wordviable");
+			tree.printSubTree('a');
+			HashSet<String> biggestList = tree.biggestList(); //finds the correct way to accept the answer
+			System.out.println("Finished Tree Calculations");
+			int[] colorsOfOutput = tree.getColors();
+			Color foregroundColor = Color.WHITE;
+			Color backgroundColor = AppColors.GRAY;
+			System.out.println("biggestTree = " + biggestList);
+			System.out.println("Colors = " + colorsOfOutput);
+			
+			// for every combination of grey/white/yellow use the data structure holding
+						// hashsets to compare them in the following manner:
 
-		// ensure that the createWordList thread is done
+						// if first letter is yellow go to the hashset with that letter add together all
+						// the hashsets without the character in that spot + check duplicates hashset
+						// with a simple check
+						// if first letter is green go to the haset with that letter and add toghether
+						// all the hashsets with that letter in that specific location + check duplicate
+						// hashset
+						// if first letter is gray, go to the total orgiinal hashset with evertything in
+						// it and remove every value from the hashset with the specified character from
+						// the large list
 
-		// for every combination of grey/white/yellow use the data structure holding
-		// hashsets to compare them in the following manner:
+						// then continue this process with the next letters only this time comparing it
+						// against the already made list
 
-		// if first letter is yellow go to the hashset with that letter add together all
-		// the hashsets without the character in that spot + check duplicates hashset
-		// with a simple check
-		// if first letter is green go to the haset with that letter and add toghether
-		// all the hashsets with that letter in that specific location + check duplicate
-		// hashset
-		// if first letter is gray, go to the total orgiinal hashset with evertything in
-		// it and remove every value from the hashset with the specified character from
-		// the large list
+						// once we have checked the fifth letter we check to see if the possible words
+						// are greater than the current greatest check and store it if is
 
-		// then continue this process with the next letters only this time comparing it
-		// against the already made list
+						// return largest list character colors and put them in the grid
+			
+			for (int column = 0; column < guess.length; column++) {
+				if (colorsOfOutput[column] == 1) { // Yellow case
+					backgroundColor = AppColors.YELLOW;
+				} else if (colorsOfOutput[column] == 2) { // green case
+					backgroundColor = AppColors.GREEN;
+				}
+				wordleGrid[currentRow][column] = new WordleResponse(guess[column], backgroundColor, foregroundColor);
+			}
+			currentColumn = -1;
+			currentRow++;
+			guess = new char[columnCount];
+			
+			rebuildTree(biggestList);
 
-		// once we have checked the fifth letter we check to see if the possible words
-		// are greater than the current greatest check and store it if is
-
-		// return largest list character colors and put them in the grid
-
-		// checks if list is all green (win condition)
+			// checks if list is all green (win condition)
+		}
+		return currentRow < maximumRows; // happy ide statement
 	}
 
 	/*
@@ -79,9 +146,10 @@ public class AbsurdleModel extends Model {
 		this.wordList = possibleWords;
 
 	}
+
 //data structure to store and retrieve aburdle info
 	public class alphabetTree {
-		//subNode that stores sets of words with a char in all 5 positions
+		// subNode that stores sets of words with a char in all 5 positions
 		public class subTreeNode {
 			char letter;
 
@@ -112,7 +180,7 @@ public class AbsurdleModel extends Model {
 			}
 		}
 
-		
+		int[] colors;
 		public HashSet<String> possibleWords = new HashSet<>();
 		public subTreeNode[] listOfSubNodes = new subTreeNode[26];
 		char[] alphabet = new char[26];
@@ -126,6 +194,7 @@ public class AbsurdleModel extends Model {
 			// iterates through the whole list of words and adds them to the various
 			// subNodes in their correct spots
 			for (String word : wordList) {
+				System.out.println("added word: " + word);
 				possibleWords.add(word);
 				int position = 0;
 				for (char C : word.toCharArray()) {
@@ -134,6 +203,7 @@ public class AbsurdleModel extends Model {
 					position++;
 				}
 			}
+			System.out.println("created tree");
 		}
 
 		public HashSet<String> getPossibleWords() {
@@ -144,9 +214,20 @@ public class AbsurdleModel extends Model {
 			return listOfSubNodes[letter - 'a'];
 
 		}
+		
+		public void printSubTree(char letter) {
+			subTreeNode subTree = getSubTree(letter);
+			for (int i =0; i<5; i++) {
+				System.out.println(subTree.getSet(i));
+			}
+		}
+
+		public int[] getColors() {
+			return colors;
+		}
 
 		public HashSet<String> getGray(char letter, int position) {
-			HashSet<String> hasLetterin = getSubTree(letter).getTotal(); //set that contains that letter
+			HashSet<String> hasLetterin = getSubTree(letter).getTotal(); // set that contains that letter
 
 			HashSet<String> copySetOfAll = new HashSet<>(possibleWords); // copy of all possible words
 
@@ -155,7 +236,8 @@ public class AbsurdleModel extends Model {
 		}
 
 		public HashSet<String> getYellow(char letter, int position) {
-			HashSet<String> hasLetterin = new HashSet<>(getSubTree(letter).getTotal()); // copy of set of words with letter in them
+			HashSet<String> hasLetterin = new HashSet<>(getSubTree(letter).getTotal()); // copy of set of words with
+																						// letter in them
 			HashSet<String> letterInPosition = getSubTree(letter).getSet(position); // set of words with letter in
 																					// position
 
@@ -165,7 +247,9 @@ public class AbsurdleModel extends Model {
 		}
 
 		public HashSet<String> getGreen(char letter, int position) {
-			HashSet<String> letterInPosition = new HashSet<>(getSubTree(letter).getSet(position)); //copy of set with words with letter in position
+			HashSet<String> letterInPosition = new HashSet<>(getSubTree(letter).getSet(position)); // copy of set with
+																									// words with letter
+																									// in position
 			return letterInPosition;
 		}
 
@@ -178,22 +262,23 @@ public class AbsurdleModel extends Model {
 				return getGreen(letter, position);
 			}
 		}
-		//make sure to update guess first
+
+		// make sure to update guess first
 		public HashSet<String> biggestList() {
 			int mostWords = 0;
 			HashSet<String> biggestSet = null;
-			HashSet<String> spot1,spot2,spot3,spot4,spot5;
-			for (int i = 0; i<3; i++) {
+			HashSet<String> spot1, spot2, spot3, spot4, spot5;
+			for (int i = 0; i < 3; i++) {
 				spot1 = checkPosition(i, guess[0], 0);
-				for (int j = 0; j<3; j++) {
+				for (int j = 0; j < 3; j++) {
 					spot2 = checkPosition(j, guess[1], 1);
-					for (int k = 0; k<3; k++) {
+					for (int k = 0; k < 3; k++) {
 						spot3 = checkPosition(k, guess[2], 2);
-						for (int l = 0; l<3; l++) {
+						for (int l = 0; l < 3; l++) {
 							spot4 = checkPosition(l, guess[3], 3);
-							for (int m = 0; m<3; m++) {
+							for (int m = 0; m < 3; m++) {
 								spot5 = checkPosition(m, guess[4], 4);
-								
+
 								HashSet<String> spot1Copy = new HashSet<>(spot1);
 								spot1Copy.retainAll(spot2);
 								spot1Copy.retainAll(spot3);
@@ -202,6 +287,7 @@ public class AbsurdleModel extends Model {
 								if (spot1Copy.size() > mostWords) {
 									mostWords = spot1Copy.size();
 									biggestSet = spot1Copy;
+									colors = new int[] { i, j, k, l, m };
 								}
 							}
 						}
@@ -209,7 +295,7 @@ public class AbsurdleModel extends Model {
 				}
 			}
 			return biggestSet;
-			
+
 		}
 	}
 
