@@ -10,6 +10,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
 public class ReadWordsRunnable implements Runnable {
@@ -23,13 +24,13 @@ public class ReadWordsRunnable implements Runnable {
 	/*
 	 * the model that will be updated
 	 */
-	private final WordleModel model;
+	private final Model model;
 
 	/*
 	 * constructer innitilizeds the WordleModel to be used and sets up the logger for files
 	 * @param the game model
 	 */
-	public ReadWordsRunnable(WordleModel model) {
+	public ReadWordsRunnable(Model model) {
 		LOGGER.setLevel(Level.INFO);
 
 		try {
@@ -72,7 +73,9 @@ public class ReadWordsRunnable implements Runnable {
 		 * updates the word list in model and generates the a word
 		 */
 		model.setWordList(wordlist);
-		model.generateCurrentWord();
+		if (model instanceof WordleModel) {
+		((WordleModel)model).generateCurrentWord();
+		}
 	}
 
 	/*
