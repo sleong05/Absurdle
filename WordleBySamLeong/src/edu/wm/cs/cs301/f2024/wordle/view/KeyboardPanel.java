@@ -30,6 +30,8 @@ public class KeyboardPanel {
 	private final KeyboardButtonAction action;
 
 	private final Model model;
+	
+	JLabel Totallabel;
 
 	public KeyboardPanel(WordleFrame view, Model model2) {
 		this.model = model2;
@@ -146,9 +148,9 @@ public class KeyboardPanel {
 
 		String text = String.format("%,d", model.getTotalWordCount());
 		text += " possible " + model.getColumnCount() + "-letter words!";
-		JLabel label = new JLabel(text);
-		label.setFont(footerFont);
-		panel.add(label);
+		Totallabel = new JLabel(text);
+		Totallabel.setFont(footerFont);
+		panel.add(Totallabel);
 
 		return panel;
 	}
@@ -171,6 +173,9 @@ public class KeyboardPanel {
 				break;
 			}
 			button.setOpaque(true);
+			String text = String.format("%,d", model.getTotalWordCount());
+			text += " possible " + model.getColumnCount() + "-letter words!";
+			Totallabel.setText(text);
 		}
 	}
 

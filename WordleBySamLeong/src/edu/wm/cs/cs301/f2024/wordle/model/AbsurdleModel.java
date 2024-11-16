@@ -43,7 +43,9 @@ public class AbsurdleModel extends Model {
 
 	private void rebuildTree(HashSet<String> biggestSet) {
 		// creates a thread to create the alphabetTree Datastructure and builds it
-		Thread treeCreationThread = new Thread(() -> {
+		
+		 
+		treeCreationThread = new Thread(() -> {
 			// Initialize alphabetTree with the word list
 			this.tree = new alphabetTree(biggestSet.toArray(new String[0]));
 		});
@@ -66,6 +68,17 @@ public class AbsurdleModel extends Model {
 		buildTree();
 		this.guess = new char[columnCount];
 	}
+	
+	public int getTotalWordCount() {
+		try {
+			wordsThread.join();
+			treeCreationThread.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tree.getPossibleWords().size();
+	}
 
 	/*
 	 * sets the background colors of a guessed word and locks in the word
@@ -79,14 +92,10 @@ public class AbsurdleModel extends Model {
 		// ensure that the createTree thread is done
 		try {
 			this.treeCreationThread.join();
-			System.out.println("Tree is: " + this.tree);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Thread Joined");
 		if (isWordViable()) {
-			System.out.println("wordviable");
-			tree.printSubTree('A');
 			HashSet<String> biggestList = tree.biggestList(); // finds the correct way to accept the answer
 			System.out.println("Finished Tree Calculations");
 			int[] colorsOfOutput = tree.getColors();
@@ -224,6 +233,7 @@ public class AbsurdleModel extends Model {
 				}
 			}
 			System.out.println("created tree");
+			System.out.println(possibleWords);
 		}
 
 		public HashSet<String> getPossibleWords() {
@@ -309,7 +319,6 @@ public class AbsurdleModel extends Model {
 			HashSet<String> spot1, spot2, spot3, spot4, spot5, duplicateSet;
 			for (int i = 0; i < 3; i++) {
 				spot1 = checkPosition(i, guess[0], 0);
-				System.out.println( "  SPOT1 CALCS is " + spot1 + " ");
 				for (int j = 0; j < 3; j++) {
 					spot2 = checkPosition(j, guess[1], 1);
 					for (int k = 0; k < 3; k++) {
@@ -325,7 +334,6 @@ public class AbsurdleModel extends Model {
 								spot1Copy.retainAll(spot3);
 								spot1Copy.retainAll(spot4);
 								spot1Copy.retainAll(spot5);
-								//System.out.println( "  spot1 is " + spot1 + " ");
 
 								int[] colorArray = new int[] { i, j, k, l, m };
 
@@ -355,7 +363,6 @@ public class AbsurdleModel extends Model {
 												counter++;
 											}
 										}
-										System.out.println("counter: " + counter);
 										// checks for duplicates that are grey. scenario where a letter is grey and
 										// another instance of that letter as a yellow has the meaning of it being
 										// yellow
@@ -440,7 +447,7 @@ public class AbsurdleModel extends Model {
 
 											}
 										}
-										// rechecks if special case
+										// rechecks with adjusted spots
 										
 										spot1Copy = new HashSet<>(spot1);
 										spot1Copy.retainAll(spot2);
@@ -465,7 +472,7 @@ public class AbsurdleModel extends Model {
 										secondLoop = true;
 										doubleDoubleLetterCase = spot1Copy;
 									}
-									// changes back adjusted values to originals for second loop
+									// changes back adjusted values to originals
 									spot1 = old1;
 									spot2 = old2;
 									spot3 = old3;

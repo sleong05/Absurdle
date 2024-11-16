@@ -79,6 +79,16 @@ public class WordleModel extends Model {
 		int index = getRandomIndex();
 		currentWord = wordList.get(index).toCharArray();
 	}
+	//returns the size of the wordlist
+	public int getTotalWordCount() {
+		try {
+			wordsThread.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return wordList.size();
+	}
 
 	/*
 	 * sets the background colors of a guessed word and locks in the word

@@ -235,15 +235,7 @@ public abstract class Model {
 	 * 
 	 * @return gets the number of guessed words
 	 */
-	public int getTotalWordCount() {
-		try {
-			wordsThread.join();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return wordList.size();
-	}
+	public abstract int getTotalWordCount();
 
 	/*
 	 * get method to access the statistics object

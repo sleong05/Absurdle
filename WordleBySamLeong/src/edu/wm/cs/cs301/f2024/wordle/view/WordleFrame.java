@@ -20,6 +20,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import edu.wm.cs.cs301.f2024.wordle.model.AbsurdleModel;
 import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
@@ -42,7 +43,7 @@ public class WordleFrame {
 	}
 	
 	private JFrame createAndShowGUI() {
-		JFrame frame = new JFrame("Wordle");
+		JFrame frame =  new JFrame("Wordle"); 
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setJMenuBar(createMenuBar());
 		frame.setResizable(false);
@@ -93,6 +94,9 @@ public class WordleFrame {
 		actionMap.put("cancelAction", new CancelAction());
 		
 		JLabel label = new JLabel("Wordle");
+		if (model instanceof AbsurdleModel) {
+			label.setText("Absurdle"); 
+			}
 		label.setFont(AppFonts.getTitleFont());
 		panel.add(label);
 		
