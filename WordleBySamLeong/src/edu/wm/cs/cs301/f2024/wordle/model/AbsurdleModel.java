@@ -1,5 +1,8 @@
 package edu.wm.cs.cs301.f2024.wordle.model;
-
+import java.util.logging.Logger;
+import java.util.logging.FileHandler;
+import java.util.logging.SimpleFormatter;
+import java.util.logging.Level;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +20,8 @@ import edu.wm.cs.cs301.f2024.wordle.controller.ReadWordsRunnable;
 public class AbsurdleModel extends Model {
 	private alphabetTree tree;
 	private Thread treeCreationThread;
-
+	 private static final Logger logger = AlgorithmLogger.getLogger();
+	 
 	public AbsurdleModel() {
 		super();
 		// creates datat structure
@@ -79,6 +83,29 @@ public class AbsurdleModel extends Model {
 		}
 		return tree.getPossibleWords().size();
 	}
+	
+	// logger for storing sorting data
+	public class AlgorithmLogger {
+	    private static final Logger logger = Logger.getLogger(AlgorithmLogger.class.getName());
+
+	    static {
+	        try {
+	        	System.setProperty("java.util.logging.SimpleFormatter.format", "%5$s%n");
+	        	
+	            FileHandler fileHandler = new FileHandler("AbsurdleAlgorithm.log", true);
+	            fileHandler.setFormatter(new SimpleFormatter());
+	            logger.addHandler(fileHandler);
+
+	            logger.setLevel(Level.ALL);
+	        } catch (Exception e) {
+	            logger.severe("Failed to set up logger: " + e.getMessage());
+	        }
+	    }
+
+	    public static Logger getLogger() {
+	        return logger;
+	    }
+	}
 
 	/*
 	 * sets the background colors of a guessed word and locks in the word
@@ -88,7 +115,6 @@ public class AbsurdleModel extends Model {
 	 */
 	public boolean setCurrentRow() {
 		// checks if the word is a valid word against the total list of words
-		System.out.println("started setcurrentrow");
 		// ensure that the createTree thread is done
 		try {
 			this.treeCreationThread.join();
@@ -97,7 +123,6 @@ public class AbsurdleModel extends Model {
 		}
 		if (isWordViable()) {
 			HashSet<String> biggestList = tree.biggestList(); // finds the correct way to accept the answer
-			System.out.println("Finished Tree Calculations");
 			int[] colorsOfOutput = tree.getColors();
 			Color foregroundColor = Color.WHITE;
 			System.out.println("biggestTree = " + biggestList);
@@ -232,8 +257,6 @@ public class AbsurdleModel extends Model {
 					}
 				}
 			}
-			System.out.println("created tree");
-			System.out.println(possibleWords);
 		}
 
 		public HashSet<String> getPossibleWords() {
@@ -479,11 +502,24 @@ public class AbsurdleModel extends Model {
 									spot4 = old4;
 									spot5 = old5;
 								}
-								for (int color : colorArray) {
-									System.out.print(color);
+								
+								//string for logging
+								String loggingString = "response ";
+								
+								// make emoji colors
+								for (int colorSpot: colorArray) {
+									if (colorSpot == 0) {
+										loggingString += "\u2B1C";
+									} else if (colorSpot == 1) {
+										loggingString += "\uD83D\uDFE8";
+									}
+								 else {
+									loggingString += "\uD83D\uDFE9";
 								}
-								System.out.print(": ");
-								System.out.print(spot1Copy + "    Length = " + spot1Copy.size() + "\n");
+							
+								}
+								loggingString += " would leave " + spot1Copy.size() + " words: " + spot1Copy;
+								logger.fine(loggingString);
 								if (spot1Copy.size() > mostWords) {
 									mostWords = spot1Copy.size();
 									biggestSet = spot1Copy;
@@ -494,6 +530,23 @@ public class AbsurdleModel extends Model {
 					}
 				}
 			}
+			//logs the largest string
+			String loggingString = "biggestSet comes from ";
+			
+			// make emoji colors
+			for (int colorSpot: colors) {
+				if (colorSpot == 0) {
+					loggingString += "\u2B1C";
+				} else if (colorSpot == 1) {
+					loggingString += "\uD83D\uDFE8";
+				}
+			 else {
+				loggingString += "\uD83D\uDFE9";
+			}
+		
+			}
+			loggingString += " which leaves " + biggestSet.size() + " set: " + biggestSet;
+			logger.fine(loggingString);
 			return biggestSet;
 
 		}
