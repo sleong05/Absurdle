@@ -68,31 +68,22 @@ class TestAbsurdleModel {
 	
 	
 	/*
-	 * checks thread synch by trying to input something quicky before the thread would have time to proccess if it wasnt synchronized. If it isn't, they should all remain there default colors
-	 * so they should all be gray even if they are right answers
-	 * First check if all gray. If any not gray there should not be a problem with the threading
-	 * Second check is they really should all be gray and if they are call the test again up to 200 times. This should guarentee a working solution due to the input STAIR being extremely common
-	 * for wordle to flag words in. 
-	 * Very difficult to test since you don't know what to expect as the word so you don't know which colors should be highlighted
-	 * If you were to add a get method for the answer it wouldn't work because the getMethod would also have to be synched as so we wouldn't be able to isolate sycnhing the enter button.
+	 * checks thread synch by entering a word that we know will be gray. in our case the word stair and seeing if we get our results of all grey. We cant use a set word list because my create wordlist method waits for the thread
+	 * but we know the stair will return all false so we jsut put it in and see if we get all grey
 	 */
 	@Test
 	void testBug1ThreadSynchronization() {
-		List<String> input = new ArrayList();
-		input.add("Flash");
-		input.add("Brisk");
-		input.add("Knack");
 		AbsurdleModel testModel = new AbsurdleModel();
-		testModel.setCurrentColumn('B');
-		testModel.setCurrentColumn('R');
+		testModel.setCurrentColumn('S');
+		testModel.setCurrentColumn('T');
 		testModel.setCurrentColumn('A');
-		testModel.setCurrentColumn('V');
-		testModel.setCurrentColumn('O');
+		testModel.setCurrentColumn('I');
+		testModel.setCurrentColumn('R');
 		testModel.setCurrentRow();
 		/*
 		 * checks if all gray
 		 */
-		int[] answer = {0, 0, 2, 0, 0};
+		int[] answer = {0, 0, 0, 0, 0};
 		assertIntArrayEqual(testModel, answer);
 	}
 	/*
@@ -145,12 +136,11 @@ class TestAbsurdleModel {
 	@Test
 	void CorrectGuess() {
 		List<String> input = new ArrayList();
-		input.add("Bells");
+		input.add("Bolts");
 		AbsurdleModel model = createModel(input);
-		insertWord(model, "Bells");
+		insertWord(model, "Bolts");
 		
 		int[] correctAnswer = {2, 2, 2, 2, 2};
-		
 		assertIntArrayEqual(model, correctAnswer);
 	}
 	
@@ -264,7 +254,7 @@ class TestAbsurdleModel {
 		int[] correctAnswer3 = {0, 2, 2, 0, 2};
 		assertIntArrayEqual(model, correctAnswer3);
 		
-		insertWord(model, "PLATE");
+		insertWord(model, "BLAME");
 		int[] correctAnswer4 = {2, 2, 2, 2, 2};
 		assertIntArrayEqual(model, correctAnswer4);
 		
@@ -280,7 +270,6 @@ class TestAbsurdleModel {
 		List<String> input = new ArrayList();
 		input.add("Bells");
 		input.add("Balls");
-		input.add("Bills");
 		AbsurdleModel model = createModel(input);
 		/*
 		 * inserts a word and checks if the correct colors are present 2:green 1:yellow 0:grey
@@ -343,14 +332,14 @@ class TestAbsurdleModel {
 		 * sets up game
 		 */
 		List<String> input = new ArrayList();
-		input.add("Bells");
-		input.add("Balls");
-		input.add("Bills");
+		input.add("Belts");
+		input.add("Balms");
+		input.add("Flips");
 		AbsurdleModel model = createModel(input);
 		/*
 		 * inserts a word and checks if the correct colors are present 2:green 1:yellow 0:grey
 		 */
-		insertWord(model, "CLOWN");
+		insertWord(model, "CROWN");
 		int[] correctAnswer = {0, 0, 0, 0, 0};
 		assertIntArrayEqual(model, correctAnswer);
 	}
@@ -363,12 +352,12 @@ class TestAbsurdleModel {
 		 * sets up game
 		 */
 		List<String> input = new ArrayList();
-		input.add("SLOOP");
+		input.add("TRAPS");
 		AbsurdleModel model = createModel(input);
 		/*
 		 * inserts a word and checks if the correct colors are present 2:green 1:yellow 0:grey
 		 */
-		insertWord(model, "LOOPS");
+		insertWord(model, "STRAP");
 		int[] correctAnswer = {1, 1, 1, 1, 1};
 		assertIntArrayEqual(model, correctAnswer);
 	}
