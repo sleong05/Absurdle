@@ -5,19 +5,10 @@ import java.util.logging.FileHandler;
 import java.util.logging.SimpleFormatter;
 import java.util.logging.Level;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
-import javax.swing.Timer;
-import javax.swing.JOptionPane;
-import javax.swing.JDialog;
-
-import edu.wm.cs.cs301.f2024.wordle.controller.ReadWordsRunnable;
 
 public class AbsurdleModel extends Model {
 	public alphabetTree tree;
@@ -208,7 +199,6 @@ public class AbsurdleModel extends Model {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("OVERIDED: " + tree.getPossibleWords() + " what spot 3 should be when tree made: " + tree.getSubTree('L').getSet(3));
 
 	}
 
@@ -332,13 +322,6 @@ public class AbsurdleModel extends Model {
 			HashSet<String> copySetOfAll = new HashSet<>(possibleWords); // copy of all possible words
 			copySetOfAll.removeAll(hasLetterin); // removes all of that letter from it
 			
-			HashSet<String> wordstest = tree.getPossibleWords();
-			if (wordstest.size() == 2 && wordstest.contains("bells")
-					&& wordstest.contains("balls")) {
-				System.out.println("Grey Math " + possibleWords + " - " + hasLetterin + " = " + copySetOfAll);
-				
-			}
-			
 			return copySetOfAll;
 		}
 
@@ -355,13 +338,6 @@ public class AbsurdleModel extends Model {
 
 		public HashSet<String> getGreen(char letter, int position) {
 			HashSet<String> letterInPosition = new HashSet<>(getSubTree(letter).getSet(position)); // copy of set with
-																									// words with letter
-																									// in position
-			HashSet<String> wordstest = tree.getPossibleWords();
-			if (wordstest.size() == 2 && wordstest.contains("bells")
-					&& wordstest.contains("balls")) {
-				System.out.println("Green Math: " + letterInPosition + " letter: " + letter + " position: " + position + " Correct Tree: " + getSubTree('L').getSet(3));
-			}
 			return letterInPosition;
 		}
 
@@ -390,7 +366,6 @@ public class AbsurdleModel extends Model {
 							spot4 = checkPosition(l, guess[3], 3);
 							for (int m = 0; m < 3; m++) {
 								spot5 = checkPosition(m, guess[4], 4);
-								String testingString = "";
 
 								HashSet<String> spot1Copy = new HashSet<>(spot1);
 								spot1Copy.retainAll(spot2);
@@ -403,12 +378,8 @@ public class AbsurdleModel extends Model {
 								// duplicate case checks
 								List<Character> duplicateLetter = findDuplicates(guess);
 								boolean secondLoop = false; // to rememeber to compart against first double letter case
-								HashSet<String> wordstest = tree.getPossibleWords();
-								if (wordstest.size() == 2 && wordstest.contains("bells")
-										&& wordstest.contains("balls")) {
-								System.out.println("Spot3 before funny stuff: " + spot3);
-								System.out.println("subtree L: " + getSubTree('L').getTotal());
-								}
+								
+								
 								if (duplicateLetter.size() > 0) {
 									// for changing back if spot values are adjusted
 									HashSet<String> old1 = new HashSet<>(spot1);
@@ -500,18 +471,7 @@ public class AbsurdleModel extends Model {
 										spot1Copy.retainAll(spot3);
 										spot1Copy.retainAll(spot4);
 										spot1Copy.retainAll(spot5);
-										wordstest = tree.getPossibleWords();
-										if (wordstest.size() == 2 && wordstest.contains("bells")
-												&& wordstest.contains("balls")) {
-											System.out.println("" + colorArray[0] + colorArray[1]+ colorArray[2]+ colorArray[3]+ colorArray[4]);
-											System.out.println(tree.getPossibleWords());
-											//System.out.println("Spot1: " + spot1);
-											//System.out.println("subTreeL L in spot 3: " + getSubTree('L').getSet(3));
-											//System.out.println("Spot3: " + spot3);
-											System.out.println("Spot4: " + spot4);
-											System.out.println("Spot5: " + spot5);
-											System.out.println("Befopre doubles intersect: " + spot1Copy);
-										}
+										
 										if (counter > 1) { // intersects against set with two of that letter
 											duplicateSet = getSubTree(duplicate).getSet(5);
 											spot1Copy.retainAll(duplicateSet);
@@ -524,15 +484,12 @@ public class AbsurdleModel extends Model {
 															// to find shared elements with first check
 											spot1Copy.retainAll(doubleDoubleLetterCase);
 										}
-										System.out.println("After doubles intersect: " + spot1Copy);
 									}
 									if (duplicateLetter.size() > 1) {
 										secondLoop = true;
 										doubleDoubleLetterCase = spot1Copy;
 									}
 									// changes back adjusted values to originals
-									testingString = "spot1 " + spot1 + "spot2 " + spot2 + "spot3 " + spot3 + "spot4 "
-											+ spot4 + "spot5 " + spot5 + " ";
 									spot1 = old1;
 									spot2 = old2;
 									spot3 = old3;
@@ -542,7 +499,6 @@ public class AbsurdleModel extends Model {
 
 								// string for logging
 								String loggingString = "response " + Arrays.toString(guess) + " ";
-								loggingString += testingString;
 								// make emoji colors
 								for (int colorSpot : colorArray) {
 									if (colorSpot == 0) {
@@ -564,12 +520,9 @@ public class AbsurdleModel extends Model {
 								if (spot1Copy.size() == 1) {
 									String setString = spot1Copy.iterator().next().toUpperCase();
 									isEqual = setString.equals(charArrayGuess);
-									System.out.print(setString + " ===== " + charArrayGuess);
-									System.out.print(" isEqual = " + isEqual);
 								}
 								if (tree.getPossibleWords().size()>1 && isEqual) { //the case where there are multiple options left and the current iteration is one the word. answer is ignore it
 									ignore = true;
-									System.out.print("ignore = " + ignore);
 								}
 								if (spot1Copy.size() >= mostWords && !ignore) {
 									mostWords = spot1Copy.size();
