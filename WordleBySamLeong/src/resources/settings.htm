@@ -1,0 +1,45 @@
+<html>
+<head>
+<style>
+h1 {
+	font-family: Dialog, Arial, Helvetica, sans-serif;
+}
+
+h2 {
+	font-family: Dialog, Arial, Helvetica, sans-serif;
+}
+
+p {
+	font-family: Dialog, Arial, Helvetica, sans-serif;
+	font-size: 16pt
+}
+</style>
+</head>
+<body>
+	<h1>How To use command line parameters to access game modes</h1>
+	<p>To access other game modes, add a command line parameter after the commmand to run the Wordle.java file with a space inbetween(./Wordle.java random or ./Wordle.java absurdle).</p>
+	<p>There are two command line parameters avaiable: random for wordle or absurdle for absurdle</p>
+	<h2>Random</h2>
+	<p>Random is the normal wordle variant where the algorithm selects a random word and reveals infromation about the word based off of guesses that the user inputs. To see more information about this mode, go to the instructions tab.</p>
+	<h2>Absurdle</h2>
+	<p>Absurdle performs in a diffirent manner than normal wordle. Instead of selecting a word, it waits until the user input and looks at all the possible ways to accept the user's answer(ex. all gray, all yellow, some green and yellow, etc) and sees how many words would be left from the list. 
+		<p> <p> It then accepts your answer in the way that would leave the most possible words available. Any guess information is stored inbetween rounds like wordle (If a spot is green, it will stay green)
+		The game is won once there is only one possible word left and that word is guessed.<p>
+	<h2>Gray, Yellow, and Green behavior</h2>
+	<p>Both random and absurdle modes behave the same way in how they return answers to the user. <p>
+	<p>A gray tile indicates a letter that is not in the secret word.</p>
+	<img alt="" src="about.png">
+	<p>None of the letters are in the secret word in any spot.</p>
+	<p>A yellow tile indicates a letter that is in the secret word, but
+		in the incorrect position.</p>
+	<img alt="" src="value.png">
+	<p>The L and E are in the secret word but not in the correct
+		position.</p>
+	<p>A green tile indicates a letter that is in the secret word and
+		is in the correct position.</p>
+	<img alt="" src="pause.png">
+	<p>The P is in the correct position and the E is in the secrent
+		word but not in the correct position.
+	<p>Good luck!</p>
+</body>
+</html>

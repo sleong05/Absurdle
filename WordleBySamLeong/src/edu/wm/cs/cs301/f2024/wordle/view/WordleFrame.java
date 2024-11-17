@@ -81,6 +81,10 @@ public class WordleFrame {
 		aboutItem.addActionListener(event -> new AboutDialog(this));
 		helpMenu.add(aboutItem);
 		
+		JMenuItem settingsItem = new JMenuItem("Settings...");
+		settingsItem.addActionListener(event -> new SettingsDialog(this));
+		helpMenu.add(settingsItem);
+		
 		return menuBar;
 	}
 	
