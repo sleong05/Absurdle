@@ -7,10 +7,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Statistics {
+public class Statistics implements Runnable{
 	/*
 	 * creates integers to store past game data
 	 */
@@ -24,10 +27,21 @@ public class Statistics {
 	 */
 	private String path, log;
 	
+	private static final Logger logger = Logger.getLogger(Statistics.class.getName());
 	/*
 	 * constructer that creates the files for the game
 	 */
 	public Statistics() {
+		logger.setLevel(Level.INFO);
+
+		try {
+			FileHandler fileTxt = new FileHandler("./statsLogger.txt");
+			logger.addHandler(fileTxt);
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		/*
 		 * initializes the list for the words guessed
 		 */
@@ -47,26 +61,40 @@ public class Statistics {
 		/*
 		 * reads info from past games from the log file
 		 */
-		readStatistics();
 	}
 	
+	@Override
+	public void run() {
+		readStatistics();
+	}
+
 	private void readStatistics() {
 		try {
+			logger.info("started loading data");
 			BufferedReader br = new BufferedReader(new FileReader(path + log));
+			
 			this.currentStreak = Integer.valueOf(br.readLine().trim());
+			
 			this.longestStreak = Integer.valueOf(br.readLine().trim());
+			
 			this.totalGamesPlayed = Integer.valueOf(br.readLine().trim());
+			
 			int totalWordsGuessed = Integer.valueOf(br.readLine().trim());
 			
+			
+			
 			for (int index = 0; index < totalWordsGuessed; index++) {
-				wordsGuessed.add(Integer.valueOf(br.readLine().trim()));
+				int wordsAtSpot = Integer.valueOf(br.readLine().trim());
+				wordsGuessed.add(wordsAtSpot);
 			}
 			br.close();
+			logger.info("Data succesfully loaded. wordsGuessed: " + wordsGuessed + ", " + "Total Games Played: " + this.totalGamesPlayed + ", " + "Longest Streak: " + this.longestStreak + ", " + "Current Streak: " + this.currentStreak);
 		} catch (FileNotFoundException e) {
 			this.currentStreak = 0;
 			this.longestStreak = 0;
 			this.totalGamesPlayed = 0;
 		} catch (IOException e) {
+			logger.severe("failed to load data");
 			e.printStackTrace();
 		}
 	}

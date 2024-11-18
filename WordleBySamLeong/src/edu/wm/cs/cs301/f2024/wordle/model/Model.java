@@ -43,6 +43,8 @@ public abstract class Model {
 	/*
 	 * constructer that innitilizes game size values
 	 */
+	
+	Thread statsThread; //background thread for reading stats
 
 	public Model() {
 		/*
@@ -65,9 +67,9 @@ public abstract class Model {
 		 */
 		this.guess = new char[columnCount];
 		/*
-		 * initilzes a statistics object to store stats when the game is over
+		 * initilzes a statistics object to store stats when the game is over in a thread
 		 */
-		this.statistics = new Statistics();
+		createStatistics();
 	}
 	/*
 	 * creates background thread for making wordlist, stores in wordsThread
@@ -76,6 +78,12 @@ public abstract class Model {
 		ReadWordsRunnable runnable = new ReadWordsRunnable(this);
 		wordsThread = new Thread(runnable);
 		wordsThread.start();
+	}
+	//creates background thread for statistics
+	protected void createStatistics() {
+		statistics = new Statistics();
+		statsThread = new Thread(statistics);
+		statsThread.start();
 	}
 	/*
 	 * resets the game for next game
@@ -141,6 +149,10 @@ public abstract class Model {
 	 */
 	public WordleResponse[] getCurrentRow() {
 		return wordleGrid[getCurrentRowNumber()];
+	}
+	
+	public Thread getStatsThread() {
+		return statsThread;
 	}
 
 	/*
@@ -288,6 +300,12 @@ public abstract class Model {
 	 * adjust the stats class from within model
 	 */
 	public void incrementTotalGamesPlayed() {
+		try {
+			statsThread.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		statistics.incrementTotalGamesPlayed();
 	}
 

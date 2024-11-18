@@ -116,6 +116,7 @@ public class AbsurdleModel extends Model {
 		// ensure that the createTree thread is done
 		try {
 			this.treeCreationThread.join();
+			statsThread.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

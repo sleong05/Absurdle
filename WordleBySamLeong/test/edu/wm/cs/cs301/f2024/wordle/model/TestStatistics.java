@@ -11,6 +11,8 @@ class TestStatistics {
 
 	private Statistics createStats() {
 		Statistics StatsInstance = new Statistics();
+		Thread statThread = new Thread(StatsInstance);
+		statThread.run();
 		return StatsInstance;
 	}
 

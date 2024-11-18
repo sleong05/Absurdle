@@ -108,6 +108,12 @@ public class WordleFrame {
 	}
 	
 	public void shutdown() {
+		try {
+			model.getStatsThread().join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
 		model.getStatistics().writeStatistics();
 		frame.dispose();
 		System.exit(0);

@@ -103,6 +103,7 @@ public class WordleModel extends Model {
 		 */
 		try {
 			this.wordsThread.join();
+			statsThread.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
