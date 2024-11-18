@@ -1,5 +1,5 @@
 # WordleBySamLeong
-
+NOTE FOR GRADER: I'm using my 1 week extension on Project Four
 
 
 ## Getting started
