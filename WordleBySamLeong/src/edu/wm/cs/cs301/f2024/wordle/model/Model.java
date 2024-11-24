@@ -43,8 +43,9 @@ public abstract class Model {
 	/*
 	 * constructer that innitilizes game size values
 	 */
-	
-	Thread statsThread; //background thread for reading stats
+	List<AcceptanceRule> rules;
+
+	Thread statsThread; // background thread for reading stats
 
 	public Model() {
 		/*
@@ -67,10 +68,15 @@ public abstract class Model {
 		 */
 		this.guess = new char[columnCount];
 		/*
-		 * initilzes a statistics object to store stats when the game is over in a thread
+		 * initilzes a statistics object to store stats when the game is over in a
+		 * thread
 		 */
 		createStatistics();
+		// adds basic rules to the game
+		RuleBasic defaultRules = new RuleBasic();
+		rules.add(defaultRules);
 	}
+
 	/*
 	 * creates background thread for making wordlist, stores in wordsThread
 	 */
@@ -79,17 +85,19 @@ public abstract class Model {
 		wordsThread = new Thread(runnable);
 		wordsThread.start();
 	}
-	//creates background thread for statistics
+
+	// creates background thread for statistics
 	protected void createStatistics() {
 		statistics = new Statistics();
 		statsThread = new Thread(statistics);
 		statsThread.start();
 	}
+
 	/*
 	 * resets the game for next game
 	 */
-	public abstract void initialize(); 
-	
+	public abstract void initialize();
+
 	protected WordleResponse[][] initializeWordleGrid() {
 		WordleResponse[][] wordleGrid = new WordleResponse[maximumRows][columnCount];
 
@@ -150,7 +158,7 @@ public abstract class Model {
 	public WordleResponse[] getCurrentRow() {
 		return wordleGrid[getCurrentRowNumber()];
 	}
-	
+
 	public Thread getStatsThread() {
 		return statsThread;
 	}
@@ -261,18 +269,8 @@ public abstract class Model {
 	/*
 	 * checks if the current guess is a viable 5 letter word
 	 */
-	public boolean isWordViable() {
-		String currentInput = "";
-		/*
-		 * grabs guess and makes it into a string
-		 */
-		for (char letter : this.guess) {
-			currentInput += letter;
-		}
-		currentInput = currentInput.toLowerCase();
-		if (this.wordList.contains(currentInput)) {
-			return true;
-		}
+	public void showInvalidWordDialogue() {
+		String currentInput = guess.toString();
 		/*
 		 * warns that it is not a valid word with a popup for 1 second
 		 */
@@ -290,10 +288,8 @@ public abstract class Model {
 		timer.start();
 
 		dialog.setVisible(true);
-
-		return false;
+		
 	}
-
 
 	/*
 	 * law of demeter violations in keyboardbuttonaction fix methods. All used to
@@ -316,10 +312,33 @@ public abstract class Model {
 	public void setCurrentStreak(int currentStreak) {
 		statistics.setCurrentStreak(currentStreak);
 	}
-	
+
 	public int getCurrentStreak() {
 		return statistics.getCurrentStreak();
 	}
-	
-}
 
+	public String getCurrentGuess() {
+		return guess.toString();
+	}
+
+	public List<String> getWordList() {
+		return wordList;
+	}
+
+	public void addRule(AcceptanceRule rule) {
+		rules.add(rule);
+	}
+
+	protected boolean checkAcceptanceRules() {
+		for (AcceptanceRule Rule : rules) {
+			if (!(Rule.isAcceptableGuess(this))) { // case where a rule has failed
+				showInvalidWordDialogue();
+				for (int i = 0; i < 5; i++) {
+					this.backspace(); // deletes input
+				}
+				return false;
+			}
+		}
+		return true;
+	}
+}

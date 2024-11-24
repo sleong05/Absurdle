@@ -107,7 +107,7 @@ public class WordleModel extends Model {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		if (isWordViable()) {
+		if (checkAcceptanceRules()) {
 			for (int column = 0; column < guess.length; column++) {
 				Color backgroundColor = AppColors.GRAY;
 				Color foregroundColor = Color.WHITE;

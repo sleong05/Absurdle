@@ -120,7 +120,7 @@ public class AbsurdleModel extends Model {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		if (isWordViable()) {
+		if (checkAcceptanceRules()) {
 			HashSet<String> biggestList = tree.biggestList(); // finds the correct way to accept the answer
 			int[] colorsOfOutput = tree.getColors();
 			Color foregroundColor = Color.WHITE;
