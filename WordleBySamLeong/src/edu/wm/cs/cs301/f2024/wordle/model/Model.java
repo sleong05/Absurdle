@@ -3,6 +3,7 @@ package edu.wm.cs.cs301.f2024.wordle.model;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -43,7 +44,7 @@ public abstract class Model {
 	/*
 	 * constructer that innitilizes game size values
 	 */
-	List<AcceptanceRule> rules;
+	List<AcceptanceRule> rules = new ArrayList<>();
 
 	Thread statsThread; // background thread for reading stats
 
@@ -270,7 +271,10 @@ public abstract class Model {
 	 * checks if the current guess is a viable 5 letter word
 	 */
 	public void showInvalidWordDialogue() {
-		String currentInput = guess.toString();
+		String currentInput = "";
+		for (char letter: guess) {
+			currentInput += letter;
+		}
 		/*
 		 * warns that it is not a valid word with a popup for 1 second
 		 */
@@ -317,8 +321,8 @@ public abstract class Model {
 		return statistics.getCurrentStreak();
 	}
 
-	public String getCurrentGuess() {
-		return guess.toString();
+	public char[] getCurrentGuess() {
+		return guess;
 	}
 
 	public List<String> getWordList() {
@@ -329,13 +333,16 @@ public abstract class Model {
 		rules.add(rule);
 	}
 
-	protected boolean checkAcceptanceRules() {
+	public boolean checkAcceptanceRules() {
 		for (AcceptanceRule Rule : rules) {
 			if (!(Rule.isAcceptableGuess(this))) { // case where a rule has failed
+				System.out.println("RAN");
 				showInvalidWordDialogue();
-				for (int i = 0; i < 5; i++) {
-					this.backspace(); // deletes input
+				int spotsToDelete = getCurrentColumn() + 1;
+				for (int i = 0; i < spotsToDelete; i++) {
+					backspace();
 				}
+				System.out.println("Returning...");
 				return false;
 			}
 		}

@@ -4,8 +4,8 @@ public class RuleBasic implements AcceptanceRule{
 
 	@Override
 	public boolean isAcceptableGuess(Model model) {
-		String guess = model.getCurrentGuess();
-		if (guess.length() == 5) {
+		//System.out.println(model.getCurrentColumn() + " >= " + (model.getColumnCount() -1));
+		if ((model.getCurrentColumn() == (model.getColumnCount() -1))) {
 			return true;
 		}
 		return false;

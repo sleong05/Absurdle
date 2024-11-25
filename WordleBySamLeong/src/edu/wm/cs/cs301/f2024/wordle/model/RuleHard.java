@@ -8,7 +8,7 @@ public class RuleHard extends RuleBasic implements AcceptanceRule{
             return false;
 		}
 		
-		char[] guess = model.getCurrentGuess().toCharArray(); 
+		char[] guess = model.getCurrentGuess(); 
 		
 		// looks through answers
 		WordleResponse[][] wordleGrid = model.getWordleGrid();
