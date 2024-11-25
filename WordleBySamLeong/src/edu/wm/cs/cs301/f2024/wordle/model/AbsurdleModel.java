@@ -557,21 +557,21 @@ public class AbsurdleModel extends Model {
 	}
 
 @Override
-public char onceButton() {
+public WordleResponse onceButton() {
 	return 0;
 	// TODO Auto-generated method stub
 	
 }
 
 @Override
-public char twiceButton() {
+public WordleResponse twiceButton() {
 	return 0;
 	// TODO Auto-generated method stub
 	
 }
 
 @Override
-public char thriceButton() {
+public WordleResponse thriceButton() {
 	return 0;
 	// TODO Auto-generated method stub
 	

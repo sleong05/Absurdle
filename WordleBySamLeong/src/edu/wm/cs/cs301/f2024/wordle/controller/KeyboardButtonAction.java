@@ -113,6 +113,7 @@ public class KeyboardButtonAction extends AbstractAction {
 		switch (text) {
 
 		case "Enter":
+			
 			enterCase();
 			break;
 		case "Backspace":
@@ -123,16 +124,26 @@ public class KeyboardButtonAction extends AbstractAction {
 			view.repaintWordleGridPanel();
 			break;
 		case "Once":
-			model.onceButton();
+			WordleResponse wordleResponse = model.onceButton();
 			view.repaintWordleGridPanel();
+			view.setColor(Character.toString(wordleResponse.getChar()), wordleResponse.getBackgroundColor(),
+					wordleResponse.getForegroundColor());
 			break;
 		case "Twice":
-			model.twiceButton();
-			view.repaintWordleGridPanel();
-			break;
+			WordleResponse wordleResponse1 = model.twiceButton();
+			// case where there are no words left in the word that aren't gray, yellow, or green
+			if (wordleResponse1.getChar() != '$') {
+				view.repaintWordleGridPanel();
+				view.setColor(Character.toString(wordleResponse1.getChar()), wordleResponse1.getBackgroundColor(),
+						wordleResponse1.getForegroundColor());
+				break; 
+			}
+			
 		case "Thrice":
-			model.thriceButton();
+			WordleResponse wordleResponse2 = model.thriceButton();
 			view.repaintWordleGridPanel();
+			view.setColor(Character.toString(wordleResponse2.getChar()), wordleResponse2.getBackgroundColor(),
+					wordleResponse2.getForegroundColor());
 			break;
 		default:
 			/*

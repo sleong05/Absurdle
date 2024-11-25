@@ -14,7 +14,7 @@ import javax.swing.Timer;
 import edu.wm.cs.cs301.f2024.wordle.controller.ReadWordsRunnable;
 
 public abstract class Model {
-	protected char[] currentWord, guess;
+	protected char[] guess;
 	/*
 	 * size of the game ints
 	 */
@@ -137,6 +137,21 @@ public abstract class Model {
 		guess[currentColumn] = c;
 		wordleGrid[currentRow][currentColumn] = new WordleResponse(c, Color.WHITE, Color.BLACK);
 	}
+	
+	protected WordleResponse setCurrentColumnAsColor(char c, Color backgroundColor) {
+		/*
+		 * moves the column foward unless it would go past the end
+		 */
+		currentColumn++;
+		currentColumn = Math.min(currentColumn, (columnCount - 1));
+		/*
+		 * adjusts grid and the guess char[]
+		 */
+		guess[currentColumn] = c;
+		WordleResponse response = new WordleResponse(c, backgroundColor, Color.WHITE);
+		wordleGrid[currentRow][currentColumn] = response;
+		return response;
+	}
 
 	/*
 	 * sets the current col to null and walks currentColumn left
@@ -177,6 +192,13 @@ public abstract class Model {
 	 * @return returns false if the current row is the last one TODO currentcolumn =
 	 * -1 is suspicious
 	 */
+	
+	public abstract WordleResponse onceButton();
+	
+	public abstract WordleResponse twiceButton();
+	
+	public abstract WordleResponse thriceButton();
+	
 	public abstract boolean setCurrentRow();
 
 	protected boolean contains(char[] currentWord, char[] guess, int column) {

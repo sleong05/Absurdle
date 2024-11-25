@@ -26,6 +26,7 @@ public class ReadWordsRunnable implements Runnable {
 	 */
 	private final Model model;
 
+	
 	/*
 	 * constructer innitilizeds the WordleModel to be used and sets up the logger for files
 	 * @param the game model
