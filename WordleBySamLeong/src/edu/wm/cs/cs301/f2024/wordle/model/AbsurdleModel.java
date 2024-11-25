@@ -166,7 +166,7 @@ public class AbsurdleModel extends Model {
 
 			// checks if list is all green (win condition)
 		}
-		return currentRow < maximumRows; // happy ide statement
+		return currentRow < maximumRows;
 	}
 
 	/*

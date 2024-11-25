@@ -66,7 +66,58 @@ class TestAbsurdleModel {
 		}
 	}
 	
+	@Test
+	void testHardModeGray() {
+		List<String> input = new ArrayList();
+		input.add("Belts");
+		input.add("Balms");
+		input.add("Palms");
+		AbsurdleModel model = createModel(input);
+		model.addRule(new RuleHard());
+		insertWord(model, "xxlxx");
+		
+		int[] correctAnswer = {0, 0, 2, 0, 0};
+		assertIntArrayEqual(model, correctAnswer);
+		
+		insertWord(model, "xxxxx"); // needs l for a proper answer
+		assertEquals(-1, model.getCurrentColumn()); // checks if the answer has been deleted
+	}
 	
+	@Test
+	//checks for yellow in the same spot it was before
+	void testHardModeYellowInWrongSpot() {
+		List<String> input = new ArrayList();
+		input.add("Belts");
+		input.add("Balms");
+		input.add("Palms");
+		AbsurdleModel model = createModel(input);
+		model.addRule(new RuleHard());
+		insertWord(model, "xlxxx");
+		
+		int[] correctAnswer = {0, 1, 0, 0, 0};
+		assertIntArrayEqual(model, correctAnswer);
+		
+		insertWord(model, "xlxxx"); // needs l for a proper answer
+		assertEquals(-1, model.getCurrentColumn()); // checks if the answer has been deleted
+	}
+	//cehcks for yellow in a diffirent spot then before
+	@Test
+	void testHardModeYellowInACorrectSpot() {
+		List<String> input = new ArrayList();
+		input.add("Belts");
+		input.add("Balms");
+		input.add("Palms");
+		AbsurdleModel model = createModel(input);
+		model.addRule(new RuleHard());
+		insertWord(model, "xlxxx");
+		
+		int[] correctAnswer = {0, 1, 0, 0, 0};
+		assertIntArrayEqual(model, correctAnswer);
+		
+		insertWord(model, "lpppp"); 
+		int[] correctAnswer1 = {1, 0, 0, 0, 0};
+		assertIntArrayEqual(model, correctAnswer1);
+	}
 	/*
 	 * checks thread synch by entering a word that we know will be gray. in our case the word stair and seeing if we get our results of all grey. We cant use a set word list because my create wordlist method waits for the thread
 	 * but we know the stair will return all false so we jsut put it in and see if we get all grey
@@ -111,6 +162,7 @@ class TestAbsurdleModel {
 		input.add("Balls");
 		input.add("Bills");
 		AbsurdleModel model = createModel(input);
+		model.addRule(new RuleLegitimateWordsOnly());
 		insertWord(model, "abcde");
 		
 		int row = model.getCurrentRowNumber(); // looks at row above where inputs are allowed to see the row just entered so should be -1 for first row

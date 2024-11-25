@@ -336,13 +336,12 @@ public abstract class Model {
 	public boolean checkAcceptanceRules() {
 		for (AcceptanceRule Rule : rules) {
 			if (!(Rule.isAcceptableGuess(this))) { // case where a rule has failed
-				System.out.println("RAN");
 				showInvalidWordDialogue();
 				int spotsToDelete = getCurrentColumn() + 1;
 				for (int i = 0; i < spotsToDelete; i++) {
 					backspace();
 				}
-				System.out.println("Returning...");
+				System.out.println("Deleting...");
 				return false;
 			}
 		}

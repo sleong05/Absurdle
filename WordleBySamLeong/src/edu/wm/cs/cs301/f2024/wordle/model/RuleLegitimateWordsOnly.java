@@ -12,8 +12,12 @@ public class RuleLegitimateWordsOnly extends RuleBasic implements AcceptanceRule
 		}
 		
 		List<String> wordList = model.getWordList();
-		String guess = model.getCurrentGuess().toString().toLowerCase();
-		if (wordList.contains(guess)) {
+		char[] guess = model.getCurrentGuess();
+		String guessAsString = "";
+		for (char letter: guess) {
+			guessAsString += letter;
+		}
+		if (wordList.contains(guessAsString.toLowerCase())) {
 			return true;
 		}
 		return false;

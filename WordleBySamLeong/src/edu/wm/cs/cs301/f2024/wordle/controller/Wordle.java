@@ -6,6 +6,8 @@ import edu.wm.cs.cs301.f2024.wordle.model.AbsurdleModel;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 import edu.wm.cs.cs301.f2024.wordle.view.WordleFrame;
 import edu.wm.cs.cs301.f2024.wordle.model.Model;
+import edu.wm.cs.cs301.f2024.wordle.model.RuleHard;
+import edu.wm.cs.cs301.f2024.wordle.model.RuleLegitimateWordsOnly;
 
 public class Wordle implements Runnable {
 	private static int gameMode = 0;
@@ -56,7 +58,12 @@ public class Wordle implements Runnable {
 		if (gameMode == 1) {
 			model = new AbsurdleModel();
 		} 
-		
+		if (hardMode) {
+			model.addRule(new RuleHard());
+		}
+		if (wordsOnly) {
+			model.addRule(new RuleLegitimateWordsOnly());
+		}
 		new WordleFrame(model);
 	}
 

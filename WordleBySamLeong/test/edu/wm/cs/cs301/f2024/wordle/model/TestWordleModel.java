@@ -70,7 +70,34 @@ class TestWordleModel {
 		}
 	}
 	
+	@Test
+	void testHardModeInvalidInput() {
+		WordleModel model = createModel("blurb");
+		model.addRule(new RuleHard());
+		insertWord(model, "blues");
+		
+		int[] correctAnswer = {2, 2, 2, 0, 0}; // makes sure behavior is normal before actual test
+		assertIntArrayEqual(model, correctAnswer);
+		
+		insertWord(model, "blond"); // needs u for a proper answer
+		assertEquals(-1, model.getCurrentColumn()); // checks if the answer has been deleted
+		
+	}
 	
+	@Test
+	void testHardModeValidInput() {
+		WordleModel model = createModel("blurb");
+		model.addRule(new RuleHard());
+		insertWord(model, "blues");
+		
+		int[] correctAnswer = {2, 2, 2, 0, 0}; // makes sure behavior is normal before actual test
+		assertIntArrayEqual(model, correctAnswer);
+		
+		insertWord(model, "blurb"); 
+		int[] correctAnswer2 = {2, 2, 2, 2, 2};
+		assertIntArrayEqual(model, correctAnswer2);
+		
+	}
 	/*
 	 * checks thread synch by trying to input something quicky before the thread would have time to proccess if it wasnt synchronized. If it isn't, they should all remain there default colors
 	 * so they should all be gray even if they are right answers
@@ -139,6 +166,7 @@ class TestWordleModel {
 	@Test
 	void testBug3MustGuessRealWords() {
 		WordleModel model = createModel("blurb");
+		model.addRule(new RuleLegitimateWordsOnly());
 		insertWord(model, "abcde");
 		
 		int row = model.getCurrentRowNumber(); // looks at row above where inputs are allowed to see the row just entered so should be -1 for first row
