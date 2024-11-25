@@ -1,6 +1,10 @@
 package edu.wm.cs.cs301.f2024.wordle.controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
@@ -36,13 +40,14 @@ public class KeyboardButtonAction extends AbstractAction {
 	}
 
 	/*
-	 * sets the background for the letters and stores true in more rows if not on last row
+	 * sets the background for the letters and stores true in more rows if not on
+	 * last row
 	 */
 	private void enterCase() {
-		
+
 		boolean moreRows = model.setCurrentRow();
 		view.repaintWordleGridPanel();
-		
+
 		/*
 		 * gets the current row and stores it in an array of WordleResponses
 		 */
@@ -113,7 +118,7 @@ public class KeyboardButtonAction extends AbstractAction {
 		switch (text) {
 
 		case "Enter":
-			
+
 			enterCase();
 			break;
 		case "Backspace":
@@ -124,26 +129,34 @@ public class KeyboardButtonAction extends AbstractAction {
 			view.repaintWordleGridPanel();
 			break;
 		case "Once":
-			WordleResponse wordleResponse = model.onceButton();
-			view.repaintWordleGridPanel();
-			view.setColor(Character.toString(wordleResponse.getChar()), wordleResponse.getBackgroundColor(),
-					wordleResponse.getForegroundColor());
+			if (model.getCurrentRowNumber() + 1 != 0 && model.getOnceLeft() > 0) {
+				WordleResponse wordleResponse = model.onceButton();
+				view.repaintWordleGridPanel();
+				view.setColor(Character.toString(wordleResponse.getChar()), wordleResponse.getBackgroundColor(),
+						wordleResponse.getForegroundColor());
+			}
 			break;
 		case "Twice":
-			WordleResponse wordleResponse1 = model.twiceButton();
-			// case where there are no words left in the word that aren't gray, yellow, or green
-			if (wordleResponse1.getChar() != '$') {
-				view.repaintWordleGridPanel();
-				view.setColor(Character.toString(wordleResponse1.getChar()), wordleResponse1.getBackgroundColor(),
-						wordleResponse1.getForegroundColor());
-				break; 
+
+			if (model.getCurrentRowNumber() + 1 != 0 && model.getTwiceLeft() > 0) {
+				WordleResponse wordleResponse1 = model.twiceButton();
+				// case where there are no words left in the word that aren't gray, yellow, or
+				// green
+				if (wordleResponse1.getChar() != '$') {
+					view.repaintWordleGridPanel();
+					view.setColor(Character.toString(wordleResponse1.getChar()), wordleResponse1.getBackgroundColor(),
+							wordleResponse1.getForegroundColor());
+				}
 			}
-			
+			break;
+
 		case "Thrice":
-			WordleResponse wordleResponse2 = model.thriceButton();
-			view.repaintWordleGridPanel();
-			view.setColor(Character.toString(wordleResponse2.getChar()), wordleResponse2.getBackgroundColor(),
-					wordleResponse2.getForegroundColor());
+			JButton[] buttons = view.getKeyboardPanel().getButtons();
+			char possibleButton = model.thriceButton(buttons);
+			if (possibleButton != '$' && model.getThriceLeft() > 0 && model.getCurrentRowNumber() + 1 != 0) {
+				view.setColor(Character.toString(possibleButton), AppColors.GRAY,
+						Color.WHITE);
+			}
 			break;
 		default:
 			/*

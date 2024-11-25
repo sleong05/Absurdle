@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Random;
 import javax.swing.Timer;
 import javax.swing.JOptionPane;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 
 import edu.wm.cs.cs301.f2024.wordle.controller.ReadWordsRunnable;
@@ -113,16 +114,14 @@ public class WordleModel extends Model {
 		}
 		if (checkAcceptanceRules()) {
 			WordleResponse[] row = wordleGrid[currentRow];
-			for (int index = 0; index<getColumnCount(); index++) {
+			for (int index = 0; index < getColumnCount(); index++) {
 				wordleGrid[currentRow][index] = new WordleResponse(row[index].getChar(), Color.WHITE, Color.BLACK);
-				System.out.println(wordleGrid[currentRow][index].getChar() + " and " + wordleGrid[currentRow][index].getBackgroundColor());
+				System.out.println(wordleGrid[currentRow][index].getChar() + " and "
+						+ wordleGrid[currentRow][index].getBackgroundColor());
 			}
 			for (int column = 0; column < guess.length; column++) {
 				// resets to default colors before adjusting
-				
-				 
-				
-				
+
 				Color backgroundColor = AppColors.GRAY;
 				Color foregroundColor = Color.WHITE;
 				System.out.println(guess[column] + " ========= " + currentWord[column]);
@@ -131,7 +130,7 @@ public class WordleModel extends Model {
 				} else if (contains(currentWord, guess, column)) {
 					backgroundColor = AppColors.YELLOW;
 				}
-				
+
 				wordleGrid[currentRow][column] = new WordleResponse(guess[column], backgroundColor, foregroundColor);
 			}
 
@@ -167,39 +166,45 @@ public class WordleModel extends Model {
 	public WordleResponse onceButton() {
 		int currentPosition = getCurrentColumn() + 1;
 		WordleResponse response = setCurrentColumnAsColor(currentWord[currentPosition], AppColors.GREEN);
+		onceLeft -= 1;
 		return response;
 
 	}
 
 	@Override
 	public WordleResponse twiceButton() {
-		int currentPosition = getCurrentColumn() + 1;
 		char letterInWord = getPossibleYellow();
 		if (letterInWord == '$') {
 			return new WordleResponse('$', null, null);
 		}
 		WordleResponse response = setCurrentColumnAsColor(letterInWord, AppColors.YELLOW);
+		twiceLeft -= 1;
 		return response;
 
 	}
 
+	// finds what letters are on the grid and returns the four other letters of the
+	// currentWord that are not in the currenposition that also have not been seen
+	// on the grid before
 	private char getPossibleYellow() {
 		List<Character> responses = new ArrayList<>();
 		List<Character> guesses = new ArrayList<>();
-			for (int i = 0; i < getMaximumRows(); i++) {
-					for (int j = 0; j < getColumnCount(); j++) {
-						if (wordleGrid[i][j] != null) {
-							WordleResponse response = wordleGrid[i][j];
-							responses.add(response.getChar());
-						
+		for (int i = 0; i < getMaximumRows(); i++) {
+			for (int j = 0; j < getColumnCount(); j++) {
+				if (wordleGrid[i][j] != null) {
+					WordleResponse response = wordleGrid[i][j];
+					if (response.getBackgroundColor() == AppColors.GRAY || response.getBackgroundColor() == AppColors.GREEN || response.getBackgroundColor() == AppColors.YELLOW) {
+						responses.add(response.getChar());
 					}
+
 				}
 			}
+		}
 		int columPosition = getCurrentColumn() + 1;
 		int index = -1;
-		for (char letter: currentWord) {
+		for (char letter : currentWord) {
 			index += 1;
-			if (letter == currentWord[columPosition]) { //skips positionwhere itself is
+			if (letter == currentWord[columPosition]) { // skips positionwhere itself is
 				continue;
 			}
 			guesses.add(letter);
@@ -212,45 +217,33 @@ public class WordleModel extends Model {
 			return '$';
 		}
 		Random random = new Random();
+		thriceLeft -= 1;
 		return guesses.get(random.nextInt(guesses.size()));
 	}
 
 	@Override
-	public WordleResponse thriceButton() {
-		List<Character> possibleLetters = getPossibleGrays();
-		if (possibleLetters.size() == 0) {
-			return new WordleResponse('$', null, null);
+	public char thriceButton(JButton[] buttons) {
+		List<JButton> possibleButtons = new ArrayList<>();
+		String currentWordAsString = "";
+		for (char c : currentWord) {
+			currentWordAsString += c;
 		}
-		Random random = new Random();
-		char letterNotInWord = possibleLetters.get(random.nextInt(possibleLetters.size()));
-		WordleResponse response = new WordleResponse(letterNotInWord, AppColors.GRAY, Color.WHITE);
-		return response;
-	}
-	
-	private List<Character> getPossibleGrays() {
-		List<Character> responses = new ArrayList<>();
-		List<Character> guesses = new ArrayList<>();
-			for (int i = 0; i < getMaximumRows(); i++) {
-					for (int j = 0; j < getColumnCount(); j++) {
-						if (wordleGrid[i][j] != null) {
-							WordleResponse response = wordleGrid[i][j];
-							responses.add(response.getChar());
-						
-					}
-				}
-			}
-			List<Character> alphabet = new ArrayList<>();
-			for (char c = 'A'; c <= 'Z'; c++) {
-	            alphabet.add(c);
-	        }
-			for (char c: guess) {
-	            guesses.add(c);
-	        }
-		for (char letter: alphabet) {
-			if (responses.contains(letter) || (guesses.contains(letter))) {
-				alphabet.remove('A' - letter);
+		for (JButton button1 : buttons) {
+			System.out.println(
+					Character.toString(button1.getActionCommand().charAt(0)) + " is in " + currentWord.toString());
+			if (button1.getBackground() != AppColors.GRAY && button1.getBackground() != AppColors.GREEN
+					&& button1.getBackground() != AppColors.YELLOW) {
+				if (!(button1.getActionCommand().equals("Backspace")) && !(button1.getActionCommand().equals("Enter"))
+						&& !(currentWordAsString.contains(Character.toString(button1.getActionCommand().charAt(0)))))
+					possibleButtons.add(button1);
 			}
 		}
-		return alphabet;
+
+		char buttonToGray = '$';
+		if (possibleButtons.size() != 0) {
+			Random random = new Random();
+			buttonToGray = possibleButtons.get(random.nextInt(possibleButtons.size())).getActionCommand().charAt(0);
+		}
+		return buttonToGray;
 	}
 }

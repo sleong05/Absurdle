@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -47,6 +48,10 @@ public abstract class Model {
 	List<AcceptanceRule> rules = new ArrayList<>();
 
 	Thread statsThread; // background thread for reading stats
+	
+	protected int onceLeft;
+	protected int twiceLeft;
+	protected int thriceLeft;
 
 	public Model() {
 		/*
@@ -56,6 +61,9 @@ public abstract class Model {
 		this.currentRow = 0;
 		this.columnCount = 5;
 		this.maximumRows = 6;
+		this.onceLeft = 1;
+		this.twiceLeft = 2;
+		this.thriceLeft = 3;
 		/*
 		 * starts the readwordsrunnable thread
 		 */
@@ -197,7 +205,7 @@ public abstract class Model {
 	
 	public abstract WordleResponse twiceButton();
 	
-	public abstract WordleResponse thriceButton();
+	public abstract char thriceButton(JButton[] buttons);
 	
 	public abstract boolean setCurrentRow();
 
@@ -368,5 +376,15 @@ public abstract class Model {
 			}
 		}
 		return true;
+	}
+
+	public int getOnceLeft() {
+		return onceLeft;
+	}
+	public int getTwiceLeft() {
+		return twiceLeft;
+	}
+	public int getThriceLeft() {
+		return thriceLeft;
 	}
 }
