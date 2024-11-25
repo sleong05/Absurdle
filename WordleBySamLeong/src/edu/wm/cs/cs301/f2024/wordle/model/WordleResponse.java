@@ -25,7 +25,7 @@ public class WordleResponse {
 		this.colorResponse = new ColorResponse(backgroundColor, foregroundColor);
 	}
 	/*
-	 * get method to obtain the character
+	 * get method to obtain the character 
 	 */
 	public char getChar() {
 		return c;

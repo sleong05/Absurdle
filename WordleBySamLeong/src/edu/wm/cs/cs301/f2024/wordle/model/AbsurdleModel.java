@@ -556,4 +556,25 @@ public class AbsurdleModel extends Model {
 		}
 	}
 
+@Override
+public char onceButton() {
+	return 0;
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public char twiceButton() {
+	return 0;
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public char thriceButton() {
+	return 0;
+	// TODO Auto-generated method stub
+	
+}
+
 }

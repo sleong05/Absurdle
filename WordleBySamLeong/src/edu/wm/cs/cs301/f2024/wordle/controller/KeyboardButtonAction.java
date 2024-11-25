@@ -122,6 +122,18 @@ public class KeyboardButtonAction extends AbstractAction {
 			model.backspace();
 			view.repaintWordleGridPanel();
 			break;
+		case "Once":
+			model.onceButton();
+			view.repaintWordleGridPanel();
+			break;
+		case "Twice":
+			model.twiceButton();
+			view.repaintWordleGridPanel();
+			break;
+		case "Thrice":
+			model.thriceButton();
+			view.repaintWordleGridPanel();
+			break;
 		default:
 			/*
 			 * puts in an inputed character and repaints

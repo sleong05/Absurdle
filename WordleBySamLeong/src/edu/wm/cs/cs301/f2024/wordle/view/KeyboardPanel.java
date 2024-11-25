@@ -37,7 +37,7 @@ public class KeyboardPanel {
 		this.model = model2;
 		this.buttonIndex = 0;
 		this.buttonCount = firstRow().length + secondRow().length
-				+ thirdRow().length;
+				+ thirdRow().length + fourthRow().length;
 		this.buttons = new JButton[buttonCount];
 		this.action = new KeyboardButtonAction(view, model2);
 		this.panel = createMainPanel();
@@ -50,6 +50,7 @@ public class KeyboardPanel {
 		panel.add(createQPanel());
 		panel.add(createAPanel());
 		panel.add(createZPanel());
+		panel.add(createHelpPanel());
 		panel.add(createTotalPanel());
 
 		return panel;
@@ -126,6 +127,31 @@ public class KeyboardPanel {
 
 	private String[] thirdRow() {
 		String[] letters = { "Z", "X", "C", "V", "B", "N", "M" };
+		return letters;
+	}
+	
+	private JPanel createHelpPanel() {
+		JPanel panel = new JPanel(new FlowLayout());
+		panel.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
+		Font textfont = AppFonts.getTextFont();
+
+		String[] letters = fourthRow();
+		Color[] colorsList = {AppColors.GREEN, AppColors.YELLOW, AppColors.GRAY};
+		for (int index = 0; index < letters.length; index++) {
+			JButton button = new JButton(letters[index]);
+			button.setBackground(colorsList[index]);
+			setKeyBinding(button, letters[index]);
+			button.addActionListener(action);
+			button.setFont(textfont);
+			buttons[buttonIndex++] = button;
+			panel.add(button);
+		}
+
+		return panel;
+	}
+	
+	private String[] fourthRow() {
+		String[] letters = { "Once", "Twice", "Thrice" };
 		return letters;
 	}
 

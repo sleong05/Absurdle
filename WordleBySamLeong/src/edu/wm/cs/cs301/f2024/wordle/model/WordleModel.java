@@ -17,6 +17,8 @@ public class WordleModel extends Model {
 	 */
 	private Random random;
 
+	private char[] currentWord;
+	
 	public WordleModel() {
 		super();
 		this.random = new Random();
@@ -147,5 +149,27 @@ public class WordleModel extends Model {
 	 */
 	public char[] getAnswer() {
 		return currentWord;
+	}
+
+	@Override
+	public char onceButton() {
+		int currentPosition = getCurrentColumn() + 1;
+		setCurrentColumnAsColor(currentWord[currentPosition], AppColors.GREEN);
+		return currentWord[currentPosition];
+		
+	}
+
+	@Override
+	public char twiceButton() {
+		return 0;
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public char thriceButton() {
+		return 0;
+		// TODO Auto-generated method stub
+		
 	}
 }
