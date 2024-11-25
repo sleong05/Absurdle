@@ -3,6 +3,11 @@ package edu.wm.cs.cs301.f2024.wordle.model;
 import java.util.logging.Logger;
 import java.util.logging.FileHandler;
 import java.util.logging.SimpleFormatter;
+
+import javax.swing.JButton;
+
+import edu.wm.cs.cs301.f2024.wordle.model.AbsurdleModel.alphabetTree.subTreeNode;
+
 import java.util.logging.Level;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -556,23 +561,97 @@ public class AbsurdleModel extends Model {
 		}
 	}
 
+//searches for the largest tree if a letter were to be accepted and puts that letter in as green and choose that set to be the total set
 @Override
 public WordleResponse onceButton() {
-	return 0;
+	int currentColumn = getCurrentColumn() + 1;
+	HashSet<String> largestSet = null;
+	int largestNodeSize = 0;
+	char characterOfLargestSet = '$';
+    for (char c = 'A'; c <= 'Z'; c++) {
+    	HashSet<String> currentSet = tree.getSubTree(c).getSet(currentColumn);
+    	if (currentSet.size() >= largestNodeSize) {
+    		largestSet = currentSet;
+    		largestNodeSize = currentSet.size();
+    		characterOfLargestSet = c;
+    	}
+    }
+    rebuildTree(largestSet);
+    onceLeft-=1;
+	return setCurrentColumnAsColor(characterOfLargestSet, AppColors.GREEN);
 	// TODO Auto-generated method stub
 	
 }
 
 @Override
 public WordleResponse twiceButton() {
-	return 0;
+	// too see what letters have already been inputted
+	List<Character> responses = new ArrayList<>();
+	for (int i = 0; i < getMaximumRows(); i++) {
+		for (int j = 0; j < getColumnCount(); j++) {
+			if (wordleGrid[i][j] != null) {
+				WordleResponse response = wordleGrid[i][j];
+				if (response.getBackgroundColor() == AppColors.GRAY || response.getBackgroundColor() == AppColors.GREEN || response.getBackgroundColor() == AppColors.YELLOW) {
+					responses.add(response.getChar());
+				}
+
+			}
+		}
+	}
+	
+	int currentColumn = getCurrentColumn() + 1;
+	HashSet<String> largestSet = null;
+	int largestNodeSize = 0;
+	char characterOfLargestSet = '$';
+    for (char c = 'A'; c <= 'Z'; c++) {
+    	HashSet<String> currentPositionSet = tree.getSubTree(c).getSet(currentColumn);
+    	HashSet<String> currentSet = new HashSet<String>(tree.getSubTree(c).getTotal());
+    	currentSet.removeAll(currentPositionSet);
+    	if (currentSet.size() >= largestNodeSize && !(responses.contains(c))) {
+    		largestSet = currentSet;
+    		largestNodeSize = currentSet.size();
+    		characterOfLargestSet = c;
+    	}
+    }
+    rebuildTree(largestSet);
+    twiceLeft-=1;
+	return setCurrentColumnAsColor(characterOfLargestSet, AppColors.YELLOW);
 	// TODO Auto-generated method stub
 	
 }
 
 @Override
-public WordleResponse thriceButton() {
-	return 0;
+public char thriceButton(JButton[] buttons) {
+	List<Character> responses = new ArrayList<>();
+	for (JButton button1 : buttons) {
+		if (button1.getBackground() != AppColors.GRAY && button1.getBackground() != AppColors.GREEN // if its behavior has changes the game
+				&& button1.getBackground() != AppColors.YELLOW) {
+			if (!(button1.getActionCommand().equals("Backspace")) && !(button1.getActionCommand().equals("Enter"))) { // if its not backspace or enter
+				responses.add(button1.getActionCommand().charAt(0));
+			}
+		}
+	}
+	
+	HashSet<String> largestSet = null;
+	int largestNodeSize = 0;
+	char characterOfLargestSet = '$';
+    for (char c = 'A'; c <= 'Z'; c++) {
+    	HashSet<String> currentSet = new HashSet<String>(tree.getPossibleWords()); 
+    	HashSet<String> currentWithLetterSet = tree.getSubTree(c).getTotal();
+    	currentSet.removeAll(currentWithLetterSet);
+    	
+    	if (currentSet.size() >= largestNodeSize && (responses.contains(c))) {
+    		largestSet = currentSet;
+    		largestNodeSize = currentSet.size();
+    		characterOfLargestSet = c;
+    	}
+    }
+    if (largestSet.size() == 0) {
+    	return '$';
+    }
+    rebuildTree(largestSet);
+    thriceLeft-=1;
+	return characterOfLargestSet;
 	// TODO Auto-generated method stub
 	
 }

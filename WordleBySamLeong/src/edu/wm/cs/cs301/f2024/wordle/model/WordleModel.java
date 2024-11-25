@@ -193,7 +193,9 @@ public class WordleModel extends Model {
 			for (int j = 0; j < getColumnCount(); j++) {
 				if (wordleGrid[i][j] != null) {
 					WordleResponse response = wordleGrid[i][j];
-					if (response.getBackgroundColor() == AppColors.GRAY || response.getBackgroundColor() == AppColors.GREEN || response.getBackgroundColor() == AppColors.YELLOW) {
+					if (response.getBackgroundColor() == AppColors.GRAY
+							|| response.getBackgroundColor() == AppColors.GREEN
+							|| response.getBackgroundColor() == AppColors.YELLOW) {
 						responses.add(response.getChar());
 					}
 
@@ -229,13 +231,12 @@ public class WordleModel extends Model {
 			currentWordAsString += c;
 		}
 		for (JButton button1 : buttons) {
-			System.out.println(
-					Character.toString(button1.getActionCommand().charAt(0)) + " is in " + currentWord.toString());
 			if (button1.getBackground() != AppColors.GRAY && button1.getBackground() != AppColors.GREEN
 					&& button1.getBackground() != AppColors.YELLOW) {
 				if (!(button1.getActionCommand().equals("Backspace")) && !(button1.getActionCommand().equals("Enter"))
-						&& !(currentWordAsString.contains(Character.toString(button1.getActionCommand().charAt(0)))))
+						&& !(currentWordAsString.contains(Character.toString(button1.getActionCommand().charAt(0))))) {
 					possibleButtons.add(button1);
+				}
 			}
 		}
 

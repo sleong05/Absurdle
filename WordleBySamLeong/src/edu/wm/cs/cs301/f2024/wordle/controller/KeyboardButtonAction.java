@@ -157,6 +157,7 @@ public class KeyboardButtonAction extends AbstractAction {
 				view.setColor(Character.toString(possibleButton), AppColors.GRAY,
 						Color.WHITE);
 			}
+			
 			break;
 		default:
 			/*
