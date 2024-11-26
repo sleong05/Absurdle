@@ -93,15 +93,15 @@ public class AbsurdleModel extends Model {
 
 		static {
 			try {
-				System.setProperty("java.util.logging.SimpleFormatter.format", "%5$s%n");
+				System.setProperty(AppStrings.JAVA_UTIL_LOGGING_SIMPLE_FORMATTER_FORMAT, "%5$s%n");
 
-				FileHandler fileHandler = new FileHandler("AbsurdleAlgorithm.log", true);
+				FileHandler fileHandler = new FileHandler(AppStrings.ABSURDLE_ALGORITHM_LOG, true);
 				fileHandler.setFormatter(new SimpleFormatter());
 				logger.addHandler(fileHandler);
 
 				logger.setLevel(Level.ALL);
 			} catch (Exception e) {
-				logger.severe("Failed to set up logger: " + e.getMessage());
+				logger.severe(AppStrings.FAILED_TO_SET_UP_LOGGER + e.getMessage());
 			}
 		}
 
@@ -129,9 +129,6 @@ public class AbsurdleModel extends Model {
 			HashSet<String> biggestList = tree.biggestList(); // finds the correct way to accept the answer
 			int[] colorsOfOutput = tree.getColors();
 			Color foregroundColor = AppColors.WHITE;
-			System.out.println("biggestTree = " + biggestList);
-			System.out.println("Colors = " + colorsOfOutput[0] + colorsOfOutput[1] + colorsOfOutput[2]
-					+ colorsOfOutput[3] + colorsOfOutput[4]);
 
 			// for every combination of grey/white/yellow use the data structure holding
 			// hashsets to compare them in the following manner:
@@ -504,19 +501,19 @@ public class AbsurdleModel extends Model {
 								}
 
 								// string for logging
-								String loggingString = "response " + Arrays.toString(guess) + " ";
+								String loggingString = AppStrings.RESPONSE + AppStrings.SPACE+ Arrays.toString(guess) + AppStrings.SPACE;
 								// make emoji colors
 								for (int colorSpot : colorArray) {
 									if (colorSpot == 0) {
-										loggingString += "\u2B1C";
+										loggingString += AppStrings.GRAY_SQUARE;
 									} else if (colorSpot == 1) {
-										loggingString += "\uD83D\uDFE8";
+										loggingString += AppStrings.YELLOW_SQUARE;
 									} else {
-										loggingString += "\uD83D\uDFE9";
+										loggingString += AppStrings.GREEN_SQUARE;
 									}
 
 								}
-								loggingString += " would leave " + spot1Copy.size() + " words: " + spot1Copy;
+								loggingString += AppStrings.SPACE + AppStrings.WOULD_LEAVE + AppStrings.SPACE+ spot1Copy.size() + AppStrings.SPACE + AppStrings.WORDS_ + AppStrings.SPACE + spot1Copy;
 								logger.fine(loggingString);
 								
 								String charArrayGuess = new String(guess);
@@ -541,20 +538,20 @@ public class AbsurdleModel extends Model {
 				}
 			}
 			// logs the largest string
-			String loggingString = "biggestSet comes from ";
+			String loggingString = AppStrings.BIGGEST_SET_COMES_FROM + AppStrings.SPACE;
 
 			// make emoji colors
 			for (int colorSpot : colors) {
 				if (colorSpot == 0) {
-					loggingString += "\u2B1C";
+					loggingString += AppStrings.GRAY_SQUARE;
 				} else if (colorSpot == 1) {
-					loggingString += "\uD83D\uDFE8";
+					loggingString += AppStrings.YELLOW_SQUARE;
 				} else {
-					loggingString += "\uD83D\uDFE9";
+					loggingString += AppStrings.GREEN_SQUARE;
 				}
 
 			}
-			loggingString += " which leaves " + biggestSet.size() + " set: " + biggestSet;
+			loggingString += AppStrings.SPACE + AppStrings.WHICH_LEAVES + AppStrings.SPACE + biggestSet.size() + AppStrings.SPACE + AppStrings.SET_ + AppStrings.SPACE + biggestSet;
 			logger.fine(loggingString);
 			return biggestSet;
 
@@ -626,7 +623,7 @@ public char thriceButton(JButton[] buttons) {
 	for (JButton button1 : buttons) {
 		if (button1.getBackground() != AppColors.GRAY && button1.getBackground() != AppColors.GREEN // if its behavior has changes the game
 				&& button1.getBackground() != AppColors.YELLOW) {
-			if (!(button1.getActionCommand().equals("Backspace")) && !(button1.getActionCommand().equals("Enter"))) { // if its not backspace or enter
+			if (!(button1.getActionCommand().equals(AppStrings.BACKSPACE)) && !(button1.getActionCommand().equals(AppStrings.ENTER))) { // if its not backspace or enter
 				responses.add(button1.getActionCommand().charAt(0));
 			}
 		}

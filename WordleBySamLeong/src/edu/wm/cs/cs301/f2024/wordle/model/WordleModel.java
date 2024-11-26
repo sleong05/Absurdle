@@ -117,15 +117,12 @@ public class WordleModel extends Model {
 			WordleResponse[] row = wordleGrid[currentRow];
 			for (int index = 0; index < getColumnCount(); index++) {
 				wordleGrid[currentRow][index] = new WordleResponse(row[index].getChar(), AppColors.WHITE, AppColors.BLACK);
-				System.out.println(wordleGrid[currentRow][index].getChar() + " and "
-						+ wordleGrid[currentRow][index].getBackgroundColor());
 			}
 			for (int column = 0; column < guess.length; column++) {
 				// resets to default colors before adjusting
 
 				Color backgroundColor = AppColors.GRAY;
 				Color foregroundColor = AppColors.WHITE;
-				System.out.println(guess[column] + " ========= " + currentWord[column]);
 				if (guess[column] == currentWord[column]) {
 					backgroundColor = AppColors.GREEN;
 				} else if (contains(currentWord, guess, column)) {
@@ -211,7 +208,6 @@ public class WordleModel extends Model {
 				continue;
 			}
 			guesses.add(letter);
-			System.out.println(responses + " letter is " + letter);
 			if (responses.contains(letter)) {
 				guesses.removeLast();
 			}
@@ -227,14 +223,14 @@ public class WordleModel extends Model {
 	@Override
 	public char thriceButton(JButton[] buttons) {
 		List<JButton> possibleButtons = new ArrayList<>();
-		String currentWordAsString = "";
+		String currentWordAsString = AppStrings.EMPTY;
 		for (char c : currentWord) {
 			currentWordAsString += c;
 		}
 		for (JButton button1 : buttons) {
 			if (button1.getBackground() != AppColors.GRAY && button1.getBackground() != AppColors.GREEN
 					&& button1.getBackground() != AppColors.YELLOW) {
-				if (!(button1.getActionCommand().equals("Backspace")) && !(button1.getActionCommand().equals("Enter"))
+				if (!(button1.getActionCommand().equals(AppStrings.BACKSPACE)) && !(button1.getActionCommand().equals(AppStrings.ENTER))
 						&& !(currentWordAsString.contains(Character.toString(button1.getActionCommand().charAt(0))))) {
 					possibleButtons.add(button1);
 				}

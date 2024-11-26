@@ -21,6 +21,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 
+import edu.wm.cs.cs301.f2024.wordle.model.AppStrings;
+
 public class AboutDialog extends JDialog {
 	
 	private static final long serialVersionUID = 1L;
@@ -28,7 +30,7 @@ public class AboutDialog extends JDialog {
 	private final CancelAction cancelAction;
 
 	public AboutDialog(WordleFrame view) {
-		super(view.getFrame(), "About", true);
+		super(view.getFrame(), AppStrings.ABOUT___, true);
 		this.cancelAction = new CancelAction();
 		
 		add(createMainPanel(), BorderLayout.CENTER);
@@ -53,16 +55,16 @@ public class AboutDialog extends JDialog {
 		gbc.gridwidth = 2;
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		JLabel label = new JLabel("About Wordle");
+		JLabel label = new JLabel(AppStrings.ABOUT_WORDLE);
 		label.setFont(titleFont);
 		label.setHorizontalAlignment(JLabel.CENTER);
 		Color backgroundColor = label.getBackground();
 		panel.add(label, gbc);
 		
 		gbc.gridy++;
-		String text = "Wordle was created by software engineer "
-				+ "and former Reddit employee, Josh Wardle, and "
-				+ "was launched in October 2021.";
+		String text = AppStrings.WORDLE_WAS_CREATED_BY_SOFTWARE_ENGINEER
+				+ AppStrings.AND_FORMER_REDDIT_EMPLOYEE_JOSH_WARDLE_AND
+				+ AppStrings.WAS_LAUNCHED_IN_OCTOBER_2021;
 		JTextArea textArea = new JTextArea(4, 25);
 		textArea.setBackground(backgroundColor);
 		textArea.setEditable(false);
@@ -74,34 +76,34 @@ public class AboutDialog extends JDialog {
 		
 		gbc.gridwidth = 1;
 		gbc.gridy++;
-		label = new JLabel("Author:");
+		label = new JLabel(AppStrings.AUTHOR_);
 		label.setFont(textFont);
 		panel.add(label, gbc);
 		
 		gbc.gridx++;
-		label = new JLabel("Gilbert G. Le Blanc");
+		label = new JLabel(AppStrings.GILBERT_G_LE_BLANC);
 		label.setFont(textFont);
 		panel.add(label, gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy++;
-		label = new JLabel("Date Created:");
+		label = new JLabel(AppStrings.DATE_CREATED_);
 		label.setFont(textFont);
 		panel.add(label, gbc);
 		
 		gbc.gridx++;
-		label = new JLabel("31 March 2022");
+		label = new JLabel(AppStrings._31_MARCH_2022);
 		label.setFont(textFont);
 		panel.add(label, gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy++;
-		label = new JLabel("Version:");
+		label = new JLabel(AppStrings.VERSION_);
 		label.setFont(textFont);
 		panel.add(label, gbc);
 		
 		gbc.gridx++;
-		label = new JLabel("1.0");
+		label = new JLabel(AppStrings._1_0);
 		label.setFont(textFont);
 		panel.add(label, gbc);
 		
@@ -113,11 +115,11 @@ public class AboutDialog extends JDialog {
 		panel.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 		
 		InputMap inputMap = panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
-		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "cancelAction");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), AppStrings.CANCEL_ACTION);
 		ActionMap actionMap = panel.getActionMap();
-		actionMap.put("cancelAction", cancelAction);
+		actionMap.put(AppStrings.CANCEL_ACTION, cancelAction);
 		
-		JButton button = new JButton("Cancel");
+		JButton button = new JButton(AppStrings.CANCEL);
 		button.addActionListener(cancelAction);
 		panel.add(button);
 		

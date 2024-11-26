@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import edu.wm.cs.cs301.f2024.wordle.model.AbsurdleModel;
+import edu.wm.cs.cs301.f2024.wordle.model.AppStrings;
 import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
@@ -43,7 +44,7 @@ public class WordleFrame {
 	}
 	
 	private JFrame createAndShowGUI() {
-		JFrame frame =  new JFrame("Wordle"); 
+		JFrame frame =  new JFrame(AppStrings.WORDLE); 
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setJMenuBar(createMenuBar());
 		frame.setResizable(false);
@@ -62,7 +63,7 @@ public class WordleFrame {
 		frame.setLocationByPlatform(true);
 		frame.setVisible(true);
 		
-		System.out.println("Frame size: " + frame.getSize());
+		System.out.println(AppStrings.FRAME_SIZE + frame.getSize());
 		
 		return frame;
 	}
@@ -70,18 +71,18 @@ public class WordleFrame {
 	private JMenuBar createMenuBar() {
 		JMenuBar menuBar = new JMenuBar();
 		
-		JMenu helpMenu = new JMenu("Help");
+		JMenu helpMenu = new JMenu(AppStrings.HELP);
 		menuBar.add(helpMenu);
 		
-		JMenuItem instructionsItem = new JMenuItem("Instructions...");
+		JMenuItem instructionsItem = new JMenuItem(AppStrings.INSTRUCTIONS___);
 		instructionsItem.addActionListener(event -> new InstructionsDialog(this));
 		helpMenu.add(instructionsItem);
 		
-		JMenuItem aboutItem = new JMenuItem("About...");
+		JMenuItem aboutItem = new JMenuItem(AppStrings.ABOUT___);
 		aboutItem.addActionListener(event -> new AboutDialog(this));
 		helpMenu.add(aboutItem);
 		
-		JMenuItem settingsItem = new JMenuItem("Settings...");
+		JMenuItem settingsItem = new JMenuItem(AppStrings.SETTINGS___);
 		settingsItem.addActionListener(event -> new SettingsDialog(this));
 		helpMenu.add(settingsItem);
 		
@@ -93,13 +94,13 @@ public class WordleFrame {
 		panel.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 		
 		InputMap inputMap = panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
-		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "cancelAction");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), AppStrings.CANCEL_ACTION);
 		ActionMap actionMap = panel.getActionMap();
-		actionMap.put("cancelAction", new CancelAction());
+		actionMap.put(AppStrings.CANCEL_ACTION, new CancelAction());
 		
-		JLabel label = new JLabel("Wordle");
+		JLabel label = new JLabel(AppStrings.WORDLE);
 		if (model instanceof AbsurdleModel) {
-			label.setText("Absurdle"); 
+			label.setText(AppStrings.ABSURDLE); 
 			}
 		label.setFont(AppFonts.getTitleFont());
 		panel.add(label);

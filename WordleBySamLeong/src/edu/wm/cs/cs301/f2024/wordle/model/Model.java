@@ -301,16 +301,16 @@ public abstract class Model {
 	 * checks if the current guess is a viable 5 letter word
 	 */
 	public void showInvalidWordDialogue() {
-		String currentInput = "";
+		String currentInput = AppStrings.EMPTY;
 		for (char letter: guess) {
 			currentInput += letter;
 		}
 		/*
 		 * warns that it is not a valid word with a popup for 1 second
 		 */
-		JOptionPane optionPane = new JOptionPane("The word '" + currentInput + "' is not a valid word",
+		JOptionPane optionPane = new JOptionPane(AppStrings.THE_WORD_ + currentInput + AppStrings._IS_NOT_A_VALID_WORD,
 				JOptionPane.WARNING_MESSAGE);
-		JDialog dialog = optionPane.createDialog("Invalid Word");
+		JDialog dialog = optionPane.createDialog(AppStrings.INVALID_WORD);
 
 		Timer timer = new Timer(1000, new ActionListener() {
 			@Override
@@ -371,7 +371,6 @@ public abstract class Model {
 				for (int i = 0; i < spotsToDelete; i++) {
 					backspace();
 				}
-				System.out.println("Deleting...");
 				return false;
 			}
 		}

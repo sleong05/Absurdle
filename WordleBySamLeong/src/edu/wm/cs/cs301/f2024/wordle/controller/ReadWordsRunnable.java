@@ -10,6 +10,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.wm.cs.cs301.f2024.wordle.model.AppStrings;
 import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
@@ -35,7 +36,7 @@ public class ReadWordsRunnable implements Runnable {
 		LOGGER.setLevel(Level.INFO);
 
 		try {
-			FileHandler fileTxt = new FileHandler("./logging.txt");
+			FileHandler fileTxt = new FileHandler(AppStrings.LOGGING_TXT);
 			LOGGER.addHandler(fileTxt);
 		} catch (SecurityException e) {
 			e.printStackTrace();
@@ -64,7 +65,7 @@ public class ReadWordsRunnable implements Runnable {
 			 * recieves words that fit the size of the game from  usa.txt and logs it
 			 */
 			wordlist = createWordList();
-			LOGGER.info("Created word list of " + wordlist.size() + " words.");
+			LOGGER.info(AppStrings.CREATED_WORD_LIST_OF + wordlist.size() + AppStrings._WORDS);
 		} catch (IOException e) {
 			LOGGER.info(e.getMessage());
 			e.printStackTrace();
@@ -84,7 +85,7 @@ public class ReadWordsRunnable implements Runnable {
 	 * @return returns a stream version of usa.txt
 	 */
 	private InputStream deliverInputStream() {
-		String text = "/resources/usa.txt";
+		String text = AppStrings.USA_TXT_PATH;
 		// Original code
 		/*
 		ClassLoader loader = this.getClass().getClassLoader();
@@ -95,11 +96,11 @@ public class ReadWordsRunnable implements Runnable {
 		InputStream stream = Wordle.class.getResourceAsStream(text);
 		
 		if (null == stream) {
-			System.out.println("Failed to open stream with " + text);
+			System.out.println(AppStrings.FAILED_TO_OPEN_STREAM_WITH + text);
 			System.exit(0);
 		}
 		else 
-			System.out.println("Successfully opened inputstream for " + text);
+			System.out.println(AppStrings.SUCCESSFULLY_OPENED_INPUTSTREAM_FOR + text);
 		
 		return stream;
 	}

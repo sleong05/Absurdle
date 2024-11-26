@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import edu.wm.cs.cs301.f2024.wordle.model.AppStrings;
 import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
@@ -36,7 +37,7 @@ public class StatisticsDialog extends JDialog {
 	private final Model model;
 
 	public StatisticsDialog(WordleFrame view, Model model2) {
-		super(view.getFrame(), "Statistics", true);
+		super(view.getFrame(), AppStrings.STATISTICS, true);
 		this.view = view;
 		this.model = model2;
 		this.exitAction = new ExitAction();
@@ -74,7 +75,7 @@ public class StatisticsDialog extends JDialog {
 		JPanel panel = new JPanel(new FlowLayout());
 		panel.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 		
-		JLabel label = new JLabel("Statistics");
+		JLabel label = new JLabel(AppStrings.STATISTICS);
 		label.setFont(AppFonts.getTitleFont());
 		panel.add(label);
 		
@@ -95,7 +96,7 @@ public class StatisticsDialog extends JDialog {
 		JPanel panel = new JPanel(new FlowLayout());
 		panel.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 		
-		JLabel label = new JLabel("Guess Distribution");
+		JLabel label = new JLabel(AppStrings.GUESS_DISTRIBUTION);
 		label.setFont(AppFonts.getTitleFont());
 		panel.add(label);
 		
@@ -112,10 +113,10 @@ public class StatisticsDialog extends JDialog {
 		List<Integer> wordsGuessed = model.getStatistics().getWordsGuessed();
 		int percent = (wordsGuessed.size() * 1000 + 5) / (totalGamesPlayed * 10);
 		
-		panel.add(createStatisticsPanel(totalGamesPlayed, "Played", ""));
-		panel.add(createStatisticsPanel(percent, "Win %", ""));
-		panel.add(createStatisticsPanel(currentStreak, "Current", "Streak"));
-		panel.add(createStatisticsPanel(longestStreak, "Longest", "Streak"));
+		panel.add(createStatisticsPanel(totalGamesPlayed, AppStrings.PLAYED, AppStrings.EMPTY));
+		panel.add(createStatisticsPanel(percent, AppStrings.WIN, AppStrings.EMPTY));
+		panel.add(createStatisticsPanel(currentStreak, AppStrings.CURRENT, AppStrings.STREAK));
+		panel.add(createStatisticsPanel(longestStreak, AppStrings.LONGEST, AppStrings.STREAK));
 		
 		return panel;
 	}
@@ -149,17 +150,17 @@ public class StatisticsDialog extends JDialog {
 		panel.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 		
 		InputMap inputMap = panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
-		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "exitAction");
-		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "nextAction");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), AppStrings.EXIT_ACTION);
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), AppStrings.NEXT_ACTION);
 		ActionMap actionMap = panel.getActionMap();
-		actionMap.put("nextAction", nextAction);
-		actionMap.put("exitAction", exitAction);
+		actionMap.put(AppStrings.NEXT_ACTION, nextAction);
+		actionMap.put(AppStrings.EXIT_ACTION, exitAction);
 		
-		JButton nextButton = new JButton("Next Word");
+		JButton nextButton = new JButton(AppStrings.NEXT_WORD);
 		nextButton.addActionListener(nextAction);
 		panel.add(nextButton);
 		
-		JButton exitButton = new JButton("Exit Wordle");
+		JButton exitButton = new JButton(AppStrings.EXIT_WORDLE);
 		exitButton.addActionListener(exitAction);
 		panel.add(exitButton);
 		

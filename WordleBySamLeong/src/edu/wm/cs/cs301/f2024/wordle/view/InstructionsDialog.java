@@ -19,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 
+import edu.wm.cs.cs301.f2024.wordle.model.AppStrings;
+
 public class InstructionsDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
@@ -28,7 +30,7 @@ public class InstructionsDialog extends JDialog {
 	private JEditorPane editorPane;
 	
 	public InstructionsDialog(WordleFrame view) {
-		super(view.getFrame(), "Instructions", true);
+		super(view.getFrame(), AppStrings.INSTRUCTIONS___, true);
 		this.cancelAction = new CancelAction();
 		
 		add(createMainPanel(), BorderLayout.CENTER);
@@ -43,11 +45,11 @@ public class InstructionsDialog extends JDialog {
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 		
-		URL url = InstructionsDialog.class.getResource("/resources/instructions.htm");
+		URL url = InstructionsDialog.class.getResource(AppStrings.RESOURCES_INSTRUCTIONS_HTM);
 		
 		editorPane = new JEditorPane();
 		editorPane.setEditable(false);
-		editorPane.setContentType("text/html");
+		editorPane.setContentType(AppStrings.TEXT_HTML);
 		try {
 			editorPane.setPage(url);
 		} catch (IOException e) {
@@ -66,11 +68,11 @@ public class InstructionsDialog extends JDialog {
 		panel.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 		
 		InputMap inputMap = panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
-		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "cancelAction");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), AppStrings.CANCEL_ACTION);
 		ActionMap actionMap = panel.getActionMap();
-		actionMap.put("cancelAction", cancelAction);
+		actionMap.put(AppStrings.CANCEL_ACTION, cancelAction);
 		
-		JButton button = new JButton("Cancel");
+		JButton button = new JButton(AppStrings.CANCEL);
 		button.addActionListener(cancelAction);
 		panel.add(button);
 		

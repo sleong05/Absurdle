@@ -16,6 +16,7 @@ import javax.swing.KeyStroke;
 
 import edu.wm.cs.cs301.f2024.wordle.controller.KeyboardButtonAction;
 import edu.wm.cs.cs301.f2024.wordle.model.AppColors;
+import edu.wm.cs.cs301.f2024.wordle.model.AppStrings;
 import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
@@ -76,8 +77,8 @@ public class KeyboardPanel {
 	}
 
 	private String[] firstRow() {
-		String[] letters = { "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
-				"Backspace" };
+		String[] letters = { AppStrings.Q, AppStrings.W, AppStrings.E, AppStrings.R, AppStrings.T, AppStrings.Y, AppStrings.U, AppStrings.I, AppStrings.O, AppStrings.P,
+				AppStrings.BACKSPACE };
 		return letters;
 	}
 
@@ -101,8 +102,8 @@ public class KeyboardPanel {
 	}
 
 	private String[] secondRow() {
-		String[] letters = { "A", "S", "D", "F", "G", "H", "J", "K", "L",
-				"Enter" };
+		String[] letters = { AppStrings.A, AppStrings.S, AppStrings.D, AppStrings.F, AppStrings.G, AppStrings.H, AppStrings.J, AppStrings.K, AppStrings.L,
+				AppStrings.ENTER };
 		return letters;
 	}
 
@@ -126,7 +127,7 @@ public class KeyboardPanel {
 	}
 
 	private String[] thirdRow() {
-		String[] letters = { "Z", "X", "C", "V", "B", "N", "M" };
+		String[] letters = { AppStrings.Z, AppStrings.X, AppStrings.C, AppStrings.V, AppStrings.B, AppStrings.N, AppStrings.M };
 		return letters;
 	}
 	
@@ -151,20 +152,20 @@ public class KeyboardPanel {
 	}
 	
 	private String[] fourthRow() {
-		String[] letters = { "Once", "Twice", "Thrice" };
+		String[] letters = { AppStrings.ONCE, AppStrings.TWICE, AppStrings.THRICE };
 		return letters;
 	}
 
 	private void setKeyBinding(JButton button, String text) {
 		InputMap inputMap = button.getInputMap(JButton.WHEN_IN_FOCUSED_WINDOW);
-		if (text.equalsIgnoreCase("Backspace")) {
+		if (text.equalsIgnoreCase(AppStrings.BACKSPACE)) {
 			inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_BACK_SPACE, 0),
-					"action");
+					AppStrings.ACTION2);
 		} else {
-			inputMap.put(KeyStroke.getKeyStroke(text.toUpperCase()), "action");
+			inputMap.put(KeyStroke.getKeyStroke(text.toUpperCase()), AppStrings.ACTION2);
 		}
 		ActionMap actionMap = button.getActionMap();
-		actionMap.put("action", action);
+		actionMap.put(AppStrings.ACTION2, action);
 	}
 
 	private JPanel createTotalPanel() {
@@ -173,7 +174,7 @@ public class KeyboardPanel {
 		Font footerFont = AppFonts.getFooterFont();
 
 		String text = String.format("%,d", model.getTotalWordCount());
-		text += " possible " + model.getColumnCount() + "-letter words!";
+		text += AppStrings.POSSIBLE + model.getColumnCount() + AppStrings.LETTER_WORDS;
 		Totallabel = new JLabel(text);
 		Totallabel.setFont(footerFont);
 		panel.add(Totallabel);
@@ -200,7 +201,7 @@ public class KeyboardPanel {
 			}
 			button.setOpaque(true);
 			String text = String.format("%,d", model.getTotalWordCount());
-			text += " possible " + model.getColumnCount() + "-letter words!";
+			text += AppStrings.POSSIBLE + model.getColumnCount() + AppStrings.LETTER_WORDS;
 			Totallabel.setText(text);
 		}
 	}

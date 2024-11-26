@@ -13,7 +13,7 @@ public class RuleLegitimateWordsOnly extends RuleBasic implements AcceptanceRule
 		
 		List<String> wordList = model.getWordList();
 		char[] guess = model.getCurrentGuess();
-		String guessAsString = "";
+		String guessAsString = AppStrings.EMPTY;
 		for (char letter: guess) {
 			guessAsString += letter;
 		}

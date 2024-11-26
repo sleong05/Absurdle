@@ -10,6 +10,7 @@ import javax.swing.AbstractAction;
 import javax.swing.JButton;
 
 import edu.wm.cs.cs301.f2024.wordle.model.AppColors;
+import edu.wm.cs.cs301.f2024.wordle.model.AppStrings;
 import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleResponse;
@@ -117,18 +118,18 @@ public class KeyboardButtonAction extends AbstractAction {
 		 */
 		switch (text) {
 
-		case "Enter":
+		case AppStrings.ENTER:
 
 			enterCase();
 			break;
-		case "Backspace":
+		case AppStrings.BACKSPACE:
 			/*
 			 * deletes previous character and repaints
 			 */
 			model.backspace();
 			view.repaintWordleGridPanel();
 			break;
-		case "Once":
+		case AppStrings.ONCE:
 			if (model.getCurrentRowNumber() + 1 != 0 && model.getOnceLeft() > 0) {
 				WordleResponse wordleResponse = model.onceButton();
 				view.repaintWordleGridPanel();
@@ -136,7 +137,7 @@ public class KeyboardButtonAction extends AbstractAction {
 						wordleResponse.getForegroundColor());
 			}
 			break;
-		case "Twice":
+		case AppStrings.TWICE:
 
 			if (model.getCurrentRowNumber() + 1 != 0 && model.getTwiceLeft() > 0) {
 				WordleResponse wordleResponse1 = model.twiceButton();
@@ -150,7 +151,7 @@ public class KeyboardButtonAction extends AbstractAction {
 			}
 			break;
 
-		case "Thrice":
+		case AppStrings.THRICE:
 			JButton[] buttons = view.getKeyboardPanel().getButtons();
 			char possibleButton = model.thriceButton(buttons);
 			if (possibleButton != '$' && model.getThriceLeft() > 0 && model.getCurrentRowNumber() + 1 != 0) {

@@ -35,7 +35,7 @@ public class Statistics implements Runnable{
 		logger.setLevel(Level.INFO);
 
 		try {
-			FileHandler fileTxt = new FileHandler("./statsLogger.txt");
+			FileHandler fileTxt = new FileHandler(AppStrings.STATS_LOGGER_TXT);
 			logger.addHandler(fileTxt);
 		} catch (SecurityException e) {
 			e.printStackTrace();
@@ -49,15 +49,15 @@ public class Statistics implements Runnable{
 		/*
 		 * gets the system file seperator for the system (allows compatibility for diffirent systems)
 		 */
-		String fileSeparator = System.getProperty("file.separator");
+		String fileSeparator = System.getProperty(AppStrings.FILE_SEPARATOR);
 		/*
 		 * sets the path for the wordle file and creates a Wordle folder in the home directory
 		 */
-		this.path = System.getProperty("user.home") + fileSeparator + "Wordle";
+		this.path = System.getProperty(AppStrings.USER_HOME) + fileSeparator + AppStrings.WORDLE;
 		/*
 		 * creates log file and stores its location in the Wordle directory
 		 */
-		this.log = fileSeparator + "statistics.log";
+		this.log = fileSeparator + AppStrings.STATISTICS_LOG;
 		/*
 		 * reads info from past games from the log file
 		 */
@@ -70,7 +70,7 @@ public class Statistics implements Runnable{
 
 	private void readStatistics() {
 		try {
-			logger.info("started loading data");
+			logger.info(AppStrings.STARTED_LOADING_DATA);
 			BufferedReader br = new BufferedReader(new FileReader(path + log));
 			
 			this.currentStreak = Integer.valueOf(br.readLine().trim());
@@ -88,13 +88,13 @@ public class Statistics implements Runnable{
 				wordsGuessed.add(wordsAtSpot);
 			}
 			br.close();
-			logger.info("Data succesfully loaded. wordsGuessed: " + wordsGuessed + ", " + "Total Games Played: " + this.totalGamesPlayed + ", " + "Longest Streak: " + this.longestStreak + ", " + "Current Streak: " + this.currentStreak);
+			logger.info(AppStrings.DATA_SUCCESFULLY_LOADED_WORDS_GUESSED + wordsGuessed + AppStrings.COMMA_SPACE + AppStrings.TOTAL_GAMES_PLAYED_ + this.totalGamesPlayed + AppStrings.COMMA_SPACE + AppStrings.LONGEST_STREAK_ + this.longestStreak + AppStrings.COMMA_SPACE + AppStrings.CURRENT_STREAK_ + this.currentStreak);
 		} catch (FileNotFoundException e) {
 			this.currentStreak = 0;
 			this.longestStreak = 0;
 			this.totalGamesPlayed = 0;
 		} catch (IOException e) {
-			logger.severe("failed to load data");
+			logger.severe(AppStrings.FAILED_TO_LOAD_DATA);
 			e.printStackTrace();
 		}
 	}

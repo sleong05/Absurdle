@@ -4,7 +4,6 @@ public class RuleBasic implements AcceptanceRule{
 
 	@Override
 	public boolean isAcceptableGuess(Model model) {
-		//System.out.println(model.getCurrentColumn() + " >= " + (model.getColumnCount() -1));
 		if ((model.getCurrentColumn() == (model.getColumnCount() -1))) {
 			return true;
 		}
@@ -12,3 +11,4 @@ public class RuleBasic implements AcceptanceRule{
 	}
 
 }
+
