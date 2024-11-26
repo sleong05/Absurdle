@@ -34,7 +34,6 @@ public class WordleModel extends Model {
 		try {
 			wordsThread.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.currentWord = word.toUpperCase().toCharArray();
@@ -90,7 +89,6 @@ public class WordleModel extends Model {
 		try {
 			wordsThread.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return wordList.size();

@@ -115,6 +115,7 @@ class TestWordleModel {
 		testModel.setCurrentColumn('A');
 		testModel.setCurrentColumn('I');
 		testModel.setCurrentColumn('R');
+		
 		testModel.setCurrentRow();
 		/*
 		 * checks if all gray

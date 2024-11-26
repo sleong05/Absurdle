@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 import edu.wm.cs.cs301.f2024.wordle.controller.ReadWordsRunnable;
+import edu.wm.cs.cs301.f2024.wordle.view.WordleFrame;
 
 public abstract class Model {
 	protected char[] guess;
@@ -183,7 +184,7 @@ public abstract class Model {
 		return wordleGrid[getCurrentRowNumber()];
 	}
 
-	public Thread getStatsThread() {
+	private Thread getStatsThread() {
 		return statsThread;
 	}
 
@@ -333,7 +334,6 @@ public abstract class Model {
 		try {
 			statsThread.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		statistics.incrementTotalGamesPlayed();
@@ -385,5 +385,35 @@ public abstract class Model {
 	}
 	public int getThriceLeft() {
 		return thriceLeft;
+	}
+	
+	public int getTotalGamesWon() {
+	    return statistics.getTotalGamesWon(); 
+	}
+	
+	public int getLastWin() {
+	    return statistics.getLastWin(); 
+	}
+	
+	public int[] calculateArrayOfWins(int maximumTries) {
+	    return statistics.calculateArrayOfWins(maximumTries); 
+	}
+
+	public int getTotalGamesPlayed() {
+		return statistics.getTotalGamesPlayed();
+	}
+
+	public int getLongestStreak() {
+		return statistics.getLongestStreak();
+	}
+
+	public void saveDataToFile() {
+		try {
+			getStatsThread().join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+		statistics.writeStatistics();
 	}
 }

@@ -107,11 +107,11 @@ public class StatisticsDialog extends JDialog {
 		JPanel panel = new JPanel(new GridLayout(0, 4));
 		panel.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 		
-		int totalGamesPlayed = model.getStatistics().getTotalGamesPlayed();
-		int currentStreak = model.getStatistics().getCurrentStreak();
-		int longestStreak = model.getStatistics().getLongestStreak();
-		List<Integer> wordsGuessed = model.getStatistics().getWordsGuessed();
-		int percent = (wordsGuessed.size() * 1000 + 5) / (totalGamesPlayed * 10);
+		int totalGamesPlayed = model.getTotalGamesPlayed();
+		int currentStreak = model.getCurrentStreak();
+		int longestStreak = model.getLongestStreak();
+		int totalGamesWon = model.getTotalGamesWon();
+		int percent = (totalGamesWon * 1000 + 5) / (totalGamesPlayed * 10);
 		
 		panel.add(createStatisticsPanel(totalGamesPlayed, AppStrings.PLAYED, AppStrings.EMPTY));
 		panel.add(createStatisticsPanel(percent, AppStrings.WIN, AppStrings.EMPTY));
@@ -198,5 +198,7 @@ public class StatisticsDialog extends JDialog {
 		}
 		
 	}
+	
+	
 
 }

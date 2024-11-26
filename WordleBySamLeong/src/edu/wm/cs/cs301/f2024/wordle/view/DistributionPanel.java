@@ -1,6 +1,5 @@
 package edu.wm.cs.cs301.f2024.wordle.view;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -12,9 +11,10 @@ import javax.swing.JPanel;
 
 import edu.wm.cs.cs301.f2024.wordle.model.AppColors;
 import edu.wm.cs.cs301.f2024.wordle.model.Model;
-import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
 public class DistributionPanel extends JPanel {
+
+	private static final int MAX_GUESS = 6;
 
 	private static final long serialVersionUID = 1L;
 	
@@ -33,11 +33,8 @@ public class DistributionPanel extends JPanel {
 	
 	private void calculatePercentages() {
 		this.counts = new int[model.getMaximumRows()];
-		
-		for (int value : model.getStatistics().getWordsGuessed()) {
-			counts[value]++;
-			lastValue = value;
-		}
+		counts = model.calculateArrayOfWins(MAX_GUESS);
+		lastValue = model.getLastWin();
 		
 		int maxCount = 0;
 		for (int index = 0; index < model.getMaximumRows(); index++) {
@@ -78,7 +75,7 @@ public class DistributionPanel extends JPanel {
 			g2d.drawString(text, x, y + 2);
 
 			if (index == lastValue
-					&& model.getStatistics().getCurrentStreak() > 0) {
+					&& model.getCurrentStreak() > 0) {
 				g2d.setColor(AppColors.GREEN);
 			} else {
 				g2d.setColor(AppColors.GRAY);

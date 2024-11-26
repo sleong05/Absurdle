@@ -114,4 +114,5 @@ public class AppStrings {
 	public static final String _WORDS = " words.";
 	public static final String CREATED_WORD_LIST_OF = "Created word list of ";
 	public static final String LOGGING_TXT = "./logging.txt";
+	static final String NO_GAMES_HAVE_BEEN_WON_YET = "No games have been won yet.";
 }

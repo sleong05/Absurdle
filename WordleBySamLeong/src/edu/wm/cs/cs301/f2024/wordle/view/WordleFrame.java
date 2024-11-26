@@ -109,13 +109,7 @@ public class WordleFrame {
 	}
 	
 	public void shutdown() {
-		try {
-			model.getStatsThread().join();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		};
-		model.getStatistics().writeStatistics();
+		model.saveDataToFile();
 		frame.dispose();
 		System.exit(0);
 	}

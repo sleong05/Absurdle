@@ -185,5 +185,26 @@ public class Statistics implements Runnable{
 	public void addWordsGuessed(int wordCount) {
 		this.wordsGuessed.add(wordCount);
 	}
+	
+	public int getTotalGamesWon() {
+	    return wordsGuessed.size(); 
+	}
+	
+	public int getLastWin() {
+	    if (wordsGuessed.isEmpty()) {
+	        throw new IllegalStateException(AppStrings.NO_GAMES_HAVE_BEEN_WON_YET);
+	    }
+	    return wordsGuessed.get(wordsGuessed.size() - 1);
+	}
+	
+	public int[] calculateArrayOfWins(int maximumTries) {
+	    int[] winCounts = new int[maximumTries];
+	    for (int guesses : wordsGuessed) {
+	        if (guesses <= maximumTries) {
+	            winCounts[guesses]++;
+	        }
+	    }
+	    return winCounts;
+	}
 
 }
