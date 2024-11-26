@@ -143,7 +143,7 @@ public abstract class Model {
 		 * adjusts grid and the guess char[]
 		 */
 		guess[currentColumn] = c;
-		wordleGrid[currentRow][currentColumn] = new WordleResponse(c, Color.WHITE, Color.BLACK);
+		wordleGrid[currentRow][currentColumn] = new WordleResponse(c, AppColors.WHITE, AppColors.BLACK);
 	}
 	
 	protected WordleResponse setCurrentColumnAsColor(char c, Color backgroundColor) {
@@ -156,7 +156,7 @@ public abstract class Model {
 		 * adjusts grid and the guess char[]
 		 */
 		guess[currentColumn] = c;
-		WordleResponse response = new WordleResponse(c, backgroundColor, Color.WHITE);
+		WordleResponse response = new WordleResponse(c, backgroundColor, AppColors.WHITE);
 		wordleGrid[currentRow][currentColumn] = response;
 		return response;
 	}

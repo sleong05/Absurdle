@@ -34,7 +34,7 @@ public class Wordle implements Runnable {
 			case "-h":
                 hardMode = true;
                 break;
-            case "-wo":
+            case "-wh":
                 wordsOnly = true;
                 break;
             default:

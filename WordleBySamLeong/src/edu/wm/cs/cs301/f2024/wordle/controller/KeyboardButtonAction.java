@@ -155,7 +155,7 @@ public class KeyboardButtonAction extends AbstractAction {
 			char possibleButton = model.thriceButton(buttons);
 			if (possibleButton != '$' && model.getThriceLeft() > 0 && model.getCurrentRowNumber() + 1 != 0) {
 				view.setColor(Character.toString(possibleButton), AppColors.GRAY,
-						Color.WHITE);
+						AppColors.WHITE);
 			}
 			
 			break;

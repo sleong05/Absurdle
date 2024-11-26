@@ -14,6 +14,7 @@ import javax.swing.JDialog;
 import edu.wm.cs.cs301.f2024.wordle.controller.ReadWordsRunnable;
 
 public class WordleModel extends Model {
+
 	/*
 	 * a random value for selecting a random word
 	 */
@@ -115,7 +116,7 @@ public class WordleModel extends Model {
 		if (checkAcceptanceRules()) {
 			WordleResponse[] row = wordleGrid[currentRow];
 			for (int index = 0; index < getColumnCount(); index++) {
-				wordleGrid[currentRow][index] = new WordleResponse(row[index].getChar(), Color.WHITE, Color.BLACK);
+				wordleGrid[currentRow][index] = new WordleResponse(row[index].getChar(), AppColors.WHITE, AppColors.BLACK);
 				System.out.println(wordleGrid[currentRow][index].getChar() + " and "
 						+ wordleGrid[currentRow][index].getBackgroundColor());
 			}
@@ -123,7 +124,7 @@ public class WordleModel extends Model {
 				// resets to default colors before adjusting
 
 				Color backgroundColor = AppColors.GRAY;
-				Color foregroundColor = Color.WHITE;
+				Color foregroundColor = AppColors.WHITE;
 				System.out.println(guess[column] + " ========= " + currentWord[column]);
 				if (guess[column] == currentWord[column]) {
 					backgroundColor = AppColors.GREEN;

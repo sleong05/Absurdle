@@ -128,7 +128,7 @@ public class AbsurdleModel extends Model {
 		if (checkAcceptanceRules()) {
 			HashSet<String> biggestList = tree.biggestList(); // finds the correct way to accept the answer
 			int[] colorsOfOutput = tree.getColors();
-			Color foregroundColor = Color.WHITE;
+			Color foregroundColor = AppColors.WHITE;
 			System.out.println("biggestTree = " + biggestList);
 			System.out.println("Colors = " + colorsOfOutput[0] + colorsOfOutput[1] + colorsOfOutput[2]
 					+ colorsOfOutput[3] + colorsOfOutput[4]);

@@ -20,5 +20,8 @@ public class AppColors {
 	 * The RGB color value for the border of boxes
 	 */
 	public static Color OUTLINE = new Color(211, 214, 218);
+	
+	public static final Color WHITE = Color.WHITE;
+	public static final Color BLACK = Color.BLACK;
 
 }
