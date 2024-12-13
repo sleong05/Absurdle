@@ -1,17 +1,10 @@
 package edu.wm.cs.cs301.f2024.wordle.model;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import javax.swing.Timer;
-import javax.swing.JOptionPane;
 import javax.swing.JButton;
-import javax.swing.JDialog;
-
-import edu.wm.cs.cs301.f2024.wordle.controller.ReadWordsRunnable;
 
 public class WordleModel extends Model {
 
@@ -73,6 +66,7 @@ public class WordleModel extends Model {
 
 	private int getRandomIndex() {
 		int size = wordList.size();
+		random = new Random();
 		return random.nextInt(size);
 	}
 
@@ -118,7 +112,8 @@ public class WordleModel extends Model {
 			}
 			for (int column = 0; column < guess.length; column++) {
 				// resets to default colors before adjusting
-
+				System.out.println();
+				System.out.print(currentWord[column]);
 				Color backgroundColor = AppColors.GRAY;
 				Color foregroundColor = AppColors.WHITE;
 				if (guess[column] == currentWord[column]) {
@@ -133,12 +128,16 @@ public class WordleModel extends Model {
 			currentColumn = -1;
 			currentRow++;
 			guess = new char[columnCount];
-
+			
 			return currentRow < maximumRows;
 		}
 		return currentRow < maximumRows;
 	}
 
+	public void overideWordList(List<String> wordList) {
+		this.wordList = wordList;
+		generateCurrentWord();
+	}
 	/*
 	 * for testing
 	 */
@@ -214,7 +213,6 @@ public class WordleModel extends Model {
 			return '$';
 		}
 		Random random = new Random();
-		thriceLeft -= 1;
 		return guesses.get(random.nextInt(guesses.size()));
 	}
 
@@ -240,6 +238,7 @@ public class WordleModel extends Model {
 			Random random = new Random();
 			buttonToGray = possibleButtons.get(random.nextInt(possibleButtons.size())).getActionCommand().charAt(0);
 		}
+		thriceLeft-=1;
 		return buttonToGray;
 	}
 }

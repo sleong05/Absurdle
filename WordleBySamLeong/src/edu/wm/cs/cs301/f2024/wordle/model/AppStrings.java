@@ -1,7 +1,7 @@
 package edu.wm.cs.cs301.f2024.wordle.model;
 
 public class AppStrings {
-
+	public static final String MIXED_GAME_MODE = "mixed";
 	public static final String CANCEL_ACTION = "cancelAction";
 	public static final String WORDLE = "Wordle";
 	public static final String ABSURDLE = "Absurdle";

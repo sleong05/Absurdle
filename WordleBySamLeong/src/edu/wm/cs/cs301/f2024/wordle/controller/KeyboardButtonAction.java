@@ -52,9 +52,10 @@ public class KeyboardButtonAction extends AbstractAction {
 		/*
 		 * gets the current row and stores it in an array of WordleResponses
 		 */
+		if (model.getCurrentRowNumber() >= 0) {
 		WordleResponse[] currentRow = model.getCurrentRow();
 		int greenCount = 0;
-
+		
 		for (WordleResponse wordleResponse : currentRow) {
 			/*
 			 * sets the background and foreground colors
@@ -95,6 +96,7 @@ public class KeyboardButtonAction extends AbstractAction {
 			new StatisticsDialog(view, model);
 		} else {
 			view.repaintWordleGridPanel();
+		}
 		}
 	}
 

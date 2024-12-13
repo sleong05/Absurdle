@@ -23,9 +23,10 @@ class TestWordleModel {
 	int depth = 0; //for recursive test case for threads.
 
 	private WordleModel createModel(String answer) {
-		// return new WordleModel();
 		WordleModel testModel = new WordleModel();
+		System.out.println("boom bom");
 		testModel.setCurrentWordForTesting(answer);
+		System.out.println("boom bom boom");
 		return testModel;
 	}
 
@@ -143,6 +144,7 @@ class TestWordleModel {
 		} else {
 			depth += 1;
 			if (depth < 201) {
+				System.out.println("Diving");
 				testBug1ThreadSynchronization();
 			}
 			else {
@@ -178,7 +180,9 @@ class TestWordleModel {
 	 */
 	@Test
 	void testBug4Backspace() {
+		System.out.println("What is happening");
 		WordleModel model = createModel("spawn");
+		System.out.println("Were kaboom");
 		model.setCurrentColumn('P'); //currentCol = 0 now
 		model.backspace(); //currentCol - 1 = -1
 		assertEquals(model.getCurrentColumn(), -1);
@@ -190,6 +194,7 @@ class TestWordleModel {
 	 */
 	@Test
 	void testBug5KeyboardColors() {
+		System.out.println("What is happening");
 		WordleModel model = createModel("spawn");
 		WordleFrame Frame = new WordleFrame(model);
 		insertWord(model, "spray");

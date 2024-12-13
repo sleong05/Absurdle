@@ -180,6 +180,10 @@ public abstract class Model {
 	 * 
 	 * @return returns a row as an array
 	 */
+	public WordleResponse[] getNextRow() {
+		return wordleGrid[currentRow];
+	}
+	
 	public WordleResponse[] getCurrentRow() {
 		return wordleGrid[getCurrentRowNumber()];
 	}
@@ -242,7 +246,6 @@ public abstract class Model {
 				return true;
 			}
 		}
-
 		return false;
 	}
 

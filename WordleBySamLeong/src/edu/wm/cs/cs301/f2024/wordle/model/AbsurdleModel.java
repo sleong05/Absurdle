@@ -22,15 +22,13 @@ public class AbsurdleModel extends Model {
 
 	public AbsurdleModel() {
 		super();
-		// creates datat structure
-
 		// waits for wordlist to eb finish
 		try {
 			this.wordsThread.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		buildTree();
+		buildTree(); // creates datat structure
 
 	}
 
@@ -85,6 +83,17 @@ public class AbsurdleModel extends Model {
 			e.printStackTrace();
 		}
 		return tree.getPossibleWords().size();
+	}
+	
+	public HashSet<String> getPossibleWords() {
+		try {
+			wordsThread.join();
+			treeCreationThread.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tree.getPossibleWords();
 	}
 
 	// logger for storing sorting data
@@ -163,7 +172,7 @@ public class AbsurdleModel extends Model {
 			currentColumn = -1;
 			currentRow++;
 			guess = new char[columnCount];
-
+			System.out.println(biggestList);
 			rebuildTree(biggestList);
 
 			// checks if list is all green (win condition)

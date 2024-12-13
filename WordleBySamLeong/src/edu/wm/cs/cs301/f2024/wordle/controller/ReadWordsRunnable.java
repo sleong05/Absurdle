@@ -76,7 +76,7 @@ public class ReadWordsRunnable implements Runnable {
 		 */
 		model.setWordList(wordlist);
 		if (model instanceof WordleModel) {
-		((WordleModel)model).generateCurrentWord();
+			((WordleModel)model).generateCurrentWord();
 		}
 	}
 

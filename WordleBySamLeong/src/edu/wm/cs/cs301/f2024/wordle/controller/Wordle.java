@@ -4,16 +4,25 @@ import javax.swing.SwingUtilities;
 
 import edu.wm.cs.cs301.f2024.wordle.model.AbsurdleModel;
 import edu.wm.cs.cs301.f2024.wordle.model.AppStrings;
+import edu.wm.cs.cs301.f2024.wordle.model.MixedModel;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 import edu.wm.cs.cs301.f2024.wordle.view.WordleFrame;
 import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.RuleHard;
 import edu.wm.cs.cs301.f2024.wordle.model.RuleLegitimateWordsOnly;
+import edu.wm.cs.cs301.f2024.wordle.model.SwitchAfterNGuesses;
+import edu.wm.cs.cs301.f2024.wordle.model.SwitchRandomly;
+import edu.wm.cs.cs301.f2024.wordle.model.SwitchStrategy;
+import edu.wm.cs.cs301.f2024.wordle.model.SwitchWhenWordListIsBelowThreshold;
 
 public class Wordle implements Runnable {
 	private static int gameMode = 0;
 	private static boolean hardMode = false;
 	private static boolean wordsOnly = false;
+	
+	
+	//mixed switch strategies
+	private static SwitchStrategy strategy;
 	
 	public static void main(String[] args) {
 		for (int i = 0; i < args.length; i++) {
@@ -25,6 +34,8 @@ public class Wordle implements Runnable {
 						gameMode = 0;
 					} else if (strategy.equals(AppStrings.ABSURDLE_GAME_MODE)) {
 						gameMode = 1;
+					} else if (strategy.equals(AppStrings.MIXED_GAME_MODE)) {
+						gameMode = 2;
 					}
 					i++; // skip next arg
 				} else {
@@ -38,6 +49,19 @@ public class Wordle implements Runnable {
             case AppStrings.REAL_WORDS_ONLY_MODE:
                 wordsOnly = true;
                 break;
+            case "-ssn":
+                i++;
+                strategy = new SwitchAfterNGuesses(Integer.parseInt(args[i]));
+                break;
+            case "-sst":
+                i++;
+                strategy = new SwitchWhenWordListIsBelowThreshold(Integer.parseInt(args[i]));
+                break;
+            case "-ssr":
+                i++;
+                strategy = new SwitchRandomly();
+                break;
+                
             default:
                 System.err.println(AppStrings.WARNING_UNRECOGNIZED_OPTION + args[i]);
                 break;
@@ -58,7 +82,10 @@ public class Wordle implements Runnable {
 		Model model = new WordleModel(); //default
 		if (gameMode == 1) {
 			model = new AbsurdleModel();
-		} 
+		} else if (gameMode == 2) {
+			System.out.println("MIX TIME");
+			model = new MixedModel(strategy);
+		}
 		if (hardMode) {
 			model.addRule(new RuleHard());
 		}
