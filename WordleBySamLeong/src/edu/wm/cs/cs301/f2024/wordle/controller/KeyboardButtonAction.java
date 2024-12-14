@@ -151,6 +151,7 @@ public class KeyboardButtonAction extends AbstractAction {
 							wordleResponse1.getForegroundColor());
 				}
 			}
+			view.repaintWordleGridPanel();
 			break;
 
 		case AppStrings.THRICE:
@@ -160,7 +161,7 @@ public class KeyboardButtonAction extends AbstractAction {
 				view.setColor(Character.toString(possibleButton), AppColors.GRAY,
 						AppColors.WHITE);
 			}
-			
+			view.repaintWordleGridPanel();
 			break;
 		default:
 			/*
@@ -172,5 +173,4 @@ public class KeyboardButtonAction extends AbstractAction {
 		}
 
 	}
-
 }

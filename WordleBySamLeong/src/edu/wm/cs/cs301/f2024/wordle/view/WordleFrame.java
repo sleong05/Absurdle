@@ -12,6 +12,7 @@ import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.BorderFactory;
 import javax.swing.InputMap;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -143,6 +144,10 @@ public class WordleFrame {
 	
 	public KeyboardPanel getKeyboardPanel() {
 		return this.keyboardPanel;
+	}
+	
+	public JButton[] getButtons() {
+		return this.keyboardPanel.getButtons();
 	}
 
 }

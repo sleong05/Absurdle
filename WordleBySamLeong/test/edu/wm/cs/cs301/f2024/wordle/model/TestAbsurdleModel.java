@@ -3,9 +3,6 @@ package edu.wm.cs.cs301.f2024.wordle.model;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
@@ -14,7 +11,7 @@ class TestAbsurdleModel {
 	int rowSize = 5;
 	int rowCount = 6;
 	int colCount = 5;
-	int depth = 0; //for recursive test case for threads.
+	int depth = 5; //for recursive test case for threads.
 
 	/*
 	 * initilizes a absurdle model with the inputted list of words

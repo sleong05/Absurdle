@@ -17,4 +17,8 @@ public class SwitchRandomly implements SwitchStrategy{
 		}
 		return false;
 	}
+	
+	public int getN() {
+		return n;
+	}
 }

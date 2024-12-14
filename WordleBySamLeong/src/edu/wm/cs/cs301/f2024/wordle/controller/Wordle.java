@@ -83,7 +83,6 @@ public class Wordle implements Runnable {
 		if (gameMode == 1) {
 			model = new AbsurdleModel();
 		} else if (gameMode == 2) {
-			System.out.println("MIX TIME");
 			model = new MixedModel(strategy);
 		}
 		if (hardMode) {
