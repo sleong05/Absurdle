@@ -23,6 +23,7 @@ import javax.swing.KeyStroke;
 
 import edu.wm.cs.cs301.f2024.wordle.model.AbsurdleModel;
 import edu.wm.cs.cs301.f2024.wordle.model.AppStrings;
+import edu.wm.cs.cs301.f2024.wordle.model.MixedModel;
 import edu.wm.cs.cs301.f2024.wordle.model.Model;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 
@@ -102,6 +103,9 @@ public class WordleFrame {
 		JLabel label = new JLabel(AppStrings.WORDLE);
 		if (model instanceof AbsurdleModel) {
 			label.setText(AppStrings.ABSURDLE); 
+			}
+		else if (model instanceof MixedModel) {
+			label.setText("Mixed Model"); 
 			}
 		label.setFont(AppFonts.getTitleFont());
 		panel.add(label);
