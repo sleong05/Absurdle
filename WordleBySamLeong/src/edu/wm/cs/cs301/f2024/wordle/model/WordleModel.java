@@ -11,9 +11,9 @@ public class WordleModel extends Model {
 	/*
 	 * a random value for selecting a random word
 	 */
-	private Random random;
+	protected Random random;
 
-	private char[] currentWord;
+	protected char[] currentWord;
 
 	public WordleModel() {
 		super();
@@ -54,6 +54,7 @@ public class WordleModel extends Model {
 	 */
 	public void generateCurrentWord() {
 		String word = getCurrentWord();
+		statistics.writeAnswer(word);
 		/*
 		 * updates currentWord with the randomly picked word
 		 */
@@ -106,6 +107,21 @@ public class WordleModel extends Model {
 			e.printStackTrace();
 		}
 		if (checkAcceptanceRules()) {
+			// updates user input stats
+			statistics.recordWord(guess);
+			
+			StringBuilder guessAsString = new StringBuilder();
+			StringBuilder answerAsString = new StringBuilder();
+			for (char c: guess) {
+				guessAsString.append(c);
+			}
+			for (char c: currentWord) {
+				answerAsString.append(c);
+			}
+			if (guessAsString.toString().equals(answerAsString.toString())) {
+				statistics.recordWinWord(answerAsString.toString());
+			}
+			
 			WordleResponse[] row = wordleGrid[currentRow];
 			for (int index = 0; index < getColumnCount(); index++) {
 				wordleGrid[currentRow][index] = new WordleResponse(row[index].getChar(), AppColors.WHITE, AppColors.BLACK);

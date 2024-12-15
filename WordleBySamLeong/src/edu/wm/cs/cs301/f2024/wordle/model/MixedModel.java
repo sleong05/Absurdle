@@ -154,6 +154,8 @@ public class MixedModel extends Model {
 
 	@Override
 	public boolean setCurrentRow() {
+		statistics.recordWord(guess);
+		
 		model.setCurrentRow();
 		WordleResponse[] updatedRow = model.getCurrentRow();
 		wordleGrid[currentRow] = updatedRow;

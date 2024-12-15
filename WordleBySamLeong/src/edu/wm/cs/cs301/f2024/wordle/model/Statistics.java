@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Statistics implements Runnable{
+public class Statistics implements Runnable {
 	/*
 	 * creates integers to store past game data
 	 */
@@ -25,9 +25,10 @@ public class Statistics implements Runnable{
 	/*
 	 * string for the to store the files path and log information
 	 */
-	private String path, log;
-	
+	private String path, log, userInputLog, wordleAnswersLog, wordleWinLog;
+
 	private static final Logger logger = Logger.getLogger(Statistics.class.getName());
+
 	/*
 	 * constructer that creates the files for the game
 	 */
@@ -47,11 +48,13 @@ public class Statistics implements Runnable{
 		 */
 		this.wordsGuessed = new ArrayList<>();
 		/*
-		 * gets the system file seperator for the system (allows compatibility for diffirent systems)
+		 * gets the system file seperator for the system (allows compatibility for
+		 * diffirent systems)
 		 */
 		String fileSeparator = System.getProperty(AppStrings.FILE_SEPARATOR);
 		/*
-		 * sets the path for the wordle file and creates a Wordle folder in the home directory
+		 * sets the path for the wordle file and creates a Wordle folder in the home
+		 * directory
 		 */
 		this.path = System.getProperty(AppStrings.USER_HOME) + fileSeparator + AppStrings.WORDLE;
 		/*
@@ -61,8 +64,74 @@ public class Statistics implements Runnable{
 		/*
 		 * reads info from past games from the log file
 		 */
+		this.userInputLog = fileSeparator + "userInputs.log"; // log for userInputData
+		
+		this.wordleAnswersLog = fileSeparator + "wordleAnswers.log"; // log for userInputData
+		
+		this.wordleWinLog = fileSeparator + "wordleWin.log"; // log for win/loss data
+		// creates file for userinputs
+		try {
+			File file = new File(path);
+			file.mkdir();
+			file = new File(path + userInputLog);
+			file.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		// file for wordle answers
+		try {
+			File file = new File(path);
+			file.mkdir();
+			file = new File(path + wordleAnswersLog);
+			file.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		// file for wordle Wins and losses
+				try {
+					File file = new File(path);
+					file.mkdir();
+					file = new File(path + wordleWinLog);
+					file.createNewFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+	}
+	// records win or loss
+	public void recordWinWord(String answer) {
+		File file = new File(path + wordleWinLog);
+		BufferedWriter bw;
+		try {
+			bw = new BufferedWriter(new FileWriter(file, true));
+			bw.write(answer);
+			bw.write(System.lineSeparator());
+			bw.flush(); 
+			bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
+	public void writeAnswer(String answer) {
+		File file = new File(path + wordleAnswersLog);
+		BufferedWriter bw;
+		try {
+			bw = new BufferedWriter(new FileWriter(file, true));
+			bw.write(answer);
+			bw.write(System.lineSeparator());
+			bw.flush(); 
+			bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 	@Override
 	public void run() {
 		readStatistics();
@@ -72,23 +141,24 @@ public class Statistics implements Runnable{
 		try {
 			logger.info(AppStrings.STARTED_LOADING_DATA);
 			BufferedReader br = new BufferedReader(new FileReader(path + log));
-			
+
 			this.currentStreak = Integer.valueOf(br.readLine().trim());
-			
+
 			this.longestStreak = Integer.valueOf(br.readLine().trim());
-			
+
 			this.totalGamesPlayed = Integer.valueOf(br.readLine().trim());
-			
+
 			int totalWordsGuessed = Integer.valueOf(br.readLine().trim());
-			
-			
-			
+
 			for (int index = 0; index < totalWordsGuessed; index++) {
 				int wordsAtSpot = Integer.valueOf(br.readLine().trim());
 				wordsGuessed.add(wordsAtSpot);
 			}
 			br.close();
-			logger.info(AppStrings.DATA_SUCCESFULLY_LOADED_WORDS_GUESSED + wordsGuessed + AppStrings.COMMA_SPACE + AppStrings.TOTAL_GAMES_PLAYED_ + this.totalGamesPlayed + AppStrings.COMMA_SPACE + AppStrings.LONGEST_STREAK_ + this.longestStreak + AppStrings.COMMA_SPACE + AppStrings.CURRENT_STREAK_ + this.currentStreak);
+			logger.info(AppStrings.DATA_SUCCESFULLY_LOADED_WORDS_GUESSED + wordsGuessed + AppStrings.COMMA_SPACE
+					+ AppStrings.TOTAL_GAMES_PLAYED_ + this.totalGamesPlayed + AppStrings.COMMA_SPACE
+					+ AppStrings.LONGEST_STREAK_ + this.longestStreak + AppStrings.COMMA_SPACE
+					+ AppStrings.CURRENT_STREAK_ + this.currentStreak);
 		} catch (FileNotFoundException e) {
 			this.currentStreak = 0;
 			this.longestStreak = 0;
@@ -98,13 +168,34 @@ public class Statistics implements Runnable{
 			e.printStackTrace();
 		}
 	}
+// writes down currentGuess
+	public void recordWord(char[] guess) {
+		StringBuilder input = new StringBuilder();
+		for (char c: guess) {
+			input.append(c);
+		}
+		File file = new File(path + userInputLog);
+		BufferedWriter bw;
+		try {
+			bw = new BufferedWriter(new FileWriter(file, true));
+			bw.write(input.toString());
+			bw.write(System.lineSeparator());
+			bw.flush(); 
+			bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	/*
 	 * writes info about wins/losses to the statistics.log file
 	 */
 	public void writeStatistics() {
 		try {
 			/*
-			 * creats a file object and opens it to the Wordle folder making it if it doesnt exist
+			 * creats a file object and opens it to the Wordle folder making it if it doesnt
+			 * exist
 			 */
 			File file = new File(path);
 			file.mkdir();
@@ -129,20 +220,23 @@ public class Statistics implements Runnable{
 				bw.write(Integer.toString(value));
 				bw.write(System.lineSeparator());
 			}
-			
+
 			bw.flush();
 			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 	/*
 	 * getter method that access win streak
+	 * 
 	 * @return currentStreak
 	 */
 	public int getCurrentStreak() {
 		return currentStreak;
 	}
+
 	/*
 	 * updates longestStreak
 	 */
@@ -152,59 +246,67 @@ public class Statistics implements Runnable{
 			this.longestStreak = currentStreak;
 		}
 	}
+
 	/*
 	 * getter method that access the longest streak of wins
+	 * 
 	 * @return longestStreak
 	 */
 	public int getLongestStreak() {
 		return longestStreak;
 	}
+
 	/*
 	 * getter method that obtains the amount of wordle games played
+	 * 
 	 * @return totalGamesPlayed
 	 */
 	public int getTotalGamesPlayed() {
 		return totalGamesPlayed;
 	}
+
 	/*
 	 * adds 1 to totalGamesPlayed
 	 */
 	public void incrementTotalGamesPlayed() {
 		this.totalGamesPlayed++;
 	}
+
 	/*
 	 * gets a list that stores the number of tries the play has attempted
+	 * 
 	 * @return WordsGuessed in current game
 	 */
 	public List<Integer> getWordsGuessed() {
 		return wordsGuessed;
 	}
+
 	/*
 	 * returns the list of the number of guesses it took to win from previous ganmes
 	 */
 	public void addWordsGuessed(int wordCount) {
 		this.wordsGuessed.add(wordCount);
 	}
-	
+
 	public int getTotalGamesWon() {
-	    return wordsGuessed.size(); 
+		return wordsGuessed.size();
 	}
-	
+
 	public int getLastWin() {
-	    if (wordsGuessed.isEmpty()) {
-	        throw new IllegalStateException(AppStrings.NO_GAMES_HAVE_BEEN_WON_YET);
-	    }
-	    return wordsGuessed.get(wordsGuessed.size() - 1);
+		if (wordsGuessed.isEmpty()) {
+			throw new IllegalStateException(AppStrings.NO_GAMES_HAVE_BEEN_WON_YET);
+		}
+		return wordsGuessed.get(wordsGuessed.size() - 1);
 	}
-	
+
 	public int[] calculateArrayOfWins(int maximumTries) {
-	    int[] winCounts = new int[maximumTries];
-	    for (int guesses : wordsGuessed) {
-	        if (guesses <= maximumTries) {
-	            winCounts[guesses]++;
-	        }
-	    }
-	    return winCounts;
+		int[] winCounts = new int[maximumTries];
+		for (int guesses : wordsGuessed) {
+			if (guesses <= maximumTries) {
+				winCounts[guesses]++;
+			}
+		}
+		return winCounts;
 	}
 
 }

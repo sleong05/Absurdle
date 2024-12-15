@@ -135,6 +135,7 @@ public class AbsurdleModel extends Model {
 			e.printStackTrace();
 		}
 		if (checkAcceptanceRules()) {
+			statistics.recordWord(guess);
 			HashSet<String> biggestList = tree.biggestList(); // finds the correct way to accept the answer
 			int[] colorsOfOutput = tree.getColors();
 			Color foregroundColor = AppColors.WHITE;

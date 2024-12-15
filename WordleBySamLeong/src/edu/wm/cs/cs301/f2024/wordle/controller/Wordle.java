@@ -4,6 +4,7 @@ import javax.swing.SwingUtilities;
 
 import edu.wm.cs.cs301.f2024.wordle.model.AbsurdleModel;
 import edu.wm.cs.cs301.f2024.wordle.model.AppStrings;
+import edu.wm.cs.cs301.f2024.wordle.model.HappyModel;
 import edu.wm.cs.cs301.f2024.wordle.model.MixedModel;
 import edu.wm.cs.cs301.f2024.wordle.model.WordleModel;
 import edu.wm.cs.cs301.f2024.wordle.view.WordleFrame;
@@ -23,7 +24,7 @@ public class Wordle implements Runnable {
 	
 	//mixed switch strategies
 	private static SwitchStrategy strategy;
-	
+	private static int threshold = 30;// happy strat threshold
 	public static void main(String[] args) {
 		for (int i = 0; i < args.length; i++) {
 			switch (args[i]) {
@@ -36,7 +37,9 @@ public class Wordle implements Runnable {
 						gameMode = 1;
 					} else if (strategy.equals(AppStrings.MIXED_GAME_MODE)) {
 						gameMode = 2;
-					}
+					} else if (strategy.equals("happy")) {
+						gameMode = 3;
+					} 
 					i++; // skip next arg
 				} else {
                     System.err.println(AppStrings.ERROR_S_REQUIRES_A_STRATEGY_RANDOM_OR_ABSURDLE);
@@ -58,10 +61,11 @@ public class Wordle implements Runnable {
                 strategy = new SwitchWhenWordListIsBelowThreshold(Integer.parseInt(args[i]));
                 break;
             case "-ssr":
-                i++;
                 strategy = new SwitchRandomly();
                 break;
-                
+            case "-sh": 
+            	i++;
+                threshold = Integer.parseInt(args[i]);
             default:
                 System.err.println(AppStrings.WARNING_UNRECOGNIZED_OPTION + args[i]);
                 break;
@@ -84,6 +88,8 @@ public class Wordle implements Runnable {
 			model = new AbsurdleModel();
 		} else if (gameMode == 2) {
 			model = new MixedModel(strategy);
+		} else if (gameMode == 3) {
+			model = new HappyModel(threshold);
 		}
 		if (hardMode) {
 			model.addRule(new RuleHard());
