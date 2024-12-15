@@ -20,10 +20,12 @@ public class HappyModel extends WordleModel{
 	
 	UserInputInterpreter interpreter = new UserInputInterpreter();
 	
+	private int hardOrEasy; // for testing easy = 0, hard = 1
+	
 	List <String> adjustedList = new ArrayList<>();
 	public HappyModel(int threshold) {
 		super();
-		this.threshold = (double) threshold;
+		
 		
 			try {
 				statsThread.join();
@@ -31,7 +33,7 @@ public class HappyModel extends WordleModel{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
+		this.threshold = (double) threshold;
 		winRate = (statistics.getTotalGamesWon() * 1000 + 5) / (statistics.getTotalGamesPlayed() * 10);
 		// logger setup
 		LOGGER.setLevel(Level.INFO);
@@ -57,6 +59,7 @@ public class HappyModel extends WordleModel{
 		 */
 		this.currentWord = word.toUpperCase().toCharArray();
 		LOGGER.info("currentWord randomly selected to: " + word.toUpperCase());
+		System.out.println(winRate + " > " + threshold);
 	}
 	
 	private String getCurrentWord() {
@@ -80,12 +83,17 @@ public class HappyModel extends WordleModel{
 		}
 		System.out.println(winRate + " > " + threshold);
 		if (winRate > threshold) {
+			System.out.println("makeharder true");
 			makeHarder = true;
 		}
 		if (makeHarder) {
 			adjustListHard();
+			System.out.println(hardOrEasy + " dpasdlasdasd");
+			hardOrEasy =1;
+			System.out.println(hardOrEasy + " dpasdlasdasd");
 		} else {
 			adjustListEasy();
+			hardOrEasy = 0;
 		}
 	}
 
@@ -102,10 +110,10 @@ public class HappyModel extends WordleModel{
 		for (String word: wordList) {
 			if (hasCommonChars(mostCommonWord, word) || interpreter.g(word)>0) {
 				adjustedList.add(word);
-				LOGGER.info("possible word selected: " + word + " | hasCommonChars = " + hasCommonChars(mostCommonWord, word) + " | g(" + word + ") = " + interpreter.g(word));
+				System.out.println(winRate + " > " + threshold);
+				LOGGER.info("possible word selected: " + word + " | hasCommonChars = " + hasCommonChars(mostCommonWord, word) + " | g(" + word + ") = " + interpreter.g(word)*100 + "% | f(" + word + ") = " + interpreter.f(word)*100 + "% | h(" + word + ") = " + interpreter.h(word) *100+ "% | m(" + word + ") = " + interpreter.m(word)*100 + "%");
 			}
 		}
-		System.out.println(adjustedList);
 	}
 
 	private void adjustListHard() {
@@ -121,10 +129,9 @@ public class HappyModel extends WordleModel{
 		for (String word: wordList) {
 			if (!hasCommonChars(mostCommonWord, word) && interpreter.g(word) == 0) {
 				adjustedList.add(word);
-				LOGGER.info("possible word selected: " + word + " | hasCommonChars = " + hasCommonChars(mostCommonWord, word) + " | g(" + word + ") = " + interpreter.g(word));
+				LOGGER.info("possible word selected: " + word + " | hasCommonChars = " + hasCommonChars(mostCommonWord, word) + " | g(" + word + ") = " + interpreter.g(word)*100 + "% | f(" + word + ") = " + interpreter.f(word)*100 + "% | h(" + word + ") = " + interpreter.h(word) *100+ "% | m(" + word + ") = " + interpreter.m(word)*100 + "%");
 			} 
 		}
-		System.out.println(adjustedList);
 	}
 	
 	private char[] findMostCommonWord() {
@@ -149,5 +156,15 @@ public class HappyModel extends WordleModel{
 			}
 		}
 		return false;
+	}
+	public int getHardOrEasy() {
+		try {
+			statsThread.join();
+			Thread.sleep(400);  
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return hardOrEasy;
 	}
 }

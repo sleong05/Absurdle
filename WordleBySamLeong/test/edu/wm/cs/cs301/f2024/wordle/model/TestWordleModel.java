@@ -2,14 +2,7 @@ package edu.wm.cs.cs301.f2024.wordle.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.List;
-
 import javax.swing.JButton;
-
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
