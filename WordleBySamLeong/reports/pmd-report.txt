@@ -1,0 +1,656 @@
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:14:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:20:	NonSerializableClass:	NonSerializableClass: The field 'view' of serializable class 'edu.wm.cs.cs301.f2024.wordle.controller.KeyboardButtonAction' is of non-serializable type 'edu.wm.cs.cs301.f2024.wordle.view.WordleFrame'.
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:24:	NonSerializableClass:	NonSerializableClass: The field 'model' of serializable class 'edu.wm.cs.cs301.f2024.wordle.controller.KeyboardButtonAction' is of non-serializable type 'edu.wm.cs.cs301.f2024.wordle.model.WordleModel'.
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:31:	CallSuperInConstructor:	CallSuperInConstructor: It is a good practice to call super() in a constructor
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:31:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'model' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:31:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'view' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:37:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:42:	CognitiveComplexity:	CognitiveComplexity: The method 'actionPerformed(ActionEvent)' has a cognitive complexity of 15, current threshold is 15
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:42:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'event' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:46:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'button' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:47:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'text' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:52:	SwitchDensity:	SwitchDensity: A high ratio of statements to labels in a switch statement.  Consider refactoring.
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:60:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:62:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'moreRows' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:66:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'currentRow' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:69:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'wordleResponse' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:79:	LawOfDemeter:	LawOfDemeter: Call to `getBackgroundColor` on foreign value `wordleResponse` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:94:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:95:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'currentRowNumber' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:96:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:97:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:98:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:100:	ConfusingTernary:	ConfusingTernary: Avoid if (x != y) ..; else ..;
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:105:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/controller/KeyboardButtonAction.java:106:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:15:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:20:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:26:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:29:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:32:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:32:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'model' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:36:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'fileTxt' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:39:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:40:	IdenticalCatchBranches:	IdenticalCatchBranches: 'catch' branch identical to 'SecurityException' branch
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:41:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:51:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:65:	GuardLogStatement:	GuardLogStatement: Logger calls should be surrounded by log level guards.
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:67:	GuardLogStatement:	GuardLogStatement: Logger calls should be surrounded by log level guards.
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:68:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:83:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'text' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:89:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:91:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'stream' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:94:	SystemPrintln:	SystemPrintln: Usage of System.out/err
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:95:	DoNotTerminateVM:	DoNotTerminateVM: System.exit() should not be used in J2EE/JEE apps
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:98:	ControlStatementBraces:	ControlStatementBraces: This statement should have braces
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:98:	SystemPrintln:	SystemPrintln: Usage of System.out/err
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:111:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'minimum' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:115:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'wordlist' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:120:	CloseResource:	CloseResource: Ensure that resources like this InputStream object are closed after use
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:120:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'stream' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:121:	CloseResource:	CloseResource: Ensure that resources like this BufferedReader object are closed after use
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:121:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'reader' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/controller/ReadWordsRunnable.java:124:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/edu/wm/cs/cs301/f2024/wordle/controller/Wordle.java:8:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/edu/wm/cs/cs301/f2024/wordle/controller/Wordle.java:8:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/controller/Wordle.java:10:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:5:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:5:	DataClass:	DataClass: The class 'AppColors' is suspected to be a Data Class (WOC=0.000%, NOPA=4, NOAM=0, WMC=0)
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:9:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:9:	FieldNamingConventions:	FieldNamingConventions: The static field name 'GRAY' doesn't match '[a-z][a-zA-Z0-9]*'
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:9:	MutableStaticState:	MutableStaticState: Do not use non-final non-private static fields
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:13:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:13:	FieldNamingConventions:	FieldNamingConventions: The static field name 'GREEN' doesn't match '[a-z][a-zA-Z0-9]*'
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:13:	MutableStaticState:	MutableStaticState: Do not use non-final non-private static fields
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:17:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:17:	FieldNamingConventions:	FieldNamingConventions: The static field name 'YELLOW' doesn't match '[a-z][a-zA-Z0-9]*'
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:17:	MutableStaticState:	MutableStaticState: Do not use non-final non-private static fields
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:22:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:22:	FieldNamingConventions:	FieldNamingConventions: The static field name 'OUTLINE' doesn't match '[a-z][a-zA-Z0-9]*'
+src/edu/wm/cs/cs301/f2024/wordle/model/AppColors.java:22:	MutableStaticState:	MutableStaticState: Do not use non-final non-private static fields
+src/edu/wm/cs/cs301/f2024/wordle/model/ColorResponse.java:5:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/ColorResponse.java:9:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/ColorResponse.java:9:	OneDeclarationPerLine:	OneDeclarationPerLine: Use one line for each declaration, it enhances code readability.
+src/edu/wm/cs/cs301/f2024/wordle/model/ColorResponse.java:13:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/ColorResponse.java:13:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'backgroundColor' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/ColorResponse.java:13:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'foregroundColor' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:13:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:17:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:17:	OneDeclarationPerLine:	OneDeclarationPerLine: Use one line for each declaration, it enhances code readability.
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:21:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:21:	ImmutableField:	ImmutableField: Field 'wordsGuessed' may be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:25:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:25:	ImmutableField:	ImmutableField: Field 'log' may be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:25:	ImmutableField:	ImmutableField: Field 'path' may be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:25:	OneDeclarationPerLine:	OneDeclarationPerLine: Use one line for each declaration, it enhances code readability.
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:30:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:36:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:38:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'fileSeparator' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:40:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:55:	AvoidFileStream:	AvoidFileStream: Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:55:	CloseResource:	CloseResource: Ensure that resources like this BufferedReader object are closed after use
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:55:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'br' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:55:	ShortVariable:	ShortVariable: Avoid variables with short names like br
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:56:	UnnecessaryBoxing:	UnnecessaryBoxing: Unnecessary implicit unboxing. Use Integer.parseInt(...) instead
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:57:	UnnecessaryBoxing:	UnnecessaryBoxing: Unnecessary implicit unboxing. Use Integer.parseInt(...) instead
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:58:	UnnecessaryBoxing:	UnnecessaryBoxing: Unnecessary implicit unboxing. Use Integer.parseInt(...) instead
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:59:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'totalWordsGuessed' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:59:	UnnecessaryBoxing:	UnnecessaryBoxing: Unnecessary implicit unboxing. Use Integer.parseInt(...) instead
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:70:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:76:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:79:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:88:	AvoidFileStream:	AvoidFileStream: Avoid instantiating FileInputStream, FileOutputStream, FileReader, or FileWriter
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:88:	CloseResource:	CloseResource: Ensure that resources like this BufferedWriter object are closed after use
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:88:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'bw' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:88:	ShortVariable:	ShortVariable: Avoid variables with short names like bw
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:100:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'value' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:108:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:121:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'currentStreak' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:144:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:157:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/Statistics.java:157:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'wordCount' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:14:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:14:	GodClass:	GodClass: Possible God Class (WMC=48, ATFD=10, TCC=27.174%)
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:14:	TooManyMethods:	TooManyMethods: This class has too many methods, consider refactoring it.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:18:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:18:	OneDeclarationPerLine:	OneDeclarationPerLine: Use one line for each declaration, it enhances code readability.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:22:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:22:	OneDeclarationPerLine:	OneDeclarationPerLine: Use one line for each declaration, it enhances code readability.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:26:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:26:	OneDeclarationPerLine:	OneDeclarationPerLine: Use one line for each declaration, it enhances code readability.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:30:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:34:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:38:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:42:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:47:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:47:	DoNotUseThreads:	DoNotUseThreads: To be compliant to J2EE, a webapp should not use any thread.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:52:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:83:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'runnable' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:84:	DoNotUseThreads:	DoNotUseThreads: To be compliant to J2EE, a webapp should not use any thread.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:91:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:91:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'word' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:96:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:98:	UseLocaleWithCaseConversions:	UseLocaleWithCaseConversions: When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:104:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:121:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:122:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'word' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:126:	UseLocaleWithCaseConversions:	UseLocaleWithCaseConversions: When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:134:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'size' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:139:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'wordleGrid' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:141:	ForLoopCanBeForeach:	ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:143:	NullAssignment:	NullAssignment: Assigning an Object to null is a code smell.  Consider refactoring.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:155:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'wordList' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:162:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:163:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'index' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:172:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'c' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:172:	ShortVariable:	ShortVariable: Avoid variables with short names like c
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:177:	UselessParentheses:	UselessParentheses: Useless parentheses.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:188:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:192:	NullAssignment:	NullAssignment: Assigning an Object to null is a code smell.  Consider refactoring.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:210:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:220:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:220:	LinguisticNaming:	LinguisticNaming: Linguistics Antipattern - The setter 'setCurrentRow' should not return any type except void linguistically
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:228:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:233:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'foregroundColor' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:234:	SystemPrintln:	SystemPrintln: Usage of System.out/err
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:248:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:253:	CognitiveComplexity:	CognitiveComplexity: The method 'contains(char[], char[], int)' has a cognitive complexity of 16, current threshold is 15
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:253:	CyclomaticComplexity:	CyclomaticComplexity: The method 'contains(char[], char[], int)' has a cyclomatic complexity of 12.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:253:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'column' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:253:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'currentWord' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:253:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'guess' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:267:	LongVariable:	LongVariable: Avoid excessively long variable names like currentInstancesOfWordHighligheted
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:269:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'currentWordleResponse' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:269:	LongVariable:	LongVariable: Avoid excessively long variable names like currentWordleResponse
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:271:	LawOfDemeter:	LawOfDemeter: Call to `getBackgroundColor` on foreign value `currentWordleResponse` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:282:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:295:	MethodReturnsInternalArray:	MethodReturnsInternalArray: Returning 'wordleGrid' may expose an internal array.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:330:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:346:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:351:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'letter' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:352:	UseStringBufferForStringAppends:	UseStringBufferForStringAppends: Prefer StringBuilder (non-synchronized) or StringBuffer (synchronized) over += for concatenating strings
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:354:	UseLocaleWithCaseConversions:	UseLocaleWithCaseConversions: When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:356:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:361:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'optionPane' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:363:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'dialog' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:365:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'timer' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:367:	ShortVariable:	ShortVariable: Avoid variables with short names like e
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:381:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:381:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'c' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:381:	ShortVariable:	ShortVariable: Avoid variables with short names like c
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:382:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'a' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:384:	OnlyOneReturn:	OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:390:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleModel.java:391:	MethodReturnsInternalArray:	MethodReturnsInternalArray: Returning 'currentWord' may expose an internal array.
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:5:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:9:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:9:	ShortVariable:	ShortVariable: Avoid variables with short names like c
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:11:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:13:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:15:	CommentSize:	CommentSize: Comment is too large: Line too long
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:17:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:17:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'backgroundColor' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:17:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'c' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:17:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'foregroundColor' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:17:	ShortVariable:	ShortVariable: Avoid variables with short names like c
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:30:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:37:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/model/WordleResponse.java:44:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:24:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:28:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:30:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:30:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'view' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:34:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Container.add(Component, Object) 
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:35:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Container.add(Component, Object) 
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:37:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Window.pack() 
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:38:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Window.setLocationRelativeTo(Component) 
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:39:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Dialog.setVisible(boolean) 
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:43:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:45:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'titleFont' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:46:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'textFont' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:48:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'gbc' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:51:	LawOfDemeter:	LawOfDemeter: Access to field `insets` on foreign value `gbc` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:59:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'backgroundColor' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:63:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'text' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:66:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'textArea' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:112:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:115:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'inputMap' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:117:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'actionMap' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:120:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'button' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:127:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:127:	ClassWithOnlyPrivateConstructorsShouldBeFinal:	ClassWithOnlyPrivateConstructorsShouldBeFinal: This class has only private constructors and may be final
+src/edu/wm/cs/cs301/f2024/wordle/view/AboutDialog.java:127:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/AppFonts.java:5:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/AppFonts.java:5:	UseUtilityClass:	UseUtilityClass: This utility class has a non-private constructor
+src/edu/wm/cs/cs301/f2024/wordle/view/AppFonts.java:7:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/AppFonts.java:11:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/AppFonts.java:15:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:16:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:20:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:22:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:25:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:25:	NonSerializableClass:	NonSerializableClass: The field 'model' of serializable class 'edu.wm.cs.cs301.f2024.wordle.view.DistributionPanel' is of non-serializable type 'edu.wm.cs.cs301.f2024.wordle.model.WordleModel'.
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:27:	CallSuperInConstructor:	CallSuperInConstructor: It is a good practice to call super() in a constructor
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:27:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:27:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'model' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:27:	UnusedFormalParameter:	UnusedFormalParameter: Avoid unused constructor parameters such as 'view'.
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:30:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: JComponent.setPreferredSize(Dimension) 
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:36:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:36:	LawOfDemeter:	LawOfDemeter: Call to `getWordsGuessed` on foreign value `model.getStatistics()` (degree 2)
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:36:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'value' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:53:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'g' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:53:	ShortVariable:	ShortVariable: Avoid variables with short names like g
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:56:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'g2d' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:62:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'textFont' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:64:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'metrics' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:66:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'margin' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:67:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'x' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:67:	ShortVariable:	ShortVariable: Avoid variables with short names like x
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:68:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'x1' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:68:	ShortVariable:	ShortVariable: Avoid variables with short names like x1
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:69:	ShortVariable:	ShortVariable: Avoid variables with short names like y
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:70:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'y1' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:70:	ShortVariable:	ShortVariable: Avoid variables with short names like y1
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:71:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'y2' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:71:	ShortVariable:	ShortVariable: Avoid variables with short names like y2
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:72:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'difference' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:80:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:86:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'pixelWidth' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/DistributionPanel.java:92:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'textWidth' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:22:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:26:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:28:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:28:	SingularField:	SingularField: Perhaps 'editorPane' could be replaced by a local variable.
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:30:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:30:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'view' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:34:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Container.add(Component, Object) 
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:35:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Container.add(Component, Object) 
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:37:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Window.pack() 
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:38:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Window.setLocationRelativeTo(Component) 
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:39:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Dialog.setVisible(boolean) 
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:43:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:46:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'url' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:54:	AvoidPrintStackTrace:	AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:57:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'scrollPane' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:65:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:68:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'inputMap' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:70:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'actionMap' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:73:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'button' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:80:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:80:	ClassWithOnlyPrivateConstructorsShouldBeFinal:	ClassWithOnlyPrivateConstructorsShouldBeFinal: This class has only private constructors and may be final
+src/edu/wm/cs/cs301/f2024/wordle/view/InstructionsDialog.java:80:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:21:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:23:	ImmutableField:	ImmutableField: Field 'buttonCount' may be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:23:	OneDeclarationPerLine:	OneDeclarationPerLine: Use one line for each declaration, it enhances code readability.
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:23:	SingularField:	SingularField: Perhaps 'buttonCount' could be replaced by a local variable.
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:25:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:27:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:29:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:31:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:33:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:33:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'model' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:33:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'view' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:44:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:56:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:58:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'textfont' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:60:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'letters' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:62:	ForLoopCanBeForeach:	ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:63:	AvoidInstantiatingObjectsInLoops:	AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:63:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'button' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:75:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'letters' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:75:	UnnecessaryLocalBeforeReturn:	UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'letters'
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:81:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:83:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'textfont' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:85:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'letters' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:87:	ForLoopCanBeForeach:	ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:88:	AvoidInstantiatingObjectsInLoops:	AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:88:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'button' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:100:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'letters' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:100:	UnnecessaryLocalBeforeReturn:	UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'letters'
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:106:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:108:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'textfont' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:110:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'letters' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:112:	ForLoopCanBeForeach:	ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:113:	AvoidInstantiatingObjectsInLoops:	AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:113:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'button' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:125:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'letters' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:125:	UnnecessaryLocalBeforeReturn:	UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'letters'
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:129:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'button' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:129:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'text' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:130:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'inputMap' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:131:	LiteralsFirstInComparisons:	LiteralsFirstInComparisons: Position literals first in String comparisons
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:135:	UseLocaleWithCaseConversions:	UseLocaleWithCaseConversions: When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:137:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'actionMap' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:142:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:144:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'footerFont' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:148:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'label' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:155:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:155:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'backgroundColor' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:155:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'letter' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:156:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'foregroundColor' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:157:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'button' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:159:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'color' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:160:	EmptyControlStatement:	EmptyControlStatement: Empty if statement
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:175:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/KeyboardPanel.java:176:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'button' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:25:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:29:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:31:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:33:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:33:	NonSerializableClass:	NonSerializableClass: The field 'view' of serializable class 'edu.wm.cs.cs301.f2024.wordle.view.StatisticsDialog' is of non-serializable type 'edu.wm.cs.cs301.f2024.wordle.view.WordleFrame'.
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:35:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:35:	NonSerializableClass:	NonSerializableClass: The field 'model' of serializable class 'edu.wm.cs.cs301.f2024.wordle.view.StatisticsDialog' is of non-serializable type 'edu.wm.cs.cs301.f2024.wordle.model.WordleModel'.
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:37:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:37:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'model' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:37:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'view' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:44:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Container.add(Component, Object) 
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:45:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Container.add(Component, Object) 
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:47:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Window.pack() 
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:48:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Window.setLocationRelativeTo(Component) 
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:49:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: Dialog.setVisible(boolean) 
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:53:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:63:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:73:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:76:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'label' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:84:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:94:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:97:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'label' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:105:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:108:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:108:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'totalGamesPlayed' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:109:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:109:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'currentStreak' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:110:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:110:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'longestStreak' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:111:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:111:	LawOfDemeter:	LawOfDemeter: Call to `getWordsGuessed` on foreign value `model.getStatistics()` (degree 2)
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:111:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'wordsGuessed' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:112:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'percent' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:122:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'line1' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:122:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'line2' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:122:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'value' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:123:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:126:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'textFont' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:128:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'valueLabel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:147:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:150:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'inputMap' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:153:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'actionMap' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:157:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'nextButton' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:161:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'exitButton' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:165:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'nextDimension' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:166:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'exitDimension' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:167:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'maxWidth' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:174:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:174:	ClassWithOnlyPrivateConstructorsShouldBeFinal:	ClassWithOnlyPrivateConstructorsShouldBeFinal: This class has only private constructors and may be final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:174:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:186:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:186:	ClassWithOnlyPrivateConstructorsShouldBeFinal:	ClassWithOnlyPrivateConstructorsShouldBeFinal: This class has only private constructors and may be final
+src/edu/wm/cs/cs301/f2024/wordle/view/StatisticsDialog.java:186:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:25:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:27:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:29:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:31:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:33:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:35:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:35:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'model' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:38:	LawOfDemeter:	LawOfDemeter: Call to `getPanel` on foreign value `keyboardPanel` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:38:	LawOfDemeter:	LawOfDemeter: Call to `getPreferredSize` on foreign value `keyboardPanel.getPanel()` (degree 2)
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:38:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'width' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:44:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'frame' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:63:	SystemPrintln:	SystemPrintln: Usage of System.out/err
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:69:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'menuBar' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:71:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'helpMenu' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:74:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'instructionsItem' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:78:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'aboutItem' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:86:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'panel' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:89:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'inputMap' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:91:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'actionMap' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:94:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'label' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:101:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:102:	LawOfDemeter:	LawOfDemeter: Call to `getStatistics` on foreign value `model` (degree 1)
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:104:	DoNotTerminateVM:	DoNotTerminateVM: System.exit() should not be used in J2EE/JEE apps
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:107:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:111:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:111:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'backgroundColor' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:111:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'foregroundColor' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:111:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'letter' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:115:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:123:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:123:	ClassWithOnlyPrivateConstructorsShouldBeFinal:	ClassWithOnlyPrivateConstructorsShouldBeFinal: This class has only private constructors and may be final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleFrame.java:123:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:19:	CommentRequired:	CommentRequired: Class comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:23:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:23:	OneDeclarationPerLine:	OneDeclarationPerLine: Use one line for each declaration, it enhances code readability.
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:25:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:27:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:29:	CommentRequired:	CommentRequired: Field comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:29:	NonSerializableClass:	NonSerializableClass: The field 'model' of serializable class 'edu.wm.cs.cs301.f2024.wordle.view.WordleGridPanel' is of non-serializable type 'edu.wm.cs.cs301.f2024.wordle.model.WordleModel'.
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:31:	CallSuperInConstructor:	CallSuperInConstructor: It is a good practice to call super() in a constructor
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:31:	CommentRequired:	CommentRequired: Public method and constructor comments are required
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:31:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'model' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:31:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'width' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:31:	UnusedFormalParameter:	UnusedFormalParameter: Avoid unused constructor parameters such as 'view'.
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:37:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'wordWidth' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:39:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'height' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:41:	ConstructorCallsOverridableMethod:	ConstructorCallsOverridableMethod: Overridable method called during object construction: JComponent.setPreferredSize(Dimension) 
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:47:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'grid' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:50:	ShortVariable:	ShortVariable: Avoid variables with short names like x
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:51:	ShortVariable:	ShortVariable: Avoid variables with short names like y
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:67:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'g' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:67:	ShortVariable:	ShortVariable: Avoid variables with short names like g
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:70:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'g2d' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:76:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'titleFont' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:77:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'wordleGrid' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:80:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'r' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:80:	ShortVariable:	ShortVariable: Avoid variables with short names like r
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:81:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'wordleResponse' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:88:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'g2d' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:88:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'r' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:88:	ShortVariable:	ShortVariable: Avoid variables with short names like r
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:89:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'x' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:89:	ShortVariable:	ShortVariable: Avoid variables with short names like x
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:90:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'y' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:90:	ShortVariable:	ShortVariable: Avoid variables with short names like y
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:91:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'width' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:92:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'height' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:101:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'g2d' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:102:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'r' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:102:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'titleFont' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:102:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'wordleResponse' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:102:	ShortVariable:	ShortVariable: Avoid variables with short names like r
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:119:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'g2d' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:119:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'rect' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:119:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'text' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:120:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'font' is not assigned and could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:121:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'metrics' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:122:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'x' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:122:	ShortVariable:	ShortVariable: Avoid variables with short names like x
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:123:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'y' could be declared final
+src/edu/wm/cs/cs301/f2024/wordle/view/WordleGridPanel.java:123:	ShortVariable:	ShortVariable: Avoid variables with short names like y
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:5:	UnnecessaryImport:	UnnecessaryImport: Unused import 'java.util.ArrayList'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:6:	UnnecessaryImport:	UnnecessaryImport: Unused import 'java.util.List'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:10:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:10:	CommentRequired:	CommentRequired: Class comments are required
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:10:	TooManyMethods:	TooManyMethods: This class has too many methods, consider refactoring it.
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:13:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'StatsInstance' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:13:	LocalVariableNamingConventions:	LocalVariableNamingConventions: The local variable name 'StatsInstance' doesn't match '[a-z][a-zA-Z0-9]*'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:13:	UnnecessaryLocalBeforeReturn:	UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'StatsInstance'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:18:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:22:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:23:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'oldLongestStreak' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:26:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:31:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:35:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:37:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'firstInstanceLongestStreak' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:37:	LongVariable:	LongVariable: Avoid excessively long variable names like firstInstanceLongestStreak
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:40:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance2' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:41:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:45:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:49:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:59:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:63:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:68:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:70:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'firstInstanceCurrentStreak' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:70:	LongVariable:	LongVariable: Avoid excessively long variable names like firstInstanceCurrentStreak
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:73:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance2' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:74:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:78:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:82:	JUnitTestContainsTooManyAsserts:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:83:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:93:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:98:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:106:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:107:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'oldGamesPlayed' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:115:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:120:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:125:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:128:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'firstInstanceTotalGamesPlayed' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:128:	LongVariable:	LongVariable: Avoid excessively long variable names like firstInstanceTotalGamesPlayed
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:131:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance2' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:132:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:140:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:141:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'oldwordsGuessed' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:143:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:150:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:151:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'inserted' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:155:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'insertedValue' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:157:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:164:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:165:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'inserted' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:169:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'insertedValue' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:172:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'statsInstance2' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:173:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'lastValue' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestStatistics.java:174:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:5:	UnnecessaryImport:	UnnecessaryImport: Unused import 'java.util.List'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:6:	UnnecessaryImport:	UnnecessaryImport: Unused import 'java.awt.AWTException'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:7:	UnnecessaryImport:	UnnecessaryImport: Unused import 'java.awt.Robot'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:8:	UnnecessaryImport:	UnnecessaryImport: Unused import 'java.awt.event.KeyEvent'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:9:	UnnecessaryImport:	UnnecessaryImport: Unused import 'java.util.ArrayList'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:13:	AtLeastOneConstructor:	AtLeastOneConstructor: Each class should declare at least one constructor
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:13:	CommentRequired:	CommentRequired: Class comments are required
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:13:	TooManyMethods:	TooManyMethods: This class has too many methods, consider refactoring it.
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:14:	CommentDefaultAccessModifier:	CommentDefaultAccessModifier: Missing commented default access modifier on field 'rowSize'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:14:	CommentRequired:	CommentRequired: Field comments are required
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:15:	CommentDefaultAccessModifier:	CommentDefaultAccessModifier: Missing commented default access modifier on field 'rowCount'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:15:	CommentRequired:	CommentRequired: Field comments are required
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:16:	CommentDefaultAccessModifier:	CommentDefaultAccessModifier: Missing commented default access modifier on field 'colCount'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:16:	CommentRequired:	CommentRequired: Field comments are required
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:17:	CommentDefaultAccessModifier:	CommentDefaultAccessModifier: Missing commented default access modifier on field 'depth'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:17:	CommentRequired:	CommentRequired: Field comments are required
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:17:	RedundantFieldInitializer:	RedundantFieldInitializer: Avoid using redundant field initializer for 'depth'
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:19:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'answer' is not assigned and could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:21:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'testModel' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:32:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'model' is not assigned and could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:33:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'wordleRow' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:34:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'answers' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:37:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'response' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:38:	LawOfDemeter:	LawOfDemeter: Call to `getBackgroundColor` on foreign value `response` (degree 1)
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:40:	LawOfDemeter:	LawOfDemeter: Call to `getBackgroundColor` on foreign value `response` (degree 1)
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:52:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'model' is not assigned and could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:52:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'word' is not assigned and could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:53:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'wordArray' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:53:	UseLocaleWithCaseConversions:	UseLocaleWithCaseConversions: When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:54:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'letter' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:60:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'correctAnswer' is not assigned and could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:60:	MethodArgumentCouldBeFinal:	MethodArgumentCouldBeFinal: Parameter 'model' is not assigned and could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:60:	UseVarargs:	UseVarargs: Consider using varargs for methods or constructors which take an array the last parameter.
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:61:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'answer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:63:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:68:	CommentSize:	CommentSize: Comment is too large: Too many lines
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:69:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:71:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:72:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:74:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:75:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:78:	JUnitTestContainsTooManyAsserts:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:79:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'testModel' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:89:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'response' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:91:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'answer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:100:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'testWord' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:101:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'b' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:107:	ConfusingTernary:	ConfusingTernary: Avoid if (x != y) ..; else ..;
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:108:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:108:	SimplifiableTestAssertion:	SimplifiableTestAssertion: Assertion may be simplified using assertFalse
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:111:	AvoidLiteralsInIfCondition:	AvoidLiteralsInIfCondition: Avoid using literals in if statements
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:115:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:120:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:124:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:127:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:131:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:135:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:138:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:138:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'row' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:139:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:142:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:146:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:149:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:156:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:159:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:173:	AvoidDuplicateLiterals:	AvoidDuplicateLiterals: The String literal "punks" appears 10 times in this file; the first occurrence is on line 173
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:173:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:174:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:182:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:183:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:191:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:197:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:205:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:206:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:214:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:217:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:231:	AvoidDuplicateLiterals:	AvoidDuplicateLiterals: The String literal "pawns" appears 7 times in this file; the first occurrence is on line 231
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:231:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:233:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:236:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:240:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:243:	JUnitTestContainsTooManyAsserts:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:247:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:249:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:252:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:256:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer2' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:260:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer3' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:264:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer4' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:268:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer5' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:272:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer6' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:283:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:285:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:288:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:300:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:302:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:305:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:311:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:317:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:319:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:322:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:327:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:333:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:335:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:338:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:342:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:349:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:351:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:354:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:365:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:367:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:370:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:381:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:383:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:386:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:402:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:414:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:418:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:425:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:445:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:450:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:457:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:475:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:482:	JUnitTestContainsTooManyAsserts:	JUnitTestContainsTooManyAsserts: Unit tests should not contain more than 1 assert(s).
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:486:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'model' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:488:	CommentSize:	CommentSize: Comment is too large: Line too long
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:491:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'correctAnswer' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:497:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'row' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:499:	LocalVariableCouldBeFinal:	LocalVariableCouldBeFinal: Local variable 'response' could be declared final
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:500:	LawOfDemeter:	LawOfDemeter: Call to `getBackgroundColor` on foreign value `response` (degree 1)
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:504:	JUnitAssertionsShouldIncludeMessage:	JUnitAssertionsShouldIncludeMessage: JUnit assertions should include a message
+test/edu/wm/cs/cs301/f2024/wordle/model/TestWordleModel.java:504:	SimplifiableTestAssertion:	SimplifiableTestAssertion: Assertion may be simplified using assertFalse
