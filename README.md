@@ -16,11 +16,8 @@ Requirements: JDK 17+ (JavaSE), Swing (bundled).
 Run the main class edu.wm.cs.cs301.f2024.wordle.controller.Wordle.
 
 Modes
-Select with the game mode flag (Ⓠ confirm the exact CLI key and values for these constants).
+Select with the game mode flag 
 
-text
-Copy
-Edit
 --mode wordle    
 --mode absurdle 
 --mode mixed     
